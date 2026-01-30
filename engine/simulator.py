@@ -7,17 +7,24 @@ class FuturesSimulator:
         self.tp_price = 0
         self.sl_price = 0
         self.scenario_history = [] # Stores result of each of the 100 runs
+        self.candles = None
+        self.current_step = 0
 
-    def enter_trade(self, side, price, tp_pct=0.10, sl_pct=0.10):
+    def enter_trade(self, side, price, tp_points=10, sl_points=10):
         self.current_pos = side
         self.entry_price = price
         
+        # Inputs are Price Points (absolute price change)
+        # e.g. price=1000, tp_points=10 -> tp_price=1010 (Long)
+        
         if side == 'LONG':
-            self.tp_price = price * (1 + tp_pct)
-            self.sl_price = price * (1 - sl_pct)
+            self.tp_price = price + tp_points
+            self.sl_price = price - sl_points
         else:
-            self.tp_price = price * (1 - tp_pct)
-            self.sl_price = price * (1 + sl_pct)
+            self.tp_price = price - tp_points
+            self.sl_price = price + sl_points
+            
+        print(f"DEBUG: Trade {side} @ {price}. TP={self.tp_price} (+{tp_points}), SL={self.sl_price} (-{sl_points})")
 
     def check_exit(self, candle):
         """
@@ -80,3 +87,39 @@ class FuturesSimulator:
         if not self.current_pos: return 0
         multiplier = 1 if self.current_pos == 'LONG' else -1
         return ((current_price - self.entry_price) / self.entry_price) * self.balance * self.leverage * multiplier
+
+    def load_data(self, df):
+        """
+        Loads the market data for the current scenario.
+        """
+        self.candles = df
+        self.current_step = 0
+
+    def step(self):
+        """
+        Advances the simulation step.
+        """
+        self.current_step += 1
+
+    def get_visible_slice(self):
+        """
+        Returns the data visible up to the current step (plus minimal history).
+        """
+        if self.candles is None:
+            return None
+        # In app.py logic, state['idx'] tracks the view index.
+        # This method might be helper or unused if app handles slicing.
+        # But app.py calls sim.candles directly.
+        pass
+
+    def reset(self):
+        """
+        Resets the trade state for a new scenario.
+        Does NOT reset balance or history (that's global).
+        """
+        self.current_pos = None
+        self.entry_price = 0
+        self.tp_price = 0
+        self.sl_price = 0
+        self.current_step = 0
+

@@ -1,6 +1,7 @@
 import dash
 from dash import dcc, html, Input, Output, State, callback_context
 from engine.gbm_engine import generate_scenario_data
+from engine.real_data_engine import get_random_scenario as get_real_scenario
 from engine.simulator import FuturesSimulator
 from engine.analytics import calculate_metrics
 from components.viewport import create_viewport
@@ -42,22 +43,24 @@ app.layout = html.Div([
      Output('scenario-store', 'data'),
      Output('reveal-clock', 'disabled'),
      Output('trade-status', 'children')],
-    [Input('btn-long', 'n_clicks'), Input('btn-short', 'n_clicks'), 
+    [Input('btn-long', 'n_clicks'), Input('btn-short', 'n_clicks'), Input('btn-exit', 'n_clicks'),
      Input('btn-skip', 'n_clicks'), Input('reveal-clock', 'n_intervals'),
      Input('indicator-dropdown', 'value'),
-     Input('theme-selector', 'value')],
+     Input('theme-selector', 'value'),
+     Input('data-source-selector', 'value')],
     [State('scenario-store', 'data'),
      State('tp-input', 'value'),
      State('sl-input', 'value')]
 )
-def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_indicators, theme_value, state, tp_input, sl_input):
+def orchestrate(long_clicks, short_clicks, exit_clicks, skip_clicks, n_intervals, selected_indicators, theme_value, source_value, state, tp_input, sl_input):
     ctx = callback_context
     trigger = ctx.triggered[0]['prop_id'].split('.')[0] if ctx.triggered else None
     
-    # Default values validation
-    tp_pct = (tp_input or 1) / 100.0
-    sl_pct = (sl_input or 1) / 100.0
+    # Default values validation (Points)
+    tp_points = tp_input if tp_input is not None else 20
+    sl_points = sl_input if sl_input is not None else 20
     theme = theme_value or 'dark'
+    data_source = source_value or 'synthetic'
     
     # Limit indicators to 5
     if selected_indicators and len(selected_indicators) > 5:
@@ -69,10 +72,24 @@ def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_in
     if state['active']:
         pass
 
-    # 1. Start New Scenario if Skip (or initial load handled by layout)
-    if trigger == 'btn-skip':
-        # Reset scene
-        current_df = generate_scenario_data()
+    # 1. Start New Scenario (Skip OR Source Change)
+    if trigger == 'btn-skip' or trigger == 'data-source-selector':
+        # Generate new scenario based on Source
+        if data_source == 'real':
+            # Use Real Data (CV/Download)
+            possible_df = get_real_scenario(periods=400)
+            if possible_df is not None and len(possible_df) > 100:
+                current_df = possible_df
+            else:
+                 # Fallback
+                 current_df = generate_scenario_data()
+        else:
+            # Synthetic
+            current_df = generate_scenario_data()
+            
+        sim.load_data(current_df)
+        sim.reset() 
+        
         state = {'idx': 50, 'active': False, 'scenario_count': state['scenario_count']}
         
         fig = create_viewport(current_df.iloc[:50], show_indicators=selected_indicators, theme=theme)
@@ -80,29 +97,47 @@ def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_in
         
         right_panel_content = [
             scoreboard_layout(metrics, sim.balance),
-            settings_layout(current_theme=theme, current_indicators=selected_indicators)
+            settings_layout(
+                current_theme=theme, 
+                current_indicators=selected_indicators, 
+                current_source=data_source,
+                current_tp=tp_points,
+                current_sl=sl_points
+            )
         ]
         
-        status_msg = "Scenario skipped. New market loaded."
+        status_msg = f"New {data_source.upper()} Scenario Loaded. TP: {tp_points} pts, SL: {sl_points} pts"
         return fig, right_panel_content, state, True, status_msg
     
     # Handle Indicator or Theme Change (Just Refresh View)
     if trigger in ['indicator-dropdown', 'theme-selector']:
-        start_idx = 0 if state['active'] else 0 # actually we show from start? 
-        # Logic: if active, show up to current idx.
+        start_idx = 0 if state['active'] else 0 
         end_idx = state['idx']
         
         trade_state = {'entry': sim.entry_price, 'tp': sim.tp_price, 'sl': sim.sl_price} if state['active'] else None
         
         fig = create_viewport(current_df.iloc[:end_idx], show_indicators=selected_indicators, trade_state=trade_state, theme=theme)
-        return fig, dash.no_update, dash.no_update, dash.no_update, dash.no_update
+        
+        metrics = calculate_metrics(sim.scenario_history)
+        right_panel_content = [
+            scoreboard_layout(metrics, sim.balance, live_data={'active': state['active'], 'entry': sim.entry_price, 'tp': sim.tp_price, 'sl': sim.sl_price, 'unrealized_pnl': sim.get_unrealized_pnl(current_df.iloc[end_idx-1]['Close']) if state['active'] else 0}),
+            settings_layout(
+                current_theme=theme, 
+                current_indicators=selected_indicators, 
+                current_source=data_source,
+                current_tp=tp_points,
+                current_sl=sl_points
+            )
+        ]
+        
+        return fig, right_panel_content, dash.no_update, dash.no_update, dash.no_update
 
     # 2. Handle Entry
     if trigger in ['btn-long', 'btn-short'] and not state['active']:
         side = 'LONG' if trigger == 'btn-long' else 'SHORT'
         current_price = current_df.iloc[49]['Close']
         
-        sim.enter_trade(side, current_price, tp_pct=tp_pct, sl_pct=sl_pct)
+        sim.enter_trade(side, current_price, tp_points=tp_points, sl_points=sl_points)
         
         state['active'] = True
         
@@ -112,16 +147,45 @@ def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_in
         
         status_msg = f"Entered {side} at {current_price:.2f}. Executing..."
         return fig, dash.no_update, state, False, status_msg
+        
+    # 3. Handle Manual Exit
+    if trigger == 'btn-exit' and state['active']:
+        # Exit at the LAST known candle close (which is at index state['idx']-1)
+        # Note: logic runs at end of step.
+        exit_price = current_df.iloc[state['idx']-1]['Close']
+        pnl = sim.close_trade(exit_price, reason="MANUAL")
+        
+        state['active'] = False
+        state['scenario_count'] += 1
+        
+        metrics = calculate_metrics(sim.scenario_history)
+        
+        # Show chart up to current point, no trade lines (or exit marker?)
+        # Viewport handles "trade_state=None" by removing lines.
+        fig = create_viewport(current_df.iloc[:state['idx']], show_indicators=selected_indicators, trade_state=None, theme=theme)
+        
+        right_panel_content = [
+            scoreboard_layout(metrics, sim.balance),
+            settings_layout(
+                current_theme=theme, 
+                current_indicators=selected_indicators, 
+                current_source=data_source,
+                current_tp=tp_points,
+                current_sl=sl_points
+            )
+        ]
+        
+        status_msg = f"Trade Manually Closed. PnL: ${pnl:.2f}. Click SKIP for next."
+        # IMPORTANT: Disable the clock so it stops running
+        return fig, right_panel_content, state, True, status_msg
 
-    # 3. Handle Reveal (The "Full Show")
+    # 3. Handle Reveal
     if trigger == 'reveal-clock':
         state['idx'] += 1
         candle_to_check = current_df.iloc[state['idx']-1]
         
-        # Check Exit Trigger
         triggered, reason, exit_price = sim.check_exit(candle_to_check)
         
-        # End of scenario check or Triggered
         if triggered or state['idx'] >= len(current_df):
             
             if triggered:
@@ -141,17 +205,21 @@ def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_in
             
             right_panel_content = [
                 scoreboard_layout(metrics, sim.balance),
-                settings_layout(current_theme=theme, current_indicators=selected_indicators)
+                settings_layout(
+                    current_theme=theme, 
+                    current_indicators=selected_indicators, 
+                    current_source=data_source,
+                    current_tp=tp_points,
+                    current_sl=sl_points
+                )
             ]
             
             status_msg = f"Trade Closed ({msg_reason}). PnL: ${pnl:.2f}. Click SKIP for next."
             return fig, right_panel_content, state, True, status_msg
         
-        # Incremental update
         trade_state = {'entry': sim.entry_price, 'tp': sim.tp_price, 'sl': sim.sl_price}
         fig = create_viewport(current_df.iloc[:state['idx']], show_indicators=selected_indicators, trade_state=trade_state, theme=theme)
         
-        # Live Stats
         unrealized_pnl = sim.get_unrealized_pnl(candle_to_check['Close'])
         live_data = {
             'active': True,
@@ -165,7 +233,13 @@ def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_in
         
         right_panel_content = [
             scoreboard_layout(metrics, sim.balance, live_data),
-            settings_layout(current_theme=theme, current_indicators=selected_indicators)
+            settings_layout(
+                current_theme=theme, 
+                current_indicators=selected_indicators, 
+                current_source=data_source,
+                current_tp=tp_points,
+                current_sl=sl_points
+            )
         ]
         
         return fig, right_panel_content, state, False, dash.no_update

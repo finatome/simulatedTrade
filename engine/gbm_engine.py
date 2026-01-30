@@ -48,37 +48,9 @@ def generate_scenario_data(periods=400, start_price=1000):
 
     # Technical Indicators for the trader
     # Suppress pandas_ta warnings if any, or just ensure it works
-    # Technical Indicators (Top 20)
-    # Trend
-    df.ta.sma(length=20, append=True)
-    df.ta.sma(length=50, append=True)
-    df.ta.sma(length=200, append=True)
-    df.ta.ema(length=9, append=True)
-    df.ta.ema(length=21, append=True)
-    df.ta.ema(length=50, append=True)
-    df.ta.wma(length=21, append=True)
-    df.ta.hma(length=21, append=True)
-    df.ta.vwap(append=True)
-    df.ta.supertrend(append=True) # Generates SUPERT_7_3.0 etc
-    
-    # Volatility / Channels
-    df.ta.bbands(length=20, std=2, append=True) # BBL, BBM, BBU
-    df.ta.kc(append=True) # Keltner Channels
-    df.ta.donchian(append=True) # DCL, DCM, DCU
-    
-    # Momentum / Oscillators
-    df.ta.rsi(length=14, append=True)
-    df.ta.macd(append=True) # MACD, MACDh, MACDs
-    df.ta.stoch(append=True) # STOCHk, STOCHd
-    df.ta.adx(append=True) # ADX, DMP, DMN
-    df.ta.cci(length=14, append=True)
-    df.ta.roc(length=10, append=True)
-    
-    # Volume
-    df.ta.obv(append=True)
-    
-    # Parabolic SAR
-    df.ta.psar(append=True) # PSARl, PSARs
+    # Technical Indicators for the trader
+    from engine.indicators import add_technical_indicators
+    add_technical_indicators(df)
     
     # Drop NaNs created by indicators (e.g. SMA200 removes first 200 rows)
     # Instead of strict dropna() which might kll everything if one indicator is bad,

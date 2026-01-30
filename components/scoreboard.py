@@ -61,6 +61,35 @@ def scoreboard_layout(metrics, balance, live_data=None):
                 html.H4(f"{metrics['trade_count']}/100", className="stat-value")
             ], className="stat-mini"),
         ], className="stat-grid"),
+
+        # Win/Loss Visualization
+        html.Div([
+            html.P("Win / Loss Ratio", className="stat-label", style={'marginBottom': '5px'}),
+            
+            # Bar Container
+            html.Div([
+                # Win Bar
+                html.Div(style={
+                    'width': f"{metrics['win_rate']}%", 
+                    'height': '10px', 
+                    'backgroundColor': '#00E676', 
+                    'display': 'inline-block'
+                }),
+                # Loss Bar
+                html.Div(style={
+                    'width': f"{100 - float(metrics['win_rate'])}%", 
+                    'height': '10px', 
+                    'backgroundColor': '#FF1744', 
+                    'display': 'inline-block'
+                }),
+            ], style={'width': '100%', 'height': '10px', 'backgroundColor': '#333', 'borderRadius': '5px', 'overflow': 'hidden', 'marginBottom': '5px'}),
+            
+            # Text Labels
+            html.Div([
+                html.Span(f"{int(metrics['trade_count'] * float(metrics['win_rate']) / 100)} Wins", style={'color': '#00E676', 'fontSize': '12px'}),
+                html.Span(f"{int(metrics['trade_count'] * (100 - float(metrics['win_rate'])) / 100)} Losses", style={'color': '#FF1744', 'fontSize': '12px', 'float': 'right'})
+            ])
+        ], style={'marginTop': '15px', 'padding': '10px', 'backgroundColor': 'rgba(255,255,255,0.05)', 'borderRadius': '5px'}),
         
         active_trade_div,
         

@@ -1,16 +1,41 @@
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-def create_viewport(df, show_indicators=True, trade_state=None):
+def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
     # trade_state: dict with keys 'entry', 'tp', 'sl'
     
+    # Theme Configuration
+    if theme == 'light':
+        palette = {
+            'bg': '#F0F4F8',       # Bluish White
+            'paper': '#F0F4F8',
+            'grid': '#E4E7EB',     # Light Grey
+            'text': '#0b0e11',     # Dark Text
+            'st_base': 'black',    # Supertrend Base
+            'template': 'plotly_white',
+            'up_candle': '#00C853',
+            'down_candle': '#D50000'
+        }
+    else: # Default to Dark
+        palette = {
+            'bg': '#0b0e11',       # Bloomberg Black
+            'paper': '#0b0e11',
+            'grid': '#333333',     # Dark Grey
+            'text': '#e0e0e0',     # Light Text
+            'st_base': 'white',    # Supertrend Base
+            'template': 'plotly_dark',
+            'up_candle': '#00E676',
+            'down_candle': '#FF1744'
+        }
+
     fig = make_subplots(rows=2, cols=1, shared_xaxes=True, 
                         vertical_spacing=0.03, row_heights=[0.7, 0.3])
 
     # Candlestick
     fig.add_trace(go.Candlestick(
         x=df.index, open=df['Open'], high=df['High'],
-        low=df['Low'], close=df['Close'], name="Market"
+        low=df['Low'], close=df['Close'], name="Market",
+        increasing_line_color=palette['up_candle'], decreasing_line_color=palette['down_candle']
     ), row=1, col=1)
 
     # Selected Indicators Plotting
@@ -136,13 +161,13 @@ def create_viewport(df, show_indicators=True, trade_state=None):
                 up_mask = df[dir_col] > 0
                 down_mask = df[dir_col] < 0
                 
-                # 1. Plot the connectors (Thin White Line)
+                # 1. Plot the connectors (Thin White Line or Black for Light Mode)
                 # We plot the entire line first. The colored segments will cover it, 
-                # but the gaps (jumps) will remain white.
+                # but the gaps (jumps) will remain visible as the base color.
                 fig.add_trace(go.Scatter(
                     x=df.index, y=df[ind],
                     mode='lines',
-                    line=dict(color='white', width=1),
+                    line=dict(color=palette['st_base'], width=1),
                     showlegend=False,
                     hoverinfo='skip',
                     name="Supertrend Base"
@@ -227,17 +252,17 @@ def create_viewport(df, show_indicators=True, trade_state=None):
             fig.add_trace(go.Scatter(x=df.index, y=df[ind], line=dict(color=c, width=1.5), name=ind), row=1, col=1)
 
     fig.update_layout(
-        template='plotly_dark',
+        template=palette['template'],
         xaxis_rangeslider_visible=False,
         margin=dict(l=10, r=10, t=10, b=10),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
-        plot_bgcolor='#0b0e11',
-        paper_bgcolor='#0b0e11',
-        font=dict(color='#e0e0e0')
+        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1, font=dict(color=palette['text'])),
+        plot_bgcolor=palette['bg'],
+        paper_bgcolor=palette['paper'],
+        font=dict(color=palette['text'])
     )
     
-    # Update axes to match terminal feel
-    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='#333333')
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='#333333')
+    # Update axes to match terminal feel (or light theme feel)
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor=palette['grid'])
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor=palette['grid'])
     
     return fig

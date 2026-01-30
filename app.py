@@ -6,23 +6,14 @@ from engine.analytics import calculate_metrics
 from components.viewport import create_viewport
 from components.scoreboard import scoreboard_layout
 from components.settings import settings_layout
-
 from components.controls import controls_layout
 
 # Initialize Simulator global instance
-# In a multi-user web app, this would be per-session (dcc.Store), 
-# but for a local single-user tool, a global instance is "okay" though dcc.Store is better for state.
-# However, the Simulator class has state (balance, history).
-# We will try to keep state in dcc.Store as much as possible or use a global if we assume single user.
-# The notebook implementation used a global 'sim'. We will do the same for simplicity but be aware of limitations.
 sim = FuturesSimulator()
-current_df = None # Global dataframe holder
-
-# Initialize first scenario
 current_df = generate_scenario_data()
 
 app = dash.Dash(__name__, title="TradeSim Pro")
-app._favicon = None # Prevent favicon 404 annoying logs
+app._favicon = None
 
 app.layout = html.Div([
     html.Div([
@@ -53,20 +44,22 @@ app.layout = html.Div([
      Output('trade-status', 'children')],
     [Input('btn-long', 'n_clicks'), Input('btn-short', 'n_clicks'), 
      Input('btn-skip', 'n_clicks'), Input('reveal-clock', 'n_intervals'),
-     Input('indicator-dropdown', 'value')],
+     Input('indicator-dropdown', 'value'),
+     Input('theme-selector', 'value')],
     [State('scenario-store', 'data'),
      State('tp-input', 'value'),
      State('sl-input', 'value')]
 )
-def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_indicators, state, tp_input, sl_input):
+def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_indicators, theme_value, state, tp_input, sl_input):
     ctx = callback_context
     trigger = ctx.triggered[0]['prop_id'].split('.')[0] if ctx.triggered else None
     
     # Default values validation
-    tp_pct = (tp_input or 10) / 100.0
-    sl_pct = (sl_input or 10) / 100.0
+    tp_pct = (tp_input or 1) / 100.0
+    sl_pct = (sl_input or 1) / 100.0
+    theme = theme_value or 'dark'
     
-    # Limit indicators to 5 (UI doesn't enforce, logic does)
+    # Limit indicators to 5
     if selected_indicators and len(selected_indicators) > 5:
         selected_indicators = selected_indicators[:5]
 
@@ -77,33 +70,32 @@ def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_in
         pass
 
     # 1. Start New Scenario if Skip (or initial load handled by layout)
-    # Also handle if indicators change but no button pressed (trigger == indicator-dropdown)
-    # If just changing indicators, we want to update the chart but keep state SAME?
-    # Or just redraw?
-    if trigger == 'indicator-dropdown':
-        # Just redraw the chart with current state
-        idx = state['idx']
-        trade_state = {'entry': sim.entry_price, 'tp': sim.tp_price, 'sl': sim.sl_price} if state['active'] else None
-        
-        fig = create_viewport(current_df.iloc[:idx], show_indicators=selected_indicators, trade_state=trade_state)
-        return fig, dash.no_update, dash.no_update, dash.no_update, dash.no_update
-
     if trigger == 'btn-skip':
         # Reset scene
         current_df = generate_scenario_data()
         state = {'idx': 50, 'active': False, 'scenario_count': state['scenario_count']}
         
-        fig = create_viewport(current_df.iloc[:50], show_indicators=selected_indicators)
+        fig = create_viewport(current_df.iloc[:50], show_indicators=selected_indicators, theme=theme)
         metrics = calculate_metrics(sim.scenario_history)
         
-        # Re-render scoreboard AND settings
         right_panel_content = [
             scoreboard_layout(metrics, sim.balance),
-            settings_layout()
+            settings_layout(current_theme=theme, current_indicators=selected_indicators)
         ]
         
         status_msg = "Scenario skipped. New market loaded."
         return fig, right_panel_content, state, True, status_msg
+    
+    # Handle Indicator or Theme Change (Just Refresh View)
+    if trigger in ['indicator-dropdown', 'theme-selector']:
+        start_idx = 0 if state['active'] else 0 # actually we show from start? 
+        # Logic: if active, show up to current idx.
+        end_idx = state['idx']
+        
+        trade_state = {'entry': sim.entry_price, 'tp': sim.tp_price, 'sl': sim.sl_price} if state['active'] else None
+        
+        fig = create_viewport(current_df.iloc[:end_idx], show_indicators=selected_indicators, trade_state=trade_state, theme=theme)
+        return fig, dash.no_update, dash.no_update, dash.no_update, dash.no_update
 
     # 2. Handle Entry
     if trigger in ['btn-long', 'btn-short'] and not state['active']:
@@ -116,7 +108,7 @@ def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_in
         
         # Initial chart with lines
         trade_state = {'entry': sim.entry_price, 'tp': sim.tp_price, 'sl': sim.sl_price}
-        fig = create_viewport(current_df.iloc[:50], show_indicators=selected_indicators, trade_state=trade_state)
+        fig = create_viewport(current_df.iloc[:50], show_indicators=selected_indicators, trade_state=trade_state, theme=theme)
         
         status_msg = f"Entered {side} at {current_price:.2f}. Executing..."
         return fig, dash.no_update, state, False, status_msg
@@ -124,7 +116,6 @@ def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_in
     # 3. Handle Reveal (The "Full Show")
     if trigger == 'reveal-clock':
         state['idx'] += 1
-        current_candle = current_df.iloc[state['idx']-1] 
         candle_to_check = current_df.iloc[state['idx']-1]
         
         # Check Exit Trigger
@@ -146,11 +137,11 @@ def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_in
             
             metrics = calculate_metrics(sim.scenario_history)
             
-            fig = create_viewport(current_df.iloc[:state['idx']], show_indicators=selected_indicators, trade_state=None) 
+            fig = create_viewport(current_df.iloc[:state['idx']], show_indicators=selected_indicators, trade_state=None, theme=theme) 
             
             right_panel_content = [
                 scoreboard_layout(metrics, sim.balance),
-                settings_layout()
+                settings_layout(current_theme=theme, current_indicators=selected_indicators)
             ]
             
             status_msg = f"Trade Closed ({msg_reason}). PnL: ${pnl:.2f}. Click SKIP for next."
@@ -158,7 +149,7 @@ def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_in
         
         # Incremental update
         trade_state = {'entry': sim.entry_price, 'tp': sim.tp_price, 'sl': sim.sl_price}
-        fig = create_viewport(current_df.iloc[:state['idx']], show_indicators=selected_indicators, trade_state=trade_state)
+        fig = create_viewport(current_df.iloc[:state['idx']], show_indicators=selected_indicators, trade_state=trade_state, theme=theme)
         
         # Live Stats
         unrealized_pnl = sim.get_unrealized_pnl(candle_to_check['Close'])
@@ -174,7 +165,7 @@ def orchestrate(long_clicks, short_clicks, skip_clicks, n_intervals, selected_in
         
         right_panel_content = [
             scoreboard_layout(metrics, sim.balance, live_data),
-            settings_layout()
+            settings_layout(current_theme=theme, current_indicators=selected_indicators)
         ]
         
         return fig, right_panel_content, state, False, dash.no_update

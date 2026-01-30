@@ -1,8 +1,26 @@
 from dash import html, dcc
 
-def settings_layout():
+def settings_layout(current_theme='dark', current_indicators=None):
+    if current_indicators is None:
+        current_indicators = ['SMA_20', 'SMA_50', 'BBM_20_2.0_2.0', 'SUPERT_7_3.0', 'MACD_12_26_9']
+
     return html.Div([
-        html.H3("TRADE SETTINGS", className="panel-title", style={'marginTop': '20px'}),
+        html.Div([
+            html.Label("THEME", className="stat-label"),
+            dcc.RadioItems(
+                id='theme-selector',
+                options=[
+                    {'label': ' Dark', 'value': 'dark'},
+                    {'label': ' Light', 'value': 'light'}
+                ],
+                value=current_theme,
+                inline=True,
+                labelStyle={'marginRight': '20px', 'color': '#888'},
+                inputStyle={'marginRight': '5px'}
+            )
+        ], style={'marginBottom': '20px', 'textAlign': 'center'}),
+
+        html.H3("TRADE SETTINGS", className="panel-title", style={'marginTop': '0px'}),
         
         html.Div([
             html.Div([
@@ -59,7 +77,7 @@ def settings_layout():
                     {'label': 'On-Balance Volume (OBV)', 'value': 'OBV'},
                     {'label': 'Parabolic SAR', 'value': 'PSARl_0.02_0.2'}
                 ],
-                value=['SMA_20', 'SMA_50', 'BBM_20_2.0_2.0', 'SUPERT_7_3.0', 'MACD_12_26_9'],
+                value=current_indicators,
                 multi=True,
                 placeholder="Select indicators...",
                 style={'color': '#000'}

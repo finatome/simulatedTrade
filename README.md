@@ -2,6 +2,8 @@
 
 A high-frequency trading simulator designed for practicing 5-minute chart scaling and decision making on synthetic Futures data.
 
+![img]assets/sample.png)
+
 ## Features
 
 - **Synthetic Market Data**: Generates realistic 5-minute OHLCV data using Geometric Brownian Motion (GBM) with volatility clustering.

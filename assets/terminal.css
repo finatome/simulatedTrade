@@ -1,0 +1,159 @@
+body {
+   background-color: #0b0e11;
+   color: #e0e0e0;
+   font-family: 'Inter', sans-serif;
+   margin: 0;
+}
+
+.container {
+   display: flex;
+   padding: 20px;
+   gap: 20px;
+   height: 95vh;
+   box-sizing: border-box;
+}
+
+.main-chart-area {
+   flex: 3;
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.right-panel {
+   flex: 1;
+   background: #161a1e;
+   padding: 20px;
+   border-radius: 4px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Visualization adjustments */
+#main-viewport {
+   flex-grow: 1;
+   min-height: 50vh;
+}
+
+.panel-title {
+   margin-top: 0;
+   color: #8b929a;
+   border-bottom: 1px solid #333;
+   padding-bottom: 10px;
+   font-size: 1.2rem;
+}
+
+.stat-card {
+   background: #1c2127;
+   padding: 15px;
+   border-left: 4px solid #00ffcc;
+   margin-bottom: 15px;
+   border-radius: 2px;
+}
+
+.primary {
+   border-left-color: #00E676;
+}
+
+.stat-grid {
+   display: flex;
+   gap: 10px;
+   margin-bottom: 10px;
+}
+
+.stat-mini {
+   flex: 1;
+   background: #1c2127;
+   padding: 10px;
+   border-radius: 2px;
+}
+
+.stat-label {
+   margin: 0;
+   font-size: 0.85rem;
+   color: #8b929a;
+}
+
+.stat-value {
+   margin: 5px 0 0 0;
+   font-size: 1.1rem;
+   color: #fff;
+}
+
+.stat-value-large {
+   margin: 5px 0 0 0;
+   font-size: 1.8rem;
+   color: #fff;
+}
+
+.control-btn {
+   width: 100%;
+   padding: 15px;
+   font-weight: bold;
+   border: none;
+   cursor: pointer;
+   margin-bottom: 10px;
+   border-radius: 4px;
+   transition: opacity 0.2s;
+   font-size: 1rem;
+}
+
+.control-btn:hover {
+   opacity: 0.9;
+}
+
+.long {
+   background: #2ebd85;
+   color: white;
+}
+
+.short {
+   background: #f6465d;
+   color: white;
+}
+
+.skip {
+   background: #333;
+   color: #ccc;
+}
+
+.controls-panel {
+   background: #161a1e;
+   padding: 20px;
+   border-radius: 4px;
+   display: flex;
+   gap: 10px;
+   align-items: center;
+}
+
+.controls-panel .control-btn {
+   margin-bottom: 0;
+   flex: 1;
+}
+
+/* Override Controls to be at the bottom or separate? 
+   The notebook layout puts controls IN .main-chart-area.
+   Ideally chart is top, controls below it.
+*/
+
+.status-text {
+   color: #aaa;
+   margin-left: auto;
+   font-size: 0.9rem;
+}
+
+/* Input Fields */
+.input-field {
+   width: 100%;
+   padding: 8px;
+   background: #0b0e11;
+   border: 1px solid #333;
+   color: #fff;
+   border-radius: 2px;
+   font-family: inherit;
+   box-sizing: border-box;
+}
+
+.input-field:focus {
+   border-color: #00B8D9;
+   outline: none;
+}

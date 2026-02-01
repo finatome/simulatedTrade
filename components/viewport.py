@@ -28,8 +28,8 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
             'down_candle': '#FF1744'
         }
 
-    fig = make_subplots(rows=2, cols=1, shared_xaxes=True, 
-                        vertical_spacing=0.03, row_heights=[0.7, 0.3])
+    fig = make_subplots(rows=3, cols=1, shared_xaxes=True, 
+                        vertical_spacing=0.03, row_heights=[0.6, 0.15, 0.25])
 
     # Candlestick
     fig.add_trace(go.Candlestick(
@@ -37,6 +37,16 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
         low=df['Low'], close=df['Close'], name="Market",
         increasing_line_color=palette['up_candle'], decreasing_line_color=palette['down_candle']
     ), row=1, col=1)
+
+    # Volume Chart (Row 2)
+    # Determine colors based on Close >= Open
+    vol_colors = [palette['up_candle'] if c >= o else palette['down_candle'] for c, o in zip(df['Close'], df['Open'])]
+    fig.add_trace(go.Bar(
+        x=df.index, y=df['Volume'],
+        marker_color=vol_colors,
+        name="Volume",
+        marker_line_width=0
+    ), row=2, col=1)
 
     # Selected Indicators Plotting
     # Lists of indicators that go on the main chart (Overlays)
@@ -61,6 +71,9 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
     
     # Hardcoded color cycle for variety
     colors = ['#00E676', '#FF1744', '#2979FF', '#FFea00', '#AA00FF', '#00B8D9']
+    
+    # NOTE: Oscillators are now in Row 3 (was Row 2)
+    # Overlays remain in Row 1
     
     color_idx = 0
     
@@ -97,22 +110,22 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
                     marker_color=hist_colors,
                     opacity=0.4,
                     name="MACD Hist"
-                ), row=2, col=1)
+                ), row=3, col=1)
                 
                 fig.add_trace(go.Scatter(
                     x=df.index, y=macd, 
                     line=dict(color='#2979FF', width=2), 
                     name="MACD Line"
-                ), row=2, col=1)
+                ), row=3, col=1)
                 
                 fig.add_trace(go.Scatter(
                     x=df.index, y=signal, 
                     line=dict(color='#FF9100', width=2), 
                     name="Signal Line"
-                ), row=2, col=1)
+                ), row=3, col=1)
                 
                 # Add Zero Line
-                fig.add_hline(y=0, line_color="gray", line_width=1, line_dash="solid", row=2, col=1)
+                fig.add_hline(y=0, line_color="gray", line_width=1, line_dash="solid", row=3, col=1)
             continue
 
         # Stochastic (K, D)
@@ -129,10 +142,10 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
             if k_col in df.columns and d_col in df.columns:
                 k = df[k_col]
                 d = df[d_col]
-                fig.add_trace(go.Scatter(x=df.index, y=k, line=dict(color='#2979FF', width=1.5), name="Stoch %K"), row=2, col=1)
-                fig.add_trace(go.Scatter(x=df.index, y=d, line=dict(color='#FF1744', width=1.5), name="Stoch %D"), row=2, col=1)
-                fig.add_hline(y=80, line_dash="dot", line_color="gray", row=2, col=1)
-                fig.add_hline(y=20, line_dash="dot", line_color="gray", row=2, col=1)
+                fig.add_trace(go.Scatter(x=df.index, y=k, line=dict(color='#2979FF', width=1.5), name="Stoch %K"), row=3, col=1)
+                fig.add_trace(go.Scatter(x=df.index, y=d, line=dict(color='#FF1744', width=1.5), name="Stoch %D"), row=3, col=1)
+                fig.add_hline(y=80, line_dash="dot", line_color="gray", row=3, col=1)
+                fig.add_hline(y=20, line_dash="dot", line_color="gray", row=3, col=1)
             continue
 
         if ind not in df.columns:
@@ -241,12 +254,12 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
         color_idx += 1
         
         if ind in subplots_list or (ind == 'OBV'):
-            # Plot on Row 2
-            fig.add_trace(go.Scatter(x=df.index, y=df[ind], line=dict(color=c, width=1.5), name=ind), row=2, col=1)
+            # Plot on Row 3 (Oscillators)
+            fig.add_trace(go.Scatter(x=df.index, y=df[ind], line=dict(color=c, width=1.5), name=ind), row=3, col=1)
             # Add reference lines for Oscillators
             if 'RSI' in ind:
-                fig.add_hline(y=70, line_dash="dot", line_color="gray", row=2, col=1)
-                fig.add_hline(y=30, line_dash="dot", line_color="gray", row=2, col=1)
+                fig.add_hline(y=70, line_dash="dot", line_color="gray", row=3, col=1)
+                fig.add_hline(y=30, line_dash="dot", line_color="gray", row=3, col=1)
         else:
             # Overlays on Row 1
             fig.add_trace(go.Scatter(x=df.index, y=df[ind], line=dict(color=c, width=1.5), name=ind), row=1, col=1)

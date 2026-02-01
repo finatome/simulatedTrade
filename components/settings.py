@@ -74,34 +74,36 @@ def settings_layout(current_theme='dark', current_indicators=None, current_sourc
             ], style={'display': 'inline-block', 'marginRight': '20px'}),
             
             html.Div([
-                html.Label("INDICATORS", className="stat-label"),
-                dcc.Dropdown(
-                    id='indicator-dropdown',
-                    options=[
-                        {'label': 'SMA 20', 'value': 'SMA_20'},
-                        {'label': 'SMA 50', 'value': 'SMA_50'},
-                        {'label': 'SMA 200', 'value': 'SMA_200'},
-                        {'label': 'EMA 9', 'value': 'EMA_9'},
-                        {'label': 'EMA 21', 'value': 'EMA_21'},
-                        {'label': 'Bollinger Bands', 'value': 'BBM_20_2.0_2.0'},
-                        {'label': 'Keltner Channels', 'value': 'KC_20_2'},
-                        {'label': 'Donchian Channels', 'value': 'DCL_20_20'},
-                        {'label': 'VWAP', 'value': 'VWAP_D'},
-                        {'label': 'Supertrend', 'value': 'SUPERT_7_3.0'},
-                        {'label': 'RSI', 'value': 'RSI_14'},
-                        {'label': 'MACD', 'value': 'MACD_12_26_9'},
-                        {'label': 'Stochastic', 'value': 'STOCHk_14_3_3'},
-                        {'label': 'ADX', 'value': 'ADX_14'},
-                        {'label': 'CCI', 'value': 'CCI_14_0.015'},
-                        {'label': 'ROC', 'value': 'ROC_10'},
-                        {'label': 'OBV', 'value': 'OBV'},
-                        {'label': 'Parabolic SAR', 'value': 'PSARl_0.02_0.2'}
-                    ],
-                    value=current_indicators,
-                    multi=True,
-                    style={'width': '300px', 'color': '#333'}
-                )
-            ], style={'display': 'inline-block', 'verticalAlign': 'top'}),
+                html.Label("INDICATORS (Max 5)", className="stat-label", style={'marginBottom': '10px', 'display': 'block'}),
+                html.Div([
+                    dcc.Checklist(
+                        id='indicator-selector',
+                        options=[
+                            {'label': ' SMA 20', 'value': 'SMA_20'},
+                            {'label': ' SMA 50', 'value': 'SMA_50'},
+                            {'label': ' SMA 200', 'value': 'SMA_200'},
+                            {'label': ' EMA 9', 'value': 'EMA_9'},
+                            {'label': ' EMA 21', 'value': 'EMA_21'},
+                            {'label': ' Bollinger Bands', 'value': 'BBM_20_2.0_2.0'},
+                            {'label': ' Keltner Channels', 'value': 'KC_20_2'},
+                            {'label': ' Donchian Channels', 'value': 'DCL_20_20'},
+                            {'label': ' VWAP', 'value': 'VWAP_D'},
+                            {'label': ' Supertrend', 'value': 'SUPERT_7_3.0'},
+                            {'label': ' RSI', 'value': 'RSI_14'},
+                            {'label': ' MACD', 'value': 'MACD_12_26_9'},
+                            {'label': ' Stochastic', 'value': 'STOCHk_14_3_3'},
+                            {'label': ' ADX', 'value': 'ADX_14'},
+                            {'label': ' CCI', 'value': 'CCI_14_0.015'},
+                            {'label': ' ROC', 'value': 'ROC_10'},
+                            {'label': ' OBV', 'value': 'OBV'},
+                            {'label': ' Parabolic SAR', 'value': 'PSARl_0.02_0.2'}
+                        ],
+                        value=current_indicators,
+                        labelStyle={'display': 'block', 'padding': '8px', 'borderBottom': '1px solid #333', 'cursor': 'pointer'},
+                        inputStyle={'marginRight': '10px', 'cursor': 'pointer'}
+                    )
+                ], style={'textAlign': 'left', 'height': '400px', 'overflowY': 'auto', 'border': '1px solid #333', 'borderRadius': '5px', 'padding': '5px'})
+            ], style={'display': 'block', 'marginTop': '20px'}),
             
         ], style={'textAlign': 'center', 'marginBottom': '20px'}),
-    ], className="settings-panel")
+    ], className="settings-panel", style={'flex': '1', 'overflowY': 'auto', 'display': 'flex', 'flexDirection': 'column'})

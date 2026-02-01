@@ -24,6 +24,7 @@ app.layout = html.Div([
         ], className='main-chart-area'),
         
         html.Div(id='scoreboard-container', className='right-panel', 
+                 style={'display': 'flex', 'flexDirection': 'column', 'height': '92vh', 'overflow': 'hidden'},
                  children=[
                      scoreboard_layout(calculate_metrics(sim.scenario_history), sim.balance),
                      settings_layout()
@@ -45,7 +46,7 @@ app.layout = html.Div([
      Output('trade-status', 'children')],
     [Input('btn-long', 'n_clicks'), Input('btn-short', 'n_clicks'), Input('btn-exit', 'n_clicks'),
      Input('btn-skip', 'n_clicks'), Input('reveal-clock', 'n_intervals'),
-     Input('indicator-dropdown', 'value'),
+     Input('indicator-selector', 'value'),
      Input('theme-selector', 'value'),
      Input('data-source-selector', 'value')],
     [State('scenario-store', 'data'),
@@ -110,7 +111,7 @@ def orchestrate(long_clicks, short_clicks, exit_clicks, skip_clicks, n_intervals
         return fig, right_panel_content, state, True, status_msg
     
     # Handle Indicator or Theme Change (Just Refresh View)
-    if trigger in ['indicator-dropdown', 'theme-selector']:
+    if trigger in ['indicator-selector', 'theme-selector']:
         start_idx = 0 if state['active'] else 0 
         end_idx = state['idx']
         

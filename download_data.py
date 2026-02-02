@@ -10,29 +10,64 @@ try:
     from trading_sim.engine.indicators import add_technical_indicators
 except ImportError:
     # If running from root, maybe trading_sim is a package
-    from trading_sim.engine.indicators import add_technical_indicators
+    from engine.indicators import add_technical_indicators
 
-ASSETS_DIR = os.path.join('trading_sim', 'assets')
-DATA_FILE = os.path.join(ASSETS_DIR, 'futures_data.csv')
+ASSETS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'assets')
 
-def download_and_process(ticker='MES=F', period='59d', interval='5m'):
-    print(f"Downloading {ticker} data ({period}, {interval})...")
+# Ticker Mapping
+# MES=F: Micro E-mini S&P 500
+# MGC=F: Micro Gold
+# SIL=F: Micro Silver
+# MNQ=F: Micro E-mini Nasdaq 100
+# MBT=F: Micro Bitcoin
+TICKERS = ['MES=F', 'MGC=F', 'SIL=F', 'MNQ=F', 'MBT=F']
+
+def download_and_process_all(period='59d', interval='5m'):
+    if not os.path.exists(ASSETS_DIR):
+        os.makedirs(ASSETS_DIR)
+        
+    for ticker in TICKERS:
+        print(f"--- Processing {ticker} ---")
+        try:
+            download_one(ticker, period, interval)
+        except Exception as e:
+            print(f"Failed to process {ticker}: {e}")
+
+def download_one(ticker, period, interval):
+    print(f"Downloading {ticker}...")
     
     # Download data
     df = yf.download(ticker, period=period, interval=interval, progress=True)
     
     if df.empty:
-        print("Error: Downloaded data is empty.")
+        print(f"Error: Downloaded data for {ticker} is empty.")
         return
 
     # Flatten MultiIndex columns if present (yfinance update)
     if isinstance(df.columns, pd.MultiIndex):
-        df.columns = df.columns.get_level_values(0)
+        try:
+             # If just Ticker level exists, drop it
+            df.columns = df.columns.get_level_values(0)
+        except:
+             pass
     
-    # Ensure standard columns
+    # Ensure standard columns & Fix naming if needed (sometimes yfinance weirdness)
+    # yfinance often returns: Open, High, Low, Close, Adj Close, Volume
+    # We need strictly Open, High, Low, Close, Volume
+    
+    # Check if we have Ticker as column level (happens if we download multiple, 
+    # but here we download one by one, should be fine).
+    
     required_cols = ['Open', 'High', 'Low', 'Close', 'Volume']
+    current_cols = df.columns.tolist()
+    
+    # Normalize MultiIndex columns usually result in 'Price', 'Ticker'
+    # Actually, yf.download(..., multi_level_index=False) helps in newer versions
+    # But let's stick to cleaning manually just in case.
+    
     if not all(col in df.columns for col in required_cols):
         print(f"Error: Missing columns. Got {df.columns}")
+        # Try to be smarter? No, fail safe.
         return
 
     # Normalize Index
@@ -45,21 +80,20 @@ def download_and_process(ticker='MES=F', period='59d', interval='5m'):
     # Add indicators
     df = add_technical_indicators(df)
     
-    # Clean up NaN (warmup period)
-    # We keep NaNs in the CSV? Or drop them? 
-    # Better to keep them or drop the initial warmup. 
-    # Let's drop the first 200 rows to save space and avoid NaN handling in app.
+    # Drop warmup
     if len(df) > 200:
         df = df.iloc[200:]
     
     print(f"Indicators added. Final Shape: {df.shape}")
     
     # Save to CSV
-    if not os.path.exists(ASSETS_DIR):
-        os.makedirs(ASSETS_DIR)
+    # Clean ticker for filename (e.g. MES=F -> MES)
+    safe_name = ticker.split('=')[0]
+    filename = f"{safe_name}_data.csv"
+    filepath = os.path.join(ASSETS_DIR, filename)
         
-    df.to_csv(DATA_FILE)
-    print(f"Data saved to {DATA_FILE}")
+    df.to_csv(filepath)
+    print(f"Data saved to {filepath}\n")
 
 if __name__ == "__main__":
-    download_and_process()
+    download_and_process_all()

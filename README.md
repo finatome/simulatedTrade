@@ -42,18 +42,49 @@ trading_sim/
    ```
    *(Note: Requires Python 3.8+)*
 
+3. Build the documentation (Optional, happens automatically in Docker):
+   ```bash
+   mkdocs build
+   ```
+
+## Documentation
+
+The project includes integrated documentation served directly by the application.
+
+- **Access**: Click the **"Documentation"** button in the top-right corner of the dashboard.
+- **URL**: [http://127.0.0.1:8050/docs/](http://127.0.0.1:8050/docs/)
+- **Source**: Documentation source files are in `docs/` and configured via `mkdocs.yml`.
+
 ## Usage
 
 1. Run the application:
-   ```bash
-   python3 trading_sim/app.py
-   ```
+    ```bash
+    python app.py
+    ```
 2. Open your web browser to [http://127.0.0.1:8050](http://127.0.0.1:8050).
 3. **Analyze** the 50-candle history on the chart.
 4. **Configure** your TP/SL % in the right panel (e.g., 1%).
 5. **Decide**: Click **LONG**, **SHORT**, or **SKIP**.
 6. **Watch**: The market simulates the next period rapidly.
 7. **Review**: See your PnL updates and move to the next scenario.
+
+## Docker
+
+You can also run the simulator inside a container, which captures all Python dependencies.
+
+1. Build the image:
+    ```bash
+    docker build -t simtrade .
+    ```
+2. Start the container (default port 8050):
+    ```bash
+    docker run --rm -p 8050:8050 simtrade
+    ```
+3. Visit [http://127.0.0.1:8050](http://127.0.0.1:8050).
+
+Environment flags:
+- `PORT`: override the port the Dash server listens on (defaults to 8050).
+- `DASH_DEBUG`: set to `1` to enable Dash debug mode for troubleshooting.
 
 ## Logic Details
 

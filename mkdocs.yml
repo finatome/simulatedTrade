@@ -1,0 +1,21 @@
+site_name: SimTrade Documentation
+site_description: Reference documentation for the SimTrade futures training simulator
+site_url: https://example.com/simtrade-docs
+repo_url: https://github.com/example/simtrade
+use_directory_urls: false
+nav:
+  - Home: index.md
+  - Data:
+      - Synthetic Generator: data-generator.md
+      - Real Data & Downloads: data-download.md
+  - Indicators: indicators.md
+  - Trading & Scoring: trading-engine.md
+theme:
+  name: readthedocs
+extra_css:
+  - css/custom.css
+markdown_extensions:
+  - tables
+  - admonition
+  - toc:
+      permalink: true

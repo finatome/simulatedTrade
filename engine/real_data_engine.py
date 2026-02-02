@@ -1,35 +1,38 @@
 import pandas as pd
 import numpy as np
 import os
-# from engine.indicators import add_technical_indicators # Already in CSV
 
-# Global Cache
-CACHED_DATA = None
+# Global Cache (Dictionary keyed by ticker)
+CACHED_DATA = {}
 
 # Path resolution
-# __file__ = .../trading_sim/engine/real_data_engine.py
-# target = .../trading_sim/assets/spy_data.csv
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_FILE = os.path.join(BASE_DIR, 'assets', 'futures_data.csv')
+ASSETS_DIR = os.path.join(BASE_DIR, 'assets')
 
-def load_real_data():
+def load_real_data(ticker='MES'):
     """
     Loads real market data from the local CSV file.
-    Expects 'trading_sim/assets/spy_data.csv' to exist.
+    Expects 'trading_sim/assets/{ticker}_data.csv' to exist.
     """
     global CACHED_DATA
     
-    if CACHED_DATA is not None:
-        return CACHED_DATA
+    # Check Cache first
+    if ticker in CACHED_DATA:
+        return CACHED_DATA[ticker]
     
-    if not os.path.exists(DATA_FILE):
-        print(f"Error: Data file not found at {DATA_FILE}")
+    # Map ticker to filename (MES or MES=F -> MES_data.csv)
+    safe_name = ticker.split('=')[0]
+    filename = f"{safe_name}_data.csv"
+    data_file = os.path.join(ASSETS_DIR, filename)
+
+    if not os.path.exists(data_file):
+        print(f"Error: Data file not found at {data_file}")
         print("Please run 'python download_data.py' to fetch data.")
         return None
         
-    print(f"Loading data from {DATA_FILE}...")
+    print(f"Loading data from {data_file}...")
     try:
-        df = pd.read_csv(DATA_FILE, index_col=0, parse_dates=True)
+        df = pd.read_csv(data_file, index_col=0, parse_dates=True)
         
         # Verify columns
         required_cols = ['Open', 'High', 'Low', 'Close']
@@ -37,28 +40,24 @@ def load_real_data():
              print(f"Error: Missing columns in CSV. Found: {df.columns}")
              return None
              
-        # Check if indicators are present (if we pre-calculated them)
-        # If download_data.py added them, they should be there.
-        # If not, we might need to add them here. 
-        # Ideally, download_data.py handled it.
-        
-        CACHED_DATA = df
-        print(f"Data loaded. Shape: {df.shape}")
+        # Cache it
+        CACHED_DATA[ticker] = df
+        print(f"Data loaded for {ticker}. Shape: {df.shape}")
         return df
         
     except Exception as e:
         print(f"Error loading data: {e}")
         return None
 
-def get_random_scenario(periods=400):
+def get_random_scenario(ticker='MES', periods=400):
     """
-    Returns a slice of the real market data of length `periods`.
+    Returns a slice of the real market data for the given ticker.
     """
     try:
-        df = load_real_data()
+        df = load_real_data(ticker)
         
         if df is None or df.empty:
-             raise ValueError("Real data unavailable.")
+             raise ValueError(f"Real data unavailable for {ticker}.")
         
         total_rows = len(df)
         
@@ -66,9 +65,6 @@ def get_random_scenario(periods=400):
              return df
             
         # Pick a random start index
-        # We don't need warmup slice logic if CSV already handled it (download_data chopped 200).
-        # We can just pick any slice of length 'periods'.
-        
         max_start = total_rows - periods
         start_idx = np.random.randint(0, max_start)
         

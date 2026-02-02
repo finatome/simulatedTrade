@@ -4,3 +4,4 @@ pandas_ta
 plotly
 numpy
 yfinance
+mkdocs

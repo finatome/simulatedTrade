@@ -29,7 +29,8 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
         }
 
     fig = make_subplots(rows=3, cols=1, shared_xaxes=True, 
-                        vertical_spacing=0.03, row_heights=[0.6, 0.15, 0.25])
+                        vertical_spacing=0.08, row_heights=[0.55, 0.15, 0.3],
+                        subplot_titles=("Price Action", "Volume", "Indicators"))
 
     # Candlestick
     fig.add_trace(go.Candlestick(
@@ -272,6 +273,16 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
         plot_bgcolor=palette['bg'],
         paper_bgcolor=palette['paper'],
         font=dict(color=palette['text'])
+    )
+    
+    # Update subplot titles to look like "strips"
+    fig.update_annotations(
+        font=dict(size=12, color=palette['text']),
+        bgcolor="#1e2329" if theme == 'dark' else "#e0e4e8",
+        bordercolor="#333" if theme == 'dark' else "#ccc",
+        borderwidth=1,
+        borderpad=4,
+        width=400, # Fixed width to make it look like a strip/badge
     )
     
     # Update axes to match terminal feel (or light theme feel)

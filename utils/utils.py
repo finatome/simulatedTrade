@@ -272,6 +272,13 @@ def generate_plots(df):
         hlines = [(0, 'white', 'solid')]
         create_chart(view_df, 'Rate of Change (ROC)', "ROC.png", oscillator_traces=[go.Scatter(x=view_df.index, y=roc.tail(150), name='ROC', line=dict(color='cyan'))], oscillator_hlines=hlines)
     except Exception as e: print(f"ROC: {e}")
+
+    try:
+        mom = df.ta.mom()
+        view_df = df.tail(150)
+        hlines = [(0, 'white', 'solid')]
+        create_chart(view_df, 'Momentum (MOM)', "Momentum.png", oscillator_traces=[go.Scatter(x=view_df.index, y=mom.tail(150), name='MOM', line=dict(color='yellow'))], oscillator_hlines=hlines)
+    except Exception as e: print(f"MOM: {e}")
     
     try:
         obv = df.ta.obv()
@@ -593,6 +600,12 @@ def generate_plots(df):
     # --- Batch 9: Others ---
 
     try:
+        # Volume (Basic)
+        view_df = df.tail(150)
+        create_chart(view_df, 'Volume', "Volume.png")
+    except Exception as e: print(f"Volume: {e}")
+
+    try:
         # Average Price
         d = (df['High'] + df['Low'] + df['Close'] + df['Open']) / 4
         view_df = df.tail(150)
@@ -638,7 +651,7 @@ def generate_plots(df):
         view_df = df.tail(150)
         osc_traces = [go.Scatter(x=view_df.index, y=ratio.tail(150), name='Close/SMA50', line=dict(color='orange'))]
         hlines = [(1, 'white', 'dash')]
-        create_chart(view_df, 'Price Ratio (Close / SMA50)', "Ratio_SMA50.png", oscillator_traces=osc_traces, oscillator_hlines=hlines)
+        create_chart(view_df, 'Price Ratio (Close / SMA50)', "Ratio.png", oscillator_traces=osc_traces, oscillator_hlines=hlines)
     except Exception as e: print(f"Ratio: {e}")
     
     try:
@@ -706,13 +719,17 @@ def generate_plots(df):
         is_fractal_l = (l < l.shift(1)) & (l < l.shift(2)) & (l < l.shift(-1)) & (l < l.shift(-2))
         
         view_df = df.tail(150)
-        # Re-calc boolean on view_df or map index
-        frac_h = df[is_fractal_h].reindex(view_df.index)
-        frac_l = df[is_fractal_l].reindex(view_df.index)
+        # Filter masks for the view range
+        mask_h = is_fractal_h.reindex(view_df.index).fillna(False)
+        mask_l = is_fractal_l.reindex(view_df.index).fillna(False)
+        
+        # Apply masks to get only the points where fractals exist
+        fh_points = view_df[mask_h]
+        fl_points = view_df[mask_l]
         
         overlay = [
-             go.Scatter(x=view_df.index, y=view_df['High'][is_fractal_h], mode='markers', name='Fractal High', marker=dict(symbol='triangle-down', size=10, color='red')),
-             go.Scatter(x=view_df.index, y=view_df['Low'][is_fractal_l], mode='markers', name='Fractal Low', marker=dict(symbol='triangle-up', size=10, color='green'))
+             go.Scatter(x=fh_points.index, y=fh_points['High'], mode='markers', name='Fractal High', marker=dict(symbol='triangle-down', size=10, color='red')),
+             go.Scatter(x=fl_points.index, y=fl_points['Low'], mode='markers', name='Fractal Low', marker=dict(symbol='triangle-up', size=10, color='green'))
         ]
         create_chart(view_df, 'Williams Fractal', "Fractal.png", overlay_traces=overlay)
     except Exception as e: print(f"Fractal: {e}")

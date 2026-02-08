@@ -10,7 +10,7 @@ Volume represents the total number of shares or contracts traded for a specified
 
 ## Visualization
 
-*(Placeholder: Basic Volume Bar Chart)*
+![Volume (V)](plots/Volume.png)
 
 ## Trading Significance
 

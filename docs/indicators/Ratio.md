@@ -14,6 +14,10 @@ $$
 \text{Ratio} = \frac{\text{Series A}}{\text{Series B}}
 $$
 
+## Visualization
+
+![Ratio (RAT)](plots/Ratio.png)
+
 ## Trading Significance
 
 1.  **Relative Strength**: Used to see if one asset is outperforming another (e.g., Tech vs. SP500).

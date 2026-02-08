@@ -53,41 +53,41 @@ This comprehensive catalog provides a technical breakdown of all **85 indicators
 *Simplest transforms of raw Open, High, Low, Close, and Volume (OHLCV) data.*
 
 1. **[Average Price (AP)](indicators/Average_Price.md):** An arithmetic mean of the High, Low, and Close for a single period.
-   * **Equation:** $(H + L + C) / 3$
-   * **Category:** Trend/Benchmark
-   * **Use Case:** Provides a simplified representation of a single bar's price action.
+    * **Equation:** $(H + L + C) / 3$
+    * **Category:** Trend/Benchmark
+    * **Use Case:** Provides a simplified representation of a single bar's price action.
 2. **[Median Price (MP)](indicators/Median_Price.md):** The exact middle point between the High and Low of a specific time period.
-   * **Equation:** $(H + L) / 2$
-   * **Category:** Trend/Benchmark
-   * **Use Case:** Identifies the midpoint of a bar's range, often used as an input for oscillators.
+    * **Equation:** $(H + L) / 2$
+    * **Category:** Trend/Benchmark
+    * **Use Case:** Identifies the midpoint of a bar's range, often used as an input for oscillators.
 3. **[Typical Price (TP)](indicators/Typical_Price.md):** A standard price calculation used as a more accurate representation of the average price than just the close.
-   * **Equation:** $(H + L + C) / 3$
-   * **Category:** Trend/Benchmark
-   * **Use Case:** Serves as the base input for more complex indicators like CCI and VWAP.
+    * **Equation:** $(H + L + C) / 3$
+    * **Category:** Trend/Benchmark
+    * **Use Case:** Serves as the base input for more complex indicators like CCI and VWAP.
 4. **[Volume (V)](indicators/Volume.md):** The total number of shares or contracts traded during a specific time interval.
-   * **Equation:** $\sum \text{Trades}$
-   * **Category:** Volume
-   * **Use Case:** Gauges market activity and validates the strength of price moves.
+    * **Equation:** $\sum \text{Trades}$
+    * **Category:** Volume
+    * **Use Case:** Gauges market activity and validates the strength of price moves.
 5. **[Standard Deviation (StdDev)](indicators/Standard_Deviation.md):** A statistical measure of how much price deviates from its mean.
-   * **Equation:** $\sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \bar{x})^2}$
-   * **Category:** Volatility
-   * **Use Case:** Quantifies market risk and serves as the backbone for Bollinger Bands.
+    * **Equation:** $\sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \bar{x})^2}$
+    * **Category:** Volatility
+    * **Use Case:** Quantifies market risk and serves as the backbone for Bollinger Bands.
 6. **[Historical Volatility (HV)](indicators/Historical_Volatility.md):** The realized variance of an asset based on past price changes.
-   * **Equation:** $\text{Annualized StdDev of Log Returns}$
-   * **Category:** Volatility
-   * **Use Case:** Assesses the historical risk profile and prices options.
+    * **Equation:** $\text{Annualized StdDev of Log Returns}$
+    * **Category:** Volatility
+    * **Use Case:** Assesses the historical risk profile and prices options.
 7. **[Volatility Close-to-Close (C-C Vol)](indicators/Volatility_Close_To_Close.md):** A volatility estimate calculated using only the closing prices of consecutive bars.
-   * **Equation:** $\sqrt{\frac{1}{n-1} \sum (\ln(\frac{C_t}{C_{t-1}}) - \mu)^2}$
-   * **Category:** Volatility
-   * **Use Case:** Measures price dispersion specifically focused on settlement prices.
+    * **Equation:** $\sqrt{\frac{1}{n-1} \sum (\ln(\frac{C_t}{C_{t-1}}) - \mu)^2}$
+    * **Category:** Volatility
+    * **Use Case:** Measures price dispersion specifically focused on settlement prices.
 8. **[Volatility O-H-L-C (OHLC Vol)](indicators/Volatility_OHLC.md):** A more efficient volatility estimator that incorporates the intrabar range.
-   * **Equation:** Uses Parkinson or Garman-Klass formulas (e.g., $0.511(H-L)^2 - \dots$)
-   * **Category:** Volatility
-   * **Use Case:** Provides a more granular risk assessment than close-only models.
+    * **Equation:** Uses Parkinson or Garman-Klass formulas (e.g., $0.511(H-L)^2 - \dots$)
+    * **Category:** Volatility
+    * **Use Case:** Provides a more granular risk assessment than close-only models.
 9. **[Volatility Zero-Trend C-C (Z-Trend Vol)](indicators/Volatility_Zero_Trend_Close_To_Close.md):** A variance calculation that assumes the mean return (drift) is zero.
-   * **Equation:** $\sqrt{\frac{1}{n} \sum (\ln(\frac{C_t}{C_{t-1}}))^2}$
-   * **Category:** Volatility
-   * **Use Case:** Useful for high-frequency data where drift is negligible.
+    * **Equation:** $\sqrt{\frac{1}{n} \sum (\ln(\frac{C_t}{C_{t-1}}))^2}$
+    * **Category:** Volatility
+    * **Use Case:** Useful for high-frequency data where drift is negligible.
 10. **[Rate of Change (ROC)](indicators/ROC.md):** Measures the percentage change in price between the current period and a period $n$ days ago.
     * **Equation:** $(\frac{C_t - C_{t-n}}{C_{t-n}}) \times 100$
     * **Category:** Momentum
@@ -431,4 +431,3 @@ This comprehensive catalog provides a technical breakdown of all **85 indicators
 3.  **Level 3 (Derivatives):** Using averages to find relative value (e.g., Bollinger Bands).
 4.  **Level 4 (Advanced):** Recursive logic, multi-factor integration, and adaptive speed (e.g., KAMA, Ichimoku).
 
-Would you like me to create the **Python visualizer** to demonstrate how a Level 1 error (like a price spike) propagates through these levels?

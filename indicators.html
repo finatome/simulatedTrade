@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/simtrade-docs/indicators.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Overview - SimTrade Documentation</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Overview";
+        var mkdocs_page_input_path = "indicators.md";
+        var mkdocs_page_url = "/simtrade-docs/indicators.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> SimTrade Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Indicators</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#trend-moving-averages">Trend &amp; Moving Averages</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#volatility-channels">Volatility &amp; Channels</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#momentum-oscillators">Momentum &amp; Oscillators</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#volume">Volume</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#naming-conventions">Naming Conventions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#indicator-groups">Indicator Groups</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#i-first-order-primitives-base-data-discretization">I. First-Order Primitives (Base Data Discretization)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ii-second-order-smoothing-moving-averages">II. Second-Order Smoothing (Moving Averages)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#iii-third-order-oscillators-bands-derived-from-mas">III. Third-Order Oscillators &amp; Bands (Derived from MAs)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#iv-fourth-order-complex-momentum-volume">IV. Fourth-Order Complex Momentum &amp; Volume</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#v-microstructure-flow-dynamics">V. Microstructure &amp; Flow Dynamics</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vi-adaptive-regime-switching-systems">VI. Adaptive &amp; Regime-Switching Systems</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#hierarchy-summary">Hierarchy Summary</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >I. First-Order Primitives</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Average_Price.html">Average Price</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Median_Price.html">Median Price</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Typical_Price.html">Typical Price</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Volume.html">Volume</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Standard_Deviation.html">Standard Deviation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Historical_Volatility.html">Historical Volatility</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="indicators/Volatility_Close_To_Close.md">Volatility Close-to-Close</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Volatility_OHLC.html">Volatility O-H-L-C</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Volatility_Zero_Trend_Close_To_Close.html">Volatility Zero-Trend C-C</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/ROC.html">Rate of Change (ROC)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Momentum.html">Momentum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Spread.html">Spread</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Ratio.html">Ratio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Net_Volume.html">Net Volume</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Fractal.html">Williams Fractal</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >II. Second-Order Smoothing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/SMA.html">Moving Average (SMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/EMA.html">Exponential Moving Average (EMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/WMA.html">Weighted Moving Average (WMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/SMMA.html">Smoothed Moving Average (SMMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/ALMA.html">Arnaud Legoux MA (ALMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/HMA.html">Hull Moving Average (HMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/LSMA.html">Least Squares MA (LSMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/VWMA.html">VWMA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Hamming_Moving_Average.html">Moving Average Hamming</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/VAMA.html">Moving Average weighted by Volatility</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >III. Third-Order Oscillators & Bands</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/MA_Cross.html">Moving Average Cross</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/EMA_Cross.html">EMA Cross</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Price_Oscillator.html">Price Oscillator (PO)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/MACD.html">MACD</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Bollinger_Bands.html">Bollinger Bands</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Bollinger_PctB.html">Bollinger %B</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Bollinger_Bandwidth.html">Bollinger Bandwidth</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Standard_Error_Bands.html">Standard Error Bands</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Donchian_Channels.html">Price Channel / Donchian</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Keltner_Channels.html">Keltner Channels</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/MA_Channel.html">Moving Average Channel</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Envelopes.html">Envelopes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Detrended_Price_Oscillator.html">DPO (Detrended Price Oscillator)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/ATR.html">Average True Range (ATR)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/CCI.html">CCI (Commodity Channel Index)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Standard_Error.html">Standard Error</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Linear_Regression_Curve.html">Linear Regression Curve</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Linear_Regression_Slope.html">Linear Regression Slope</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >IV. Fourth-Order Complex Momentum & Volume</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/RSI.html">RSI (Relative Strength Index)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Stochastic.html">Stochastic Oscillator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Stochastic_RSI.html">Stochastic RSI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/SMI_Ergodic.html">SMI Ergodic Indicator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/True_Strength_Index.html">True Strength Index (TSI)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Trend_Strength_Index.html">Trend Strength Index</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/ADX.html">ADX (Average Directional Index)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Directional_Movement.html">Directional Movement (DM)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Aroon.html">Aroon</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Awesome_Oscillator.html">Awesome Oscillator (AO)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Accelerator_Oscillator.html">Accelerator Oscillator (AC)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/TRIX.html">TRIX</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Coppock_Curve.html">Coppock Curve</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Fisher_Transform.html">Fisher Transform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Relative_Vigor_Index.html">Relative Vigor Index (RVI)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Relative_Volatility_Index.html">Relative Volatility Index</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/CMO.html">Chande Momentum Oscillator (CMO)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Ultimate_Oscillator.html">Ultimate Oscillator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Vortex_Indicator.html">Vortex Indicator</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >V. Microstructure & Flow Dynamics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/VWAP.html">VWAP</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/OBV.html">OBV (On-Balance Volume)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/MFI.html">MFI (Money Flow Index)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/CMF.html">CMF (Chaikin Money Flow)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Accumulation_Distribution.html">A/D Indicator (Accumulation/Distribution)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Chaikin_Oscillator.html">Chaikin Oscillator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/PVT.html">Price Volume Trend (PVT)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/EFI.html">Elder’s Force Index</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Ease_of_Movement.html">Ease of Movement (EOM)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Klinger_Oscillator.html">Klinger Oscillator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Percentage_Volume_Oscillator.html">Volume Oscillator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Volume_Profile.html">Volume Profile</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >VI. Adaptive & Regime-Switching Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/KAMA.html">KAMA (Kaufman Adaptive MA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/McGinley_Dynamic.html">McGinley Dynamic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/SuperTrend.html">SuperTrend</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Parabolic_SAR.html">Parabolic SAR</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Choppiness_Index.html">Choppiness Index</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Chaikin_Volatility.html">Chaikin Volatility</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Chande_Kroll_Stop.html">Chande Kroll Stop</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Ichimoku_Cloud.html">Ichimoku Cloud</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/GMMA.html">GMMA (Guppy Multiple MA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Williams_Alligator.html">Williams Alligator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Mass_Index.html">Mass Index</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="data-generator.html">Synthetic Generator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="data-download.html">Real Data & Downloads</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="trading-engine.html">Trading & Scoring</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SimTrade Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Indicators</li>
+      <li class="breadcrumb-item active">Overview</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/example/simtrade/edit/master/docs/indicators.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="indicator-reference">Indicator Reference<a class="headerlink" href="#indicator-reference" title="Permanent link">&para;</a></h1>
+<p>All candles—synthetic and real—are enriched with a consistent pandas-ta indicator deck so the UI can toggle overlays without recomputing. The following studies are appended by <code>engine/indicators.py</code>.</p>
+<h2 id="trend-moving-averages">Trend &amp; Moving Averages<a class="headerlink" href="#trend-moving-averages" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Columns</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Simple Moving Averages</td>
+<td><code>SMA_20</code>, <code>SMA_50</code>, <code>SMA_200</code></td>
+<td>Baseline trend context from short to long horizon.</td>
+</tr>
+<tr>
+<td>Exponential Moving Averages</td>
+<td><code>EMA_9</code>, <code>EMA_21</code>, <code>EMA_50</code></td>
+<td>Emphasize recent data for faster reaction during momentum bursts.</td>
+</tr>
+<tr>
+<td>Weighted &amp; Hull MAs</td>
+<td><code>WMA_21</code>, <code>HMA_21</code></td>
+<td>Alternative smoothing techniques for traders who prefer reduced lag.</td>
+</tr>
+<tr>
+<td>VWAP</td>
+<td><code>VWAP_D</code> (pandas-ta naming)</td>
+<td>Combines price and volume; requires a datetime index.</td>
+</tr>
+<tr>
+<td>Supertrend</td>
+<td><code>SUPERT_7_3.0</code>, <code>SUPERTd_7_3.0</code>, etc.</td>
+<td>Directional bias built from ATR bands.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="volatility-channels">Volatility &amp; Channels<a class="headerlink" href="#volatility-channels" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Columns</th>
+<th>Usage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bollinger Bands</td>
+<td><code>BBL_20_2.0</code>, <code>BBM_20_2.0</code>, <code>BBU_20_2.0</code></td>
+<td>20-period SMA envelope with 2σ offsets; used for mean reversion cues.</td>
+</tr>
+<tr>
+<td>Keltner Channels</td>
+<td><code>KCL_20_2</code>, <code>KCM_20_2</code>, <code>KCU_20_2</code></td>
+<td>ATR-based channel, tighter than Bollinger for breakout spotting.</td>
+</tr>
+<tr>
+<td>Donchian Channels</td>
+<td><code>DCL_20_20</code>, <code>DCM_20_20</code>, <code>DCU_20_20</code></td>
+<td>High/low breakout bands for range detection.</td>
+</tr>
+<tr>
+<td>Parabolic SAR</td>
+<td><code>PSARl_0.02_0.2</code>, <code>PSARs_0.02_0.2</code></td>
+<td>Trailing stop candidates; plotted as dots in the UI.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="momentum-oscillators">Momentum &amp; Oscillators<a class="headerlink" href="#momentum-oscillators" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Columns</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RSI</td>
+<td><code>RSI_14</code></td>
+<td>14-period momentum oscillator for overbought/oversold signals.</td>
+</tr>
+<tr>
+<td>MACD</td>
+<td><code>MACD_12_26_9</code>, <code>MACDh_12_26_9</code>, <code>MACDs_12_26_9</code></td>
+<td>Trend-momentum combo; histogram highlights shifts.</td>
+</tr>
+<tr>
+<td>Stochastic</td>
+<td><code>STOCHk_14_3_3</code>, <code>STOCHd_14_3_3</code></td>
+<td>Fast oscillator measuring closes relative to recent ranges.</td>
+</tr>
+<tr>
+<td>ADX &amp; DI</td>
+<td><code>ADX_14</code>, <code>DMP_14</code>, <code>DMN_14</code></td>
+<td>Directional strength via Average Directional Index.</td>
+</tr>
+<tr>
+<td>CCI</td>
+<td><code>CCI_14_0.015</code></td>
+<td>Commodity Channel Index for pullback detection.</td>
+</tr>
+<tr>
+<td>ROC</td>
+<td><code>ROC_10</code></td>
+<td>Percent rate of change over ten bars, useful for velocity screening.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="volume">Volume<a class="headerlink" href="#volume" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Indicator</th>
+<th>Columns</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>On-Balance Volume</td>
+<td><code>OBV</code></td>
+<td>Cumulative volume flow aligned with direction of closes.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="naming-conventions">Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h3>
+<ul>
+<li>pandas-ta appends parameter values to each column (<code>RSI_14</code>, <code>BBL_20_2.0</code>, etc.), so the UI can map user selections back to exact series.</li>
+<li>Many channel-based studies emit multiple columns (lower/mid/upper); the Dash viewport picks the subset requested by the indicator selector.</li>
+<li>If you extend <code>add_technical_indicators()</code>, keep names descriptive and unique so downstream components can reference them unambiguously.</li>
+</ul>
+<p>This comprehensive catalog provides a technical breakdown of all <strong>85 indicators</strong> organized by their mathematical complexity.</p>
+<h2 id="indicator-groups">Indicator Groups<a class="headerlink" href="#indicator-groups" title="Permanent link">&para;</a></h2>
+<h3 id="i-first-order-primitives-base-data-discretization">I. First-Order Primitives (Base Data Discretization)<a class="headerlink" href="#i-first-order-primitives-base-data-discretization" title="Permanent link">&para;</a></h3>
+<p><em>Simplest transforms of raw Open, High, Low, Close, and Volume (OHLCV) data.</em></p>
+<ol>
+<li><strong><a href="indicators/Average_Price.html">Average Price (AP)</a>:</strong> An arithmetic mean of the High, Low, and Close for a single period.</li>
+<li><strong>Equation:</strong> <span class="arithmatex">\((H + L + C) / 3\)</span></li>
+<li><strong>Category:</strong> Trend/Benchmark</li>
+<li><strong>Use Case:</strong> Provides a simplified representation of a single bar's price action.</li>
+<li><strong><a href="indicators/Median_Price.html">Median Price (MP)</a>:</strong> The exact middle point between the High and Low of a specific time period.</li>
+<li><strong>Equation:</strong> <span class="arithmatex">\((H + L) / 2\)</span></li>
+<li><strong>Category:</strong> Trend/Benchmark</li>
+<li><strong>Use Case:</strong> Identifies the midpoint of a bar's range, often used as an input for oscillators.</li>
+<li><strong><a href="indicators/Typical_Price.html">Typical Price (TP)</a>:</strong> A standard price calculation used as a more accurate representation of the average price than just the close.</li>
+<li><strong>Equation:</strong> <span class="arithmatex">\((H + L + C) / 3\)</span></li>
+<li><strong>Category:</strong> Trend/Benchmark</li>
+<li><strong>Use Case:</strong> Serves as the base input for more complex indicators like CCI and VWAP.</li>
+<li><strong><a href="indicators/Volume.html">Volume (V)</a>:</strong> The total number of shares or contracts traded during a specific time interval.</li>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sum \text{Trades}\)</span></li>
+<li><strong>Category:</strong> Volume</li>
+<li><strong>Use Case:</strong> Gauges market activity and validates the strength of price moves.</li>
+<li><strong><a href="indicators/Standard_Deviation.html">Standard Deviation (StdDev)</a>:</strong> A statistical measure of how much price deviates from its mean.</li>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \bar{x})^2}\)</span></li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Quantifies market risk and serves as the backbone for Bollinger Bands.</li>
+<li><strong><a href="indicators/Historical_Volatility.html">Historical Volatility (HV)</a>:</strong> The realized variance of an asset based on past price changes.</li>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\text{Annualized StdDev of Log Returns}\)</span></li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Assesses the historical risk profile and prices options.</li>
+<li><strong><a href="indicators/Volatility_Close_To_Close.md">Volatility Close-to-Close (C-C Vol)</a>:</strong> A volatility estimate calculated using only the closing prices of consecutive bars.</li>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sqrt{\frac{1}{n-1} \sum (\ln(\frac{C_t}{C_{t-1}}) - \mu)^2}\)</span></li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Measures price dispersion specifically focused on settlement prices.</li>
+<li><strong><a href="indicators/Volatility_OHLC.html">Volatility O-H-L-C (OHLC Vol)</a>:</strong> A more efficient volatility estimator that incorporates the intrabar range.</li>
+<li><strong>Equation:</strong> Uses Parkinson or Garman-Klass formulas (e.g., <span class="arithmatex">\(0.511(H-L)^2 - \dots\)</span>)</li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Provides a more granular risk assessment than close-only models.</li>
+<li><strong><a href="indicators/Volatility_Zero_Trend_Close_To_Close.html">Volatility Zero-Trend C-C (Z-Trend Vol)</a>:</strong> A variance calculation that assumes the mean return (drift) is zero.</li>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sqrt{\frac{1}{n} \sum (\ln(\frac{C_t}{C_{t-1}}))^2}\)</span></li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Useful for high-frequency data where drift is negligible.</li>
+<li><strong><a href="indicators/ROC.html">Rate of Change (ROC)</a>:</strong> Measures the percentage change in price between the current period and a period <span class="arithmatex">\(n\)</span> days ago.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\((\frac{C_t - C_{t-n}}{C_{t-n}}) \times 100\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Identifies price velocity and potential trend exhaustion.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Momentum.html">Momentum (MOM)</a>:</strong> The absolute difference in price over a fixed lookback period.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(C_t - C_{t-n}\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Simplest measure of trend strength and direction.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Spread.html">Spread (SPD)</a>:</strong> The price difference between two distinct correlated assets.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(Asset_A - Asset_B\)</span></li>
+<li><strong>Category:</strong> Relative Value</li>
+<li><strong>Use Case:</strong> Pairs trading and identifying inter-market arbitrage.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Ratio.html">Ratio (RAT)</a>:</strong> The relative value of one asset expressed in terms of another.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(Asset_A / Asset_B\)</span></li>
+<li><strong>Category:</strong> Relative Value</li>
+<li><strong>Use Case:</strong> Inter-market analysis (e.g., Gold/Silver ratio) to find relative outperformance.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Net_Volume.html">Net Volume (NV)</a>:</strong> The sum of volume where up-volume is positive and down-volume is negative.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sum (\text{if } C &gt; C_{-1} \text{ then } V \text{ else } -V)\)</span></li>
+<li><strong>Category:</strong> Volume</li>
+<li><strong>Use Case:</strong> Visualizes net capital flow into or out of an asset.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Fractal.html">Williams Fractal (FRAC)</a>:</strong> Identifies local high and low points based on a 5-bar sequence.<ul>
+<li><strong>Equation:</strong> High is Fractal if <span class="arithmatex">\(H_t &gt; H_{t \pm 1, 2}\)</span></li>
+<li><strong>Category:</strong> Structure</li>
+<li><strong>Use Case:</strong> Defines support and resistance levels based on local price reversals.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="ii-second-order-smoothing-moving-averages">II. Second-Order Smoothing (Moving Averages)<a class="headerlink" href="#ii-second-order-smoothing-moving-averages" title="Permanent link">&para;</a></h3>
+<p><em>Temporal filters used to isolate the signal from price noise.</em></p>
+<ol>
+<li><strong><a href="indicators/SMA.html">Simple Moving Average (SMA)</a>:</strong> The unweighted average of price over a specific number of periods.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{1}{n} \sum_{i=0}^{n-1} C_{t-i}\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Baseline trend identification and institutional support/resistance.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/EMA.html">Exponential Moving Average (EMA)</a>:</strong> A moving average that applies more weight to recent prices for faster reaction.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(EMA_t = C_t \times \alpha + EMA_{t-1} \times (1 - \alpha)\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Reduces lag in trend following compared to SMA.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/WMA.html">Weighted Moving Average (WMA)</a>:</strong> A moving average where each data point is weighted by its position in the sequence.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{\sum (C_{t-i} \times (n-i))}{\sum (n-i)}\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Provides a faster response than SMA while being less volatile than EMA.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/SMMA.html">Smoothed Moving Average (SMMA)</a>:</strong> A hybrid average similar to EMA but with a longer-term memory.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(SMMA_t = \frac{\text{Sum}_{t-1} - SMMA_{t-1} + C_t}{n}\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Long-term trend smoothing for position trading.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/ALMA.html">Arnaud Legoux MA (ALMA)</a>:</strong> Uses a Gaussian distribution to provide extreme smoothness with minimal lag.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sum (C_{t-i} \times w_i) \text{ where } w_i \text{ is Gaussian offset}\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Superior trend tracking that filters "noise" without sacrificing timing.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/HMA.html">Hull Moving Average (HMA)</a>:</strong> A moving average designed to be extremely fast and eliminate lag almost entirely.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(WMA(2 \times WMA_{n/2} - WMA_n, \sqrt{n})\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Catching fast reversals and short-term trend changes.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/LSMA.html">Least Squares MA (LSMA)</a>:</strong> Calculates a linear regression line over the period and plots the endpoint.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\text{End point of Linear Regression line}\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Anticipating where price should be if the current trend continues linearly.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/VWMA.html">Volume-Weighted MA (VWMA)</a>:</strong> A moving average that weighs price based on the volume of each period.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sum (C_i \times V_i) / \sum V_i\)</span></li>
+<li><strong>Category:</strong> Trend/Volume</li>
+<li><strong>Use Case:</strong> Confirms price trends with high-volume conviction.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Hamming_Moving_Average.html">Moving Average Hamming (MAH)</a>:</strong> Applies a Hamming window function to the moving average for signal processing.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sum (C_{t-i} \times \text{Hamming Weight}_i)\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Used in cycles and spectral analysis to minimize signal "leakage."</li>
+</ul>
+</li>
+<li><strong><a href="indicators/VAMA.html">MA Weighted by Volatility (V-WMA)</a>:</strong> An adaptive MA that slows down during low volatility and speeds up during high volatility.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(MA \text{ where period } n \text{ is a function of } \sigma\)</span></li>
+<li><strong>Category:</strong> Trend/Volatility</li>
+<li><strong>Use Case:</strong> Stays closer to price during breakouts and ignores "chop."</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="iii-third-order-oscillators-bands-derived-from-mas">III. Third-Order Oscillators &amp; Bands (Derived from MAs)<a class="headerlink" href="#iii-third-order-oscillators-bands-derived-from-mas" title="Permanent link">&para;</a></h3>
+<p><em>Derived from the averages in Section II to create boundaries and relative signals.</em></p>
+<ol>
+<li><strong><a href="indicators/MA_Cross.html">Moving Average Cross (MAX)</a>:</strong> A signal generated when a fast SMA crosses above or below a slow SMA.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(SMA_{fast} - SMA_{slow}\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Defining broad bullish or bearish regimes (e.g., Golden Cross).</li>
+</ul>
+</li>
+<li><strong><a href="indicators/EMA_Cross.html">EMA Cross (EMAX)</a>:</strong> Uses exponential averages to signal trend changes with less lag.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(EMA_{fast} - EMA_{slow}\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Capturing trend shifts earlier in volatile markets.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Price_Oscillator.html">Price Oscillator (PO)</a>:</strong> The percentage difference between two moving averages.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\((\frac{MA_{fast} - MA_{slow}}{MA_{slow}}) \times 100\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Comparing momentum across different assets regardless of price level.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/MACD.html">Moving Average Convergence Divergence (MACD)</a>:</strong> A trend-following momentum indicator showing the relationship between two EMAs.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(EMA_{12} - EMA_{26}\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Identifying momentum shifts and signal line crossovers.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Bollinger_Bands.html">Bollinger Bands (BB)</a>:</strong> Volatility bands placed above and below a moving average.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(SMA \pm (k \times StdDev)\)</span></li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Identifying "overextended" prices and volatility squeezes.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Bollinger_PctB.html">Bollinger %B (%B)</a>:</strong> Quantifies where the current price is relative to the Bollinger Bands.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{C - LowerBand}{UpperBand - LowerBand}\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Identifying specific breakout or mean-reversion triggers.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Bollinger_Bandwidth.html">Bollinger Bandwidth (BBW)</a>:</strong> Measures the distance between the upper and lower Bollinger Bands.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{UpperBand - LowerBand}{SMA}\)</span></li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Detecting the beginning of volatility expansions (the "squeeze").</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Standard_Error_Bands.html">Standard Error Bands (SEB)</a>:</strong> Similar to Bollinger Bands but uses Standard Error instead of Standard Deviation.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(SMA \pm (k \times \text{Std Error})\)</span></li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Creating tighter bands that focus on the average's reliability.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Donchian_Channels.html">Price Channel / Donchian (DC)</a>:</strong> Plots the highest high and lowest low over <span class="arithmatex">\(n\)</span> periods.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(Upper = \max(H_n), Lower = \min(L_n)\)</span></li>
+<li><strong>Category:</strong> Structure/Trend</li>
+<li><strong>Use Case:</strong> Classic breakout trading (e.g., Turtle Trading).</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Keltner_Channels.html">Keltner Channels (KC)</a>:</strong> Volatility bands based on Average True Range instead of Standard Deviation.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(EMA \pm (k \times ATR)\)</span></li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Filtering price noise in trending markets more effectively than BB.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/MA_Channel.html">Moving Average Channel (MAC)</a>:</strong> Uses the High and Low prices for the averages to create a price "envelope."<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(Upper = SMA(H, n), Lower = SMA(L, n)\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Identifying the "trading range" of a specific trend.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Envelopes.html">Envelopes (ENV)</a>:</strong> Fixed percentage bands placed above and below a moving average.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(SMA \pm (SMA \times k\%)\)</span></li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Mean reversion in stable, non-volatile instruments.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Detrended_Price_Oscillator.html">Detrended Price Oscillator (DPO)</a>:</strong> Removes trend from price to make it easier to identify cycles.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(C_{t} - SMA_{t-(n/2+1)}\)</span></li>
+<li><strong>Category:</strong> Momentum/Cycles</li>
+<li><strong>Use Case:</strong> Identifying cyclical highs and lows without trend interference.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/ATR.html">Average True Range (ATR)</a>:</strong> Measures market volatility by decomposing the entire range of an asset.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(EMA(\max(H-L, |H-C_1|, |L-C_1|))\)</span></li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Setting volatility-based stop losses.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/CCI.html">Commodity Channel Index (CCI)</a>:</strong> Measures the current price level relative to an average price level over a given time period.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{TP - SMA(TP)}{0.015 \times \text{Mean Deviation}}\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Spotting new trends or extreme overbought/oversold conditions.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Standard_Error.html">Standard Error (SE)</a>:</strong> Estimates the precision of the mean price.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sigma / \sqrt{n}\)</span></li>
+<li><strong>Category:</strong> Volatility/Statistics</li>
+<li><strong>Use Case:</strong> Gauging the consistency of a trend.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Linear_Regression_Curve.html">Linear Regression Curve (LRC)</a>:</strong> A series of linear regression endpoints plotted as a curve.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\text{Series of LSMA values}\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Identifying the "fair value" path of a trend.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Linear_Regression_Slope.html">Linear Regression Slope (LRS)</a>:</strong> Measures the rate of change of the linear regression line.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{n \sum (xy) - \sum x \sum y}{n \sum x^2 - (\sum x)^2}\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Identifying trend strength and potential exhaustion.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="iv-fourth-order-complex-momentum-volume">IV. Fourth-Order Complex Momentum &amp; Volume<a class="headerlink" href="#iv-fourth-order-complex-momentum-volume" title="Permanent link">&para;</a></h3>
+<p><em>Highly processed indicators that often use other oscillators as inputs.</em></p>
+<ol>
+<li><strong><a href="indicators/RSI.html">Relative Strength Index (RSI)</a>:</strong> A speed and change of price movements oscillator.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(100 - [100 / (1 + \text{Avg Gain} / \text{Avg Loss})]\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Identifying overbought (&gt;70) and oversold (&lt;30) conditions.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Stochastic.html">Stochastic Oscillator (STOCH)</a>:</strong> Compares a specific closing price to a range of its prices over a certain period.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{C - L_n}{H_n - L_n} \times 100\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Mean reversion and divergence trading.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Stochastic_RSI.html">Stochastic RSI (StochRSI)</a>:</strong> Applies the Stochastic formula to RSI values instead of price.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{RSI - RSI_{min}}{RSI_{max} - RSI_{min}}\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Identifying RSI reversals with high sensitivity.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/SMI_Ergodic.html">SMI Ergodic Indicator (SMI)</a>:</strong> A double-smoothed version of the Stochastic Oscillator.<ul>
+<li><strong>Equation:</strong> Double EMA of price relative to range.</li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Providing smoother, more reliable signals than standard Stochastics.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/True_Strength_Index.html">True Strength Index (TSI)</a>:</strong> A double-smoothed momentum oscillator.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{EMA(EMA(C-C_1))}{EMA(EMA|C-C_1|)} \times 100\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Identifying trend direction and overbought/oversold levels.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Trend_Strength_Index.html">Trend Strength Index (TRSI)</a>:</strong> Measures the persistence of a trend using smoothed price changes.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(EMA(\Delta P) / EMA(|\Delta P|)\)</span></li>
+<li><strong>Category:</strong> Momentum/Trend</li>
+<li><strong>Use Case:</strong> Distinguishing between strong trends and "noise."</li>
+</ul>
+</li>
+<li><strong><a href="indicators/ADX.html">Average Directional Index (ADX)</a>:</strong> Measures the overall strength of a trend.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(EMA(\frac{|+DI - -DI|}{+DI + -DI}) \times 100\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Determining if a market is trending or ranging (values &gt; 25).</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Directional_Movement.html">Directional Movement (DM)</a>:</strong> The component used to calculate the ADX.<ul>
+<li><strong>Equation:</strong> Difference between current and previous highs/lows.</li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Building block for trend-strength indicators.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Aroon.html">Aroon (ARN)</a>:</strong> Measures the time between highs and lows over each period.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{n - \text{periods since High}}{n} \times 100\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Identifying the start of a new trend.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Awesome_Oscillator.html">Awesome Oscillator (AO)</a>:</strong> The difference between a 5-period and 34-period SMA of median price.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(SMA_5(MP) - SMA_{34}(MP)\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Confirming trends and spotting "Twin Peaks" signals.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Accelerator_Oscillator.html">Accelerator Oscillator (AC)</a>:</strong> Measures the acceleration/deceleration of the Awesome Oscillator.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(AO - SMA_5(AO)\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Spotting momentum shifts before they appear in price.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/TRIX.html">TRIX (TRX)</a>:</strong> The rate of change of a triple-exponentially smoothed moving average.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\%\)</span> Change of <span class="arithmatex">\(EMA(EMA(EMA(C)))\)</span></li>
+<li><strong>Category:</strong> Trend/Momentum</li>
+<li><strong>Use Case:</strong> Filtering out insignificant cycles and noise.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Coppock_Curve.html">Coppock Curve (CC)</a>:</strong> A long-term price momentum indicator used to identify major market bottoms.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(WMA_{10}(ROC_{14} + ROC_{11})\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Long-term investment timing in broad indices.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Fisher_Transform.html">Fisher Transform (FT)</a>:</strong> Transforms prices into a Gaussian normal distribution.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(0.5 \times \ln(\frac{1+X}{1-X})\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Pinpointing turning points with extreme clarity.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Relative_Vigor_Index.html">Relative Vigor Index (RVI)</a>:</strong> Measures the conviction of a trend by comparing close to open.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{EMA(C-O)}{EMA(H-L)}\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Trend confirmation in volatile markets.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Relative_Volatility_Index.html">Relative Volatility Index (RVI-V)</a>:</strong> An RSI-style oscillator that uses standard deviation of price changes.<ul>
+<li><strong>Equation:</strong> RSI formula applied to StdDev.</li>
+<li><strong>Category:</strong> Volatility/Momentum</li>
+<li><strong>Use Case:</strong> Confirming breakout signals.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/CMO.html">Chande Momentum Oscillator (CMO)</a>:</strong> A momentum oscillator that uses price data in both the numerator and denominator.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(100 \times \frac{SumUp - SumDn}{SumUp + SumDn}\)</span></li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Capturing momentum changes without the smoothing lag of RSI.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Ultimate_Oscillator.html">Ultimate Oscillator (UO)</a>:</strong> A momentum oscillator that uses three different timeframes.<ul>
+<li><strong>Equation:</strong> Weighted average of three different cycles.</li>
+<li><strong>Category:</strong> Momentum</li>
+<li><strong>Use Case:</strong> Reducing false overbought/oversold signals.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Vortex_Indicator.html">Vortex Indicator (VI)</a>:</strong> Two lines that capture positive and negative trend movement.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sum |H - L_{-1}| / \sum TR\)</span></li>
+<li><strong>Category:</strong> Trend</li>
+<li><strong>Use Case:</strong> Spotting trend reversals and identifying current trend direction.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="v-microstructure-flow-dynamics">V. Microstructure &amp; Flow Dynamics<a class="headerlink" href="#v-microstructure-flow-dynamics" title="Permanent link">&para;</a></h3>
+<p><em>Incorporates Volume to gauge the "force" or "liquidity" behind price.</em></p>
+<ol>
+<li><strong><a href="indicators/VWAP.html">Volume Weighted Average Price (VWAP)</a>:</strong> The average price an asset has traded at throughout the day, based on both volume and price.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sum (P \times V) / \sum V\)</span></li>
+<li><strong>Category:</strong> Volume/Benchmark</li>
+<li><strong>Use Case:</strong> Determining institutional fair value for the day.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/OBV.html">On-Balance Volume (OBV)</a>:</strong> A cumulative total of volume that adds volume on up days and subtracts it on down days.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(OBV_{prev} \pm V\)</span></li>
+<li><strong>Category:</strong> Volume</li>
+<li><strong>Use Case:</strong> Identifying divergence between price and volume.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/MFI.html">Money Flow Index (MFI)</a>:</strong> A volume-weighted version of the RSI.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(100 - [100 / (1 + \text{Money Ratio})]\)</span></li>
+<li><strong>Category:</strong> Volume/Momentum</li>
+<li><strong>Use Case:</strong> Spotting reversals when volume and price are out of sync.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/CMF.html">Chaikin Money Flow (CMF)</a>:</strong> Measures the amount of Money Flow Volume over a specific period.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sum \text{Money Flow Volume} / \sum \text{Volume}\)</span></li>
+<li><strong>Category:</strong> Volume</li>
+<li><strong>Use Case:</strong> Gauging institutional accumulation or distribution.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Accumulation_Distribution.html">Accumulation/Distribution (A/D)</a>:</strong> Uses price and volume to show how strongly an asset is being accumulated.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sum [(\frac{(C-L)-(H-C)}{H-L}) \times V]\)</span></li>
+<li><strong>Category:</strong> Volume</li>
+<li><strong>Use Case:</strong> Confirming a trend or spotting potential reversals.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Chaikin_Oscillator.html">Chaikin Oscillator (CO)</a>:</strong> Applies the MACD formula to the Accumulation/Distribution line.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(EMA_3(A/D) - EMA_{10}(A/D)\)</span></li>
+<li><strong>Category:</strong> Volume/Momentum</li>
+<li><strong>Use Case:</strong> Identifying momentum in volume flow.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/PVT.html">Price Volume Trend (PVT)</a>:</strong> Similar to OBV but adds only a percentage of volume based on price change.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(PVT_{prev} + V \times (\frac{C - C_1}{C_1})\)</span></li>
+<li><strong>Category:</strong> Volume</li>
+<li><strong>Use Case:</strong> Provides a more granular view of volume flow than OBV.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/EFI.html">Elder’s Force Index (EFI)</a>:</strong> Uses price and volume to measure the power behind a move.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\((C - C_1) \times V\)</span></li>
+<li><strong>Category:</strong> Volume/Momentum</li>
+<li><strong>Use Case:</strong> Identifying the end of corrections within a trend.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Ease_of_Movement.html">Ease of Movement (EOM)</a>:</strong> Relates price change to volume to show how easily a price can move.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\frac{\text{Midpoint Move}}{\text{Box Ratio}}\)</span></li>
+<li><strong>Category:</strong> Volume</li>
+<li><strong>Use Case:</strong> Identifying trends that require very little volume to persist.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Klinger_Oscillator.html">Klinger Oscillator (KO)</a>:</strong> High-volume force indicator that compares volume to price range.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(EMA_{fast}(VF) - EMA_{slow}(VF)\)</span></li>
+<li><strong>Category:</strong> Volume</li>
+<li><strong>Use Case:</strong> Long-term trend confirmation and short-term timing.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Percentage_Volume_Oscillator.html">Volume Oscillator (VO)</a>:</strong> Measures the difference between two volume moving averages.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(EMA_{fast}(V) - EMA_{slow}(V)\)</span></li>
+<li><strong>Category:</strong> Volume</li>
+<li><strong>Use Case:</strong> Identifying when volume is expanding or contracting.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Volume_Profile.html">Volume Profile (VP)</a>:</strong> An advanced charting study that displays trading activity over a specified time period at specified price levels.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sum V \text{ at each Price } P\)</span></li>
+<li><strong>Category:</strong> Volume/Structure</li>
+<li><strong>Use Case:</strong> Identifying High Volume Nodes (HVN) as support/resistance.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="vi-adaptive-regime-switching-systems">VI. Adaptive &amp; Regime-Switching Systems<a class="headerlink" href="#vi-adaptive-regime-switching-systems" title="Permanent link">&para;</a></h3>
+<p><em>Sophisticated systems that adjust their sensitivity based on market conditions.</em></p>
+<ol>
+<li><strong><a href="indicators/KAMA.html">Kaufman Adaptive MA (KAMA)</a>:</strong> A moving average that adjusts its speed based on the efficiency of price movement.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(AMA_t = AMA_{t-1} + SC^2 \times (C_t - AMA_{t-1})\)</span></li>
+<li><strong>Category:</strong> Trend/Adaptive</li>
+<li><strong>Use Case:</strong> Following trends in noisy markets without getting whipsawed.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/McGinley_Dynamic.html">McGinley Dynamic (MD)</a>:</strong> An adaptive average designed to follow price more accurately than traditional MAs.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(MD_{prev} + \frac{C - MD_{prev}}{k \cdot n \cdot (C/MD_{prev})^4}\)</span></li>
+<li><strong>Category:</strong> Trend/Adaptive</li>
+<li><strong>Use Case:</strong> Avoiding the "separation" of price and average in fast moves.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/SuperTrend.html">SuperTrend (ST)</a>:</strong> A trend-following indicator based on Average True Range.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\text{Median Price} \pm (k \times ATR)\)</span></li>
+<li><strong>Category:</strong> Trend/Regime</li>
+<li><strong>Use Case:</strong> Clear buy/sell signals and trailing stops.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Parabolic_SAR.html">Parabolic SAR (PSAR)</a>:</strong> A trailing stop and reversal system.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(SAR_{t+1} = SAR_t + \alpha(EP - SAR_t)\)</span></li>
+<li><strong>Category:</strong> Trend/Regime</li>
+<li><strong>Use Case:</strong> Trailing stops in strong trending markets.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Choppiness_Index.html">Choppiness Index (CHOP)</a>:</strong> Measures the market's tendency to trend or range.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(100 \times \log_{10}(\frac{\sum ATR}{H_n - L_n}) / \log_{10}(n)\)</span></li>
+<li><strong>Category:</strong> Regime</li>
+<li><strong>Use Case:</strong> Avoiding trading in "sideways" or "choppy" markets (values &gt; 61.8).</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Chaikin_Volatility.html">Chaikin Volatility (CV)</a>:</strong> Measures the rate of change of the Average True Range.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\%\)</span> Change in <span class="arithmatex">\(EMA(H-L)\)</span></li>
+<li><strong>Category:</strong> Volatility</li>
+<li><strong>Use Case:</strong> Identifying volatility peaks that lead to reversals.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Chande_Kroll_Stop.html">Chande Kroll Stop (CKS)</a>:</strong> A volatility-based exit indicator.<ul>
+<li><strong>Equation:</strong> Uses <span class="arithmatex">\(n\)</span>-period High/Low and ATR.</li>
+<li><strong>Category:</strong> Volatility/Regime</li>
+<li><strong>Use Case:</strong> Dynamic stop losses that don't get hit by random noise.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Ichimoku_Cloud.html">Ichimoku Cloud (ICH)</a>:</strong> A comprehensive system identifying trend, support, and momentum.<ul>
+<li><strong>Equation:</strong> Uses 5 different mid-point lines.</li>
+<li><strong>Category:</strong> Trend/Regime</li>
+<li><strong>Use Case:</strong> Full market-regime analysis.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/GMMA.html">Guppy Multiple MA (GMMA)</a>:</strong> Uses two groups of moving averages to identify trend strength and investor behavior.<ul>
+<li><strong>Equation:</strong> Clusters of 12 EMAs.</li>
+<li><strong>Category:</strong> Trend/Regime</li>
+<li><strong>Use Case:</strong> Spotting trend breakouts and exhaustion.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Williams_Alligator.html">Williams Alligator (ALLI)</a>:</strong> Uses three smoothed moving averages to identify trend formation.<ul>
+<li><strong>Equation:</strong> 3 shifted SMAs (Jaw, Teeth, Lips).</li>
+<li><strong>Category:</strong> Trend/Regime</li>
+<li><strong>Use Case:</strong> Identifying "sleep" (range) and "hunger" (trend) phases.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Mass_Index.html">Mass Index (MI)</a>:</strong> Identifies trend reversals by measuring the widening and narrowing of the price range.<ul>
+<li><strong>Equation:</strong> <span class="arithmatex">\(\sum (\frac{EMA(H-L)}{EMA(EMA(H-L))})\)</span></li>
+<li><strong>Category:</strong> Volatility/Momentum</li>
+<li><strong>Use Case:</strong> Predicting "reversal bulges" where a trend is about to turn.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="hierarchy-summary">Hierarchy Summary<a class="headerlink" href="#hierarchy-summary" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Level 1 (Data):</strong> Basic arithmetic on OHLCV (e.g., Average Price).</li>
+<li><strong>Level 2 (Smoothing):</strong> Time-filters that remove noise (e.g., EMA).</li>
+<li><strong>Level 3 (Derivatives):</strong> Using averages to find relative value (e.g., Bollinger Bands).</li>
+<li><strong>Level 4 (Advanced):</strong> Recursive logic, multi-factor integration, and adaptive speed (e.g., KAMA, Ichimoku).</li>
+</ol>
+<p>Would you like me to create the <strong>Python visualizer</strong> to demonstrate how a Level 1 error (like a price spike) propagates through these levels?</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="indicators/Average_Price.html" class="btn btn-neutral float-right" title="Average Price">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/example/simtrade" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="index.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="indicators/Average_Price.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="javascripts/mathjax.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

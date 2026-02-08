@@ -1,0 +1,4 @@
+/* Override the fixed width of the content area */
+.wy-nav-content {
+    max-width: 90% !important;
+}

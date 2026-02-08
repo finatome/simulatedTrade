@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/simtrade-docs/trading-engine.html" />
+      <link rel="shortcut icon" href="img/favicon.ico" />
+    <title>Trading & Scoring - SimTrade Documentation</title>
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="css/custom.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Trading \u0026 Scoring";
+        var mkdocs_page_input_path = "trading-engine.md";
+        var mkdocs_page_url = "/simtrade-docs/trading-engine.html";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="index.html" class="icon icon-home"> SimTrade Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Indicators</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="indicators.html">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >I. First-Order Primitives</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Average_Price.html">Average Price</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Median_Price.html">Median Price</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Typical_Price.html">Typical Price</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Volume.html">Volume</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Standard_Deviation.html">Standard Deviation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Historical_Volatility.html">Historical Volatility</a>
+                </li>
+                <li class="toctree-l2"><a class="" href="indicators/Volatility_Close_To_Close.md">Volatility Close-to-Close</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Volatility_OHLC.html">Volatility O-H-L-C</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Volatility_Zero_Trend_Close_To_Close.html">Volatility Zero-Trend C-C</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/ROC.html">Rate of Change (ROC)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Momentum.html">Momentum</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Spread.html">Spread</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Ratio.html">Ratio</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Net_Volume.html">Net Volume</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Fractal.html">Williams Fractal</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >II. Second-Order Smoothing</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/SMA.html">Moving Average (SMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/EMA.html">Exponential Moving Average (EMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/WMA.html">Weighted Moving Average (WMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/SMMA.html">Smoothed Moving Average (SMMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/ALMA.html">Arnaud Legoux MA (ALMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/HMA.html">Hull Moving Average (HMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/LSMA.html">Least Squares MA (LSMA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/VWMA.html">VWMA</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Hamming_Moving_Average.html">Moving Average Hamming</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/VAMA.html">Moving Average weighted by Volatility</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >III. Third-Order Oscillators & Bands</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/MA_Cross.html">Moving Average Cross</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/EMA_Cross.html">EMA Cross</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Price_Oscillator.html">Price Oscillator (PO)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/MACD.html">MACD</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Bollinger_Bands.html">Bollinger Bands</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Bollinger_PctB.html">Bollinger %B</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Bollinger_Bandwidth.html">Bollinger Bandwidth</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Standard_Error_Bands.html">Standard Error Bands</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Donchian_Channels.html">Price Channel / Donchian</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Keltner_Channels.html">Keltner Channels</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/MA_Channel.html">Moving Average Channel</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Envelopes.html">Envelopes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Detrended_Price_Oscillator.html">DPO (Detrended Price Oscillator)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/ATR.html">Average True Range (ATR)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/CCI.html">CCI (Commodity Channel Index)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Standard_Error.html">Standard Error</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Linear_Regression_Curve.html">Linear Regression Curve</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Linear_Regression_Slope.html">Linear Regression Slope</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >IV. Fourth-Order Complex Momentum & Volume</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/RSI.html">RSI (Relative Strength Index)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Stochastic.html">Stochastic Oscillator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Stochastic_RSI.html">Stochastic RSI</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/SMI_Ergodic.html">SMI Ergodic Indicator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/True_Strength_Index.html">True Strength Index (TSI)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Trend_Strength_Index.html">Trend Strength Index</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/ADX.html">ADX (Average Directional Index)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Directional_Movement.html">Directional Movement (DM)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Aroon.html">Aroon</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Awesome_Oscillator.html">Awesome Oscillator (AO)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Accelerator_Oscillator.html">Accelerator Oscillator (AC)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/TRIX.html">TRIX</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Coppock_Curve.html">Coppock Curve</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Fisher_Transform.html">Fisher Transform</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Relative_Vigor_Index.html">Relative Vigor Index (RVI)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Relative_Volatility_Index.html">Relative Volatility Index</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/CMO.html">Chande Momentum Oscillator (CMO)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Ultimate_Oscillator.html">Ultimate Oscillator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Vortex_Indicator.html">Vortex Indicator</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >V. Microstructure & Flow Dynamics</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/VWAP.html">VWAP</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/OBV.html">OBV (On-Balance Volume)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/MFI.html">MFI (Money Flow Index)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/CMF.html">CMF (Chaikin Money Flow)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Accumulation_Distribution.html">A/D Indicator (Accumulation/Distribution)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Chaikin_Oscillator.html">Chaikin Oscillator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/PVT.html">Price Volume Trend (PVT)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/EFI.html">Elder’s Force Index</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Ease_of_Movement.html">Ease of Movement (EOM)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Klinger_Oscillator.html">Klinger Oscillator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Percentage_Volume_Oscillator.html">Volume Oscillator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Volume_Profile.html">Volume Profile</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" >VI. Adaptive & Regime-Switching Systems</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/KAMA.html">KAMA (Kaufman Adaptive MA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/McGinley_Dynamic.html">McGinley Dynamic</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/SuperTrend.html">SuperTrend</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Parabolic_SAR.html">Parabolic SAR</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Choppiness_Index.html">Choppiness Index</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Chaikin_Volatility.html">Chaikin Volatility</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Chande_Kroll_Stop.html">Chande Kroll Stop</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Ichimoku_Cloud.html">Ichimoku Cloud</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/GMMA.html">GMMA (Guppy Multiple MA)</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Williams_Alligator.html">Williams Alligator</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="indicators/Mass_Index.html">Mass Index</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Data</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="data-generator.html">Synthetic Generator</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="data-download.html">Real Data & Downloads</a>
+                  </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Trading & Scoring</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#trade-lifecycle">Trade Lifecycle</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#real-time-stats-scoreboard">Real-Time Stats &amp; Scoreboard</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#risk-configuration">Risk &amp; Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#extending-the-engine">Extending the Engine</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SimTrade Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html" class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Trading & Scoring</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/example/simtrade/edit/master/docs/trading-engine.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="trading-scoring-engine">Trading &amp; Scoring Engine<a class="headerlink" href="#trading-scoring-engine" title="Permanent link">&para;</a></h1>
+<p>The trading core lives in <code>engine/simulator.py</code> and powers every scenario shown in the Dash UI. It emulates a single-position futures account with leverage, configurable take-profit/stop-loss brackets, and persistent performance tracking.</p>
+<h2 id="trade-lifecycle">Trade Lifecycle<a class="headerlink" href="#trade-lifecycle" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Entry</strong></li>
+<li>Triggered via the LONG or SHORT buttons once the initial 50-candle history is displayed.</li>
+<li>
+<p><code>enter_trade()</code> records the side, sets the entry price, and converts user-specified TP/SL <em>points</em> into absolute price levels. For example, entering long at 4,000 with a 15-point target produces a 4,015 TP and 3,985 SL.</p>
+</li>
+<li>
+<p><strong>Reveal Loop</strong></p>
+</li>
+<li>The UI advances one candle per timer tick (100 ms by default). Each new candle flows through <code>check_exit()</code>.</li>
+<li>
+<p>Exit order of operations favors risk management: stop-loss detection runs before take-profit to mirror worst-case execution within a volatile candle.</p>
+</li>
+<li>
+<p><strong>Exit Conditions</strong></p>
+</li>
+<li><strong>TP Hit</strong>: Candle reaches or crosses the TP level.</li>
+<li><strong>SL Hit</strong>: Candle reaches or crosses the SL level (evaluated first).</li>
+<li><strong>Manual Exit</strong>: User presses EXIT, closing at the most recent close.</li>
+<li>
+<p><strong>Timeout</strong>: Scenario reaches the final candle without other triggers.</p>
+</li>
+<li>
+<p><strong>PnL Calculation</strong></p>
+</li>
+<li><code>close_trade()</code> computes raw percent return <code>(exit - entry) / entry</code>, scales it by account balance and leverage, and updates the running balance.</li>
+<li>
+<p>Each trade appends a record to <code>scenario_history</code>, including side, realized PnL, percent return, and close reason.</p>
+</li>
+<li>
+<p><strong>Reset for Next Scenario</strong></p>
+</li>
+<li>Clicking SKIP (or switching data source/ticker) calls <code>sim.reset()</code> and loads a fresh dataframe—either synthetic (GBM) or real (asset cache).</li>
+</ol>
+<h2 id="real-time-stats-scoreboard">Real-Time Stats &amp; Scoreboard<a class="headerlink" href="#real-time-stats-scoreboard" title="Permanent link">&para;</a></h2>
+<p><code>engine/analytics.calculate_metrics()</code> consumes <code>scenario_history</code> to produce the metrics displayed on the right panel:</p>
+<ul>
+<li><strong>Win Rate</strong>: Percent of trades with PnL &gt; 0.</li>
+<li><strong>Profit Factor</strong>: Gross profits divided by gross losses (falls back to gross profits when no losses exist).</li>
+<li><strong>Total PnL</strong>: Sum of realized PnL across the session.</li>
+<li><strong>Trade Count</strong>: Number of completed trades.</li>
+</ul>
+<p>During an active trade, the UI also computes unrealized PnL via <code>get_unrealized_pnl()</code> so traders can monitor floating gains relative to leverage and entry price.</p>
+<h2 id="risk-configuration">Risk &amp; Configuration<a class="headerlink" href="#risk-configuration" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Leverage</strong>: Default is 10x and can be changed by instantiating <code>FuturesSimulator(leverage=...)</code>.</li>
+<li><strong>TP/SL Units</strong>: The input fields in the right panel accept point distances (not percentages), ensuring consistency across tickers.</li>
+<li><strong>Balance Persistence</strong>: Balance and performance history persist across scenarios until the app is restarted, encouraging longer practice sessions.</li>
+</ul>
+<h2 id="extending-the-engine">Extending the Engine<a class="headerlink" href="#extending-the-engine" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Add support for partial exits or multiple contracts by extending the simulator with position sizing fields.</li>
+<li>Plug in alternative scoring metrics (Sharpe, expectancy, drawdown) by expanding <code>calculate_metrics()</code> and the scoreboard component.</li>
+<li>Introduce new exit logic (trail stops, time-based exits) by updating <code>check_exit()</code> or adding auxiliary state in the simulator.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="data-download.html" class="btn btn-neutral float-left" title="Real Data & Downloads"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/example/simtrade" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="data-download.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="javascripts/mathjax.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

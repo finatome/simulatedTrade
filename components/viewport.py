@@ -1,7 +1,7 @@
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
+def create_viewport(df, show_indicators=True, trade_state=None, theme='dark', history=None):
     # trade_state: dict with keys 'entry', 'tp', 'sl'
     
     # Theme Configuration
@@ -14,7 +14,9 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
             'st_base': 'black',    # Supertrend Base
             'template': 'plotly_white',
             'up_candle': '#00C853',
-            'down_candle': '#D50000'
+            'down_candle': '#D50000',
+            'vol_up': 'rgba(0, 200, 83, 0.5)',   # Transparent Green
+            'vol_down': 'rgba(213, 0, 0, 0.5)'   # Transparent Red
         }
     else: # Default to Dark
         palette = {
@@ -25,7 +27,9 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
             'st_base': 'white',    # Supertrend Base
             'template': 'plotly_dark',
             'up_candle': '#00E676',
-            'down_candle': '#FF1744'
+            'down_candle': '#FF1744',
+            'vol_up': 'rgba(0, 230, 118, 0.5)',  # Transparent Green
+            'vol_down': 'rgba(255, 23, 68, 0.5)' # Transparent Red
         }
 
     fig = make_subplots(rows=3, cols=1, shared_xaxes=True, 
@@ -41,7 +45,7 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
 
     # Volume Chart (Row 2)
     # Determine colors based on Close >= Open
-    vol_colors = [palette['up_candle'] if c >= o else palette['down_candle'] for c, o in zip(df['Close'], df['Open'])]
+    vol_colors = [palette['vol_up'] if c >= o else palette['vol_down'] for c, o in zip(df['Close'], df['Open'])]
     fig.add_trace(go.Bar(
         x=df.index, y=df['Volume'],
         marker_color=vol_colors,
@@ -57,7 +61,7 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
     
     selected_indicators = show_indicators if isinstance(show_indicators, list) else []
     
-    # Trade Lines (Re-inserted)
+    # Trade Lines (Active)
     if trade_state:
         if trade_state.get('entry'):
             fig.add_hline(y=trade_state['entry'], line_dash="solid", line_color="gray", line_width=1, annotation_text="ENTRY", row=1, col=1)
@@ -66,9 +70,78 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
         if trade_state.get('sl'):
             fig.add_hline(y=trade_state['sl'], line_dash="dash", line_color="#FF1744", line_width=1.5, annotation_text="SL", row=1, col=1)
 
-    
+    # Historical Trades (Markers & Lines)
+    if history:
+        for trade in history:
+            # Check if entry/exit times are within the current view?
+            # Plotly handles out-of-view points gracefully (just doesn't show or auto-ranges if allowed).
+            # We assume df index covers the trade times if we are sliding a window, 
+            # OR we just add them and let Plotly decide (might mess up auto-range if very old).
+            # But the user specifically wants to see them.
+            
+            entry_t = trade.get('entry_time')
+            exit_t = trade.get('exit_time')
+            entry_p = trade.get('entry_price')
+            exit_p = trade.get('exit_price')
+            side = trade.get('side')
+            
+            if entry_t is not None:
+                # Vertical Line Entry
+                fig.add_vline(x=entry_t, line_width=1, line_dash="dot", line_color="gray", row=1, col=1)
+                
+                # Entry Marker
+                # Long Entry: Green Up Triangle
+                # Short Entry: Red Down Triangle
+                symbol = 'triangle-up' if side == 'LONG' else 'triangle-down'
+                color = '#00E676' if side == 'LONG' else '#FF1744'
+                
+                fig.add_trace(go.Scatter(
+                    x=[entry_t], y=[entry_p],
+                    mode='markers',
+                    marker=dict(symbol=symbol, size=12, color=color, line=dict(color='white', width=1)),
+                    name=f"{side} Entry",
+                    hoverinfo='text',
+                    hovertext=f"{side} Entry @ {entry_p:.2f}"
+                ), row=1, col=1)
+
+            if exit_t is not None:
+                # Vertical Line Exit
+                fig.add_vline(x=exit_t, line_width=1, line_dash="dot", line_color="gray", row=1, col=1)
+                
+                # Exit Marker
+                # Exit Long (Sell): Red Down Triangle? Or Green/Red based on PnL?
+                # User asked for "red or green triangle at the point of trade entry and exit".
+                # Standard convention:
+                # Long Exit: You are Selling. Red Triangle Down.
+                # Short Exit: You are Buying. Green Triangle Up.
+                # BUT maybe easy distinction is:
+                # Entry = Filled Triangle
+                # Exit = Open Triangle? Or just simple Up/Down.
+                
+                # Let's use Side logic for simplicity:
+                # Closing Long -> Sell -> Red Down
+                # Closing Short -> Buy -> Green Up
+                
+                exit_symbol = 'triangle-down' if side == 'LONG' else 'triangle-up'
+                exit_color = '#FF1744' if side == 'LONG' else '#00E676'
+                
+                fig.add_trace(go.Scatter(
+                    x=[exit_t], y=[exit_p],
+                    mode='markers',
+                    marker=dict(symbol=exit_symbol, size=12, color=exit_color, line=dict(color='white', width=1)),
+                    name=f"{side} Exit",
+                    hoverinfo='text',
+                    hovertext=f"{side} Exit @ {exit_p:.2f} ({trade.get('reason')})"
+                ), row=1, col=1)
+
     # Define subplots (Oscillators) vs Overlays
-    subplots_list = ['RSI_14', 'MACD_12_26_9', 'STOCHk_14_3_3', 'ADX_14', 'CCI_14_0.015', 'ROC_10', 'OBV']
+    subplots_list = ['RSI_14', 'MACD_12_26_9', 'STOCHk_14_3_3', 'ADX_14', 'CCI_14_0.015', 'ROC_10', 'OBV',
+                     'STDDEV_20', 'HISTVOL_20', 'VOL_CC_20', 'VOL_OHLC_20', 'VOL_ZTC_20', 'MOM_10', 'SPREAD', 'RATIO_SMA50',
+                     'MA_CROSS', 'EMA_CROSS', 'PO_20_50', 'BB_PCT_B', 'BB_WIDTH', 'DPO_20', 'ATR_14', 'SLOPE_20', 'STD_ERR',
+                     'STOCHRSIk_14_14_3_3', 'SMI_5_20_5_1.0', 'TSI_13_25_13', 'AROONOSC_14', 'AO_5_34', 'AC_5_34', 'TRIX_30_9',
+                     'COPC_11_14_10', 'FISHERT_9_1', 'RVI_14', 'RVI_VOL', 'CMO_14', 'UO_7_14_28', 'VTXP_14',
+                     'MFI_14', 'CMF_20', 'ADOSC_3_10', 'EFI_13', 'EOM_14_100000000', 'KVO_34_55_13', 'PVO_12_26_9',
+                     'CHOP_14_1_100.0', 'CHAIKIN_VOL', 'MASSI_9_25']
     
     # Hardcoded color cycle for variety
     colors = ['#00E676', '#FF1744', '#2979FF', '#FFea00', '#AA00FF', '#00B8D9']
@@ -79,6 +152,93 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
     color_idx = 0
     
     for ind in selected_indicators:
+        
+        # --- SPECIAL HANDLERS (Bands & Channels) ---
+        # STANDARD ERROR BANDS
+        if ind == 'SEB':
+             if 'SEB_U' in df.columns and 'SEB_L' in df.columns:
+                fig.add_trace(go.Scatter(x=df.index, y=df['SEB_U'], line=dict(color='gray', width=1, dash='dash'), name='SEB Upper'), row=1, col=1)
+                fig.add_trace(go.Scatter(x=df.index, y=df['SEB_L'], line=dict(color='gray', width=1, dash='dash'), fill='tonexty', fillcolor='rgba(128,128,128,0.1)', name='SEB Lower'), row=1, col=1)
+             continue
+
+        # MA CHANNEL
+        if ind == 'MACH_U':
+             if 'MACH_U' in df.columns and 'MACH_L' in df.columns:
+                fig.add_trace(go.Scatter(x=df.index, y=df['MACH_U'], line=dict(color='cyan', width=1), name='MA Channel Upper'), row=1, col=1)
+                fig.add_trace(go.Scatter(x=df.index, y=df['MACH_L'], line=dict(color='cyan', width=1), fill='tonexty', fillcolor='rgba(0,255,255,0.05)', name='MA Channel Lower'), row=1, col=1)
+             continue
+
+        # ENVELOPES
+        if ind == 'ENV_U':
+             if 'ENV_U' in df.columns and 'ENV_L' in df.columns:
+                fig.add_trace(go.Scatter(x=df.index, y=df['ENV_U'], line=dict(color='orange', width=1), name='Envelope Upper'), row=1, col=1)
+                fig.add_trace(go.Scatter(x=df.index, y=df['ENV_L'], line=dict(color='orange', width=1), fill='tonexty', fillcolor='rgba(255,165,0,0.05)', name='Envelope Lower'), row=1, col=1)
+             continue
+
+        # KELTNER CHANNELS
+        if 'KC' in ind: 
+             # Plot KC_..._U, KC_..._L
+             kc_cols = [c for c in df.columns if c.startswith('KC') and ('_U' in c or '_L' in c)]
+             for c in kc_cols:
+                 fig.add_trace(go.Scatter(x=df.index, y=df[c], mode='lines', line=dict(width=1, dash='dot'), name=c), row=1, col=1)
+             if not kc_cols and ind in df.columns: # Fallback if just one column
+                 fig.add_trace(go.Scatter(x=df.index, y=df[ind], mode='lines', line=dict(width=1), name=ind), row=1, col=1)
+             if kc_cols: continue
+
+        # DONCHIAN CHANNELS
+        if 'DCL' in ind:
+             # Look for DCU and DCL
+             dcols = [c for c in df.columns if ('DCU' in c or 'DCL' in c) and c.split('_')[1:] == ind.split('_')[1:]]
+             for c in dcols:
+                 fig.add_trace(go.Scatter(x=df.index, y=df[c], mode='lines', line=dict(width=1, dash='dot'), name=c), row=1, col=1)
+             if dcols: continue
+
+        # GMMA (Guppy)
+        if ind == 'GMMA':
+             # Plot 12 EMAs
+             short_periods = [3, 5, 8, 10, 12, 15]
+             long_periods = [30, 35, 40, 45, 50, 60]
+             for p in short_periods:
+                 col = f"EMA_{p}"
+                 if col in df.columns:
+                     fig.add_trace(go.Scatter(x=df.index, y=df[col], line=dict(color='blue', width=1), opacity=0.5, name=col), row=1, col=1)
+             for p in long_periods:
+                 col = f"EMA_{p}"
+                 if col in df.columns:
+                     fig.add_trace(go.Scatter(x=df.index, y=df[col], line=dict(color='red', width=1), opacity=0.5, name=col), row=1, col=1)
+             continue
+
+        # ICHIMOKU
+        if 'ISA_' in ind:
+             # Find actual column names
+             isa_col = next((c for c in df.columns if c.startswith('ISA_')), None)
+             isb_col = next((c for c in df.columns if c.startswith('ISB_')), None)
+             its_col = next((c for c in df.columns if c.startswith('ITS_')), None)
+             iks_col = next((c for c in df.columns if c.startswith('IKS_')), None)
+             ics_col = next((c for c in df.columns if c.startswith('ICS_')), None)
+             
+             if isa_col and isb_col:
+                 # Cloud
+                 fig.add_trace(go.Scatter(x=df.index, y=df[isa_col], line=dict(color='green', width=0), showlegend=False, hoverinfo='skip'), row=1, col=1)
+                 fig.add_trace(go.Scatter(x=df.index, y=df[isb_col], line=dict(color='red', width=0), fill='tonexty', fillcolor='rgba(0, 255, 0, 0.1)', name='Ichimoku Cloud'), row=1, col=1)
+                 
+             if its_col: fig.add_trace(go.Scatter(x=df.index, y=df[its_col], line=dict(color='blue', width=1), name='Tenkan'), row=1, col=1)
+             if iks_col: fig.add_trace(go.Scatter(x=df.index, y=df[iks_col], line=dict(color='red', width=1), name='Kijun'), row=1, col=1)
+             if ics_col: fig.add_trace(go.Scatter(x=df.index, y=df[ics_col], line=dict(color='green', width=1, dash='dot'), name='Chikou'), row=1, col=1)
+             continue
+
+        # ALLIGATOR
+        if 'AG_' in ind:
+            # Look for AGj (Jaw), AGt (Teeth), AGl (Lips)
+            jaw_col = next((c for c in df.columns if c.startswith('AGj_')), None)
+            teeth_col = next((c for c in df.columns if c.startswith('AGt_')), None)
+            lips_col = next((c for c in df.columns if c.startswith('AGl_')), None)
+            
+            if jaw_col: fig.add_trace(go.Scatter(x=df.index, y=df[jaw_col], line=dict(color='blue', width=1), name='Jaw'), row=1, col=1)
+            if teeth_col: fig.add_trace(go.Scatter(x=df.index, y=df[teeth_col], line=dict(color='red', width=1), name='Teeth'), row=1, col=1)
+            if lips_col: fig.add_trace(go.Scatter(x=df.index, y=df[lips_col], line=dict(color='green', width=1), name='Lips'), row=1, col=1)
+            continue
+
 
         # --- SPECIAL INDICATOR HANDLERS ---
         
@@ -158,9 +318,10 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
                 # This block was moving, so I'll leave the logic to the main BB handler below 
                 # or just let it pass through to the BB handler.
                 pass 
-                
-            # If we really can't find it, skip
-            pass
+            else:
+                # If we really can't find it, skip
+                print(f"WARNING: Indicator {ind} not found in columns. Skipping.")
+                continue
 
 
         # Indicator IS in columns (or we corrected the name mapping)
@@ -249,6 +410,62 @@ def create_viewport(df, show_indicators=True, trade_state=None, theme='dark'):
             # Draw the Middle Band (the indicator itself)
             fig.add_trace(go.Scatter(x=df.index, y=df[ind], line=dict(color='#00B8D9', width=1, dash='dash'), name="BB Mid"), row=1, col=1)
             continue
+            
+        # NET VOLUME (Bar Chart on Row 3)
+        if ind == 'NETVOL':
+            # Color by sign
+            nv_colors = [palette['vol_up'] if v >= 0 else palette['vol_down'] for v in df[ind]]
+            fig.add_trace(go.Bar(
+                x=df.index, y=df[ind],
+                marker_color=nv_colors,
+                name="Net Volume"
+            ), row=3, col=1)
+            continue
+
+        # WILLIAMS FRACTAL (Markers on Row 1)
+        if 'FRACTALS' in ind:
+            # We assume df has random fractal columns. 
+            # pandas_ta fractals typically adds 'FRACTAL_H_5', 'FRACTAL_L_5' etc.
+            # We look for columns starting with FRACTAL
+            fractal_cols = [c for c in df.columns if 'FRACTAL' in c]
+            
+            for fcol in fractal_cols:
+                # Filter out NaNs to plot markers only where they exist
+                # High Fract (Upper markers)
+                if 'H' in fcol or 'Bull' in fcol or 'Up' in fcol: # Heuristic naming check
+                    # Actually standard pandas_ta is `FRACTALS_5_H` or similar
+                    # Let's plot ANY fractal column found.
+                    # If it's effectively a High fractal, it will be near Highs.
+                    
+                    # Create series with only non-NaN values
+                    f_series = df[fcol].dropna()
+                    if not f_series.empty:
+                        # Determine if it is high or low based on value relative to Close?
+                        # Or just plot generic markers.
+                        # Let's use Triangle Up for Highs, Triangle Down for Lows if we can distinguish.
+                        
+                        symbol = 'triangle-up' if ('_L' in fcol) else 'triangle-down' # Inverted logic? Low fractal marks a low (support) -> Up Arrow? High fractal marks high (resistance) -> Down arrow?
+                        # Usually High Fractal is above candle (Down Arrow pointing to it)
+                        # Low Fractal is below candle (Up Arrow pointing to it)
+                        
+                        # pandas_ta: FRACTALS_5_L, FRACTALS_5_H
+                        if '_L' in fcol: 
+                            symbol = 'triangle-up'
+                            color = '#00E676'
+                            offset = -5 # shift annotation? No, just plot at value.
+                            # Value is likely NaN where no fractal. 
+                        else:
+                            symbol = 'triangle-down'
+                            color = '#FF1744'
+                        
+                        fig.add_trace(go.Scatter(
+                            x=f_series.index, y=f_series,
+                            mode='markers',
+                            marker=dict(symbol=symbol, size=10, color=color),
+                            name="Fractal"
+                        ), row=1, col=1)
+            continue
+
             
         # Standard Plotting for others
         c = colors[color_idx % len(colors)]

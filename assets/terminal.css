@@ -1,6 +1,18 @@
+:root {
+   --bg-primary: #0a192f;
+   --bg-secondary: #112240;
+   --bg-tertiary: #233554;
+   --text-primary: #ccd6f6;
+   --text-secondary: #8892b0;
+   --accent-cyan: #64ffda;
+   --accent-green: #00E676;
+   --accent-red: #f6465d;
+   --border-color: #1e2d4d;
+}
+
 body {
-   background-color: #0b0e11;
-   color: #e0e0e0;
+   background-color: var(--bg-primary);
+   color: var(--text-primary);
    font-family: 'Inter', sans-serif;
    margin: 0;
 }
@@ -10,59 +22,130 @@ body {
    padding: 20px;
    gap: 20px;
    height: 95vh;
+   width: 100vw;
+   /* Ensure full viewport width */
    box-sizing: border-box;
+   background-color: var(--bg-primary);
+   overflow: hidden;
+   /* Prevent body scroll if container handles it */
 }
 
-.main-chart-area {
-   flex: 3;
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+   width: 8px;
+   height: 8px;
+}
+
+::-webkit-scrollbar-track {
+   background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--bg-tertiary);
+   border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+   background: #405070;
+}
+
+
+/* --- LAYOUT PANELS --- */
+
+.left-panel {
+   background: var(--bg-secondary);
+   border-right: 1px solid var(--border-color);
+   border-radius: 4px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+   flex: 0 0 320px;
+   display: flex;
+   flex-direction: column;
+   overflow-y: auto;
+}
+
+.middle-panel {
+   flex: 1;
    display: flex;
    flex-direction: column;
    gap: 20px;
+   overflow-y: auto;
+   /* Enable vertical scrolling */
 }
 
 .right-panel {
-   flex: 1;
-   background: #161a1e;
-   padding: 20px;
+   background: var(--bg-secondary);
+   border-left: 1px solid var(--border-color);
    border-radius: 4px;
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-/* Visualization adjustments */
-#main-viewport {
-   flex-grow: 1;
-   min-height: 50vh;
+   flex: 0 0 350px;
+   display: flex;
+   flex-direction: column;
+   overflow: hidden;
 }
 
 .panel-title {
    margin-top: 0;
-   color: #8b929a;
-   border-bottom: 1px solid #333;
-   padding-bottom: 10px;
-   font-size: 1.2rem;
+   color: var(--accent-cyan);
+   border-bottom: 1px solid var(--border-color);
+   padding-bottom: 12px;
+   margin-bottom: 20px;
+   font-size: 1.4rem;
+   /* Larger */
+   font-weight: 700;
+   letter-spacing: 0.08em;
+   text-transform: uppercase;
 }
 
-.stat-card {
-   background: #1c2127;
-   padding: 15px;
-   border-left: 4px solid #00ffcc;
-   margin-bottom: 15px;
-   border-radius: 2px;
+/* .settings-panel ruleset removed */
+
+
+/* --- CONTROLS & STATUS --- */
+
+.controls-panel {
+   background: var(--bg-secondary);
+   padding: 20px;
+   border-radius: 4px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+   /* display: flex;  <-- Remove flex here to allow column layout inside if needed, or keep flex for buttons row */
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   /* Reduced gap */
 }
 
-.primary {
-   border-left-color: #00E676;
+/* --- HEADER --- */
+.app-header {
+   position: relative;
+   text-align: center;
+   padding: 15px 0;
+   background-color: var(--bg-primary);
+   border-bottom: 1px solid var(--border-color);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.dashboard-title {
+   color: var(--accent-cyan);
+   font-size: 1.8rem;
+   font-weight: 700;
+   margin: 0;
+   flex: 1;
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
 }
 
 .stat-grid {
    display: flex;
-   gap: 10px;
-   margin-bottom: 10px;
+   gap: 15px;
+   /* Increased gap */
+   margin-bottom: 20px;
+   /* Increased gap */
 }
 
 .stat-mini {
    flex: 1;
-   background: #1c2127;
+   background: var(--bg-tertiary);
    padding: 10px;
    border-radius: 2px;
 }
@@ -70,7 +153,7 @@ body {
 .stat-label {
    margin: 0;
    font-size: 0.85rem;
-   color: #8b929a;
+   color: var(--text-secondary);
 }
 
 .stat-value {
@@ -79,81 +162,233 @@ body {
    color: #fff;
 }
 
-.stat-value-large {
-   margin: 5px 0 0 0;
-   font-size: 1.8rem;
-   color: #fff;
+.controls-row {
+   display: flex;
+   gap: 10px;
+   width: 100%;
 }
 
 .control-btn {
-   width: 100%;
-   padding: 15px;
-   font-weight: bold;
+   flex: 1;
+   padding: 12px;
+   font-weight: 600;
    border: none;
    cursor: pointer;
-   margin-bottom: 10px;
    border-radius: 4px;
-   transition: opacity 0.2s;
-   font-size: 1rem;
+   transition: all 0.2s ease;
+   font-size: 0.9rem;
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+   color: var(--bg-primary);
+   /* Dark text on colored buttons */
 }
 
 .control-btn:hover {
-   opacity: 0.9;
+   filter: brightness(1.1);
+   transform: translateY(-1px);
+}
+
+.control-btn:active {
+   transform: translateY(0);
 }
 
 .long {
-   background: #2ebd85;
-   color: white;
+   background: var(--accent-green);
+   color: var(--bg-primary);
 }
 
 .short {
-   background: #f6465d;
+   background: var(--accent-red);
+   color: white;
+}
+
+.exit {
+   background: #e040fb;
+   /* Magenta */
    color: white;
 }
 
 .skip {
-   background: #333;
-   color: #ccc;
+   background: #ffab00;
+   /* Orange */
+   color: var(--bg-primary);
+   border: none;
 }
-
-.controls-panel {
-   background: #161a1e;
-   padding: 20px;
-   border-radius: 4px;
-   display: flex;
-   gap: 10px;
-   align-items: center;
-}
-
-.controls-panel .control-btn {
-   margin-bottom: 0;
-   flex: 1;
-}
-
-/* Override Controls to be at the bottom or separate? 
-   The notebook layout puts controls IN .main-chart-area.
-   Ideally chart is top, controls below it.
-*/
 
 .status-text {
-   color: #aaa;
-   margin-left: auto;
-   font-size: 0.9rem;
+   color: var(--accent-cyan);
+   font-family: 'Monaco', 'Consolas', monospace;
+   font-size: 0.85rem;
+   text-align: right;
 }
 
-/* Input Fields */
-.input-field {
+
+/* --- INDICATOR CARDS --- */
+
+#indicator-cards-wrapper {
+   display: grid;
+   grid-template-columns: repeat(5, minmax(0, 1fr));
+   /* Force 5 equal columns, prevent blowout */
+   gap: 8px;
+   /* Compact gap */
    width: 100%;
+   margin-top: 4px;
+   /* Reduced margin */
+}
+
+.indicator-card {
+   background-color: var(--bg-primary);
+   /* Slightly darker than panel */
+   border: 1px solid var(--border-color);
+   border-radius: 6px;
+   padding: 10px;
+   /* Reduced padding */
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+   transition: transform 0.2s, box-shadow 0.2s;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   min-width: 0;
+   /* Important for flex child in grid */
+   overflow: hidden;
+   /* Ensure content stays inside */
+}
+
+.indicator-card:hover {
+   transform: translateY(-2px);
+   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+   border-color: var(--accent-cyan);
+}
+
+.card-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 6px;
+   border-bottom: 1px solid var(--border-color);
+   padding-bottom: 4px;
+}
+
+.card-title {
+   margin: 0;
+   font-size: 0.85rem;
+   /* Smaller title */
+   font-weight: 700;
+   color: var(--text-primary);
+   white-space: nowrap;
+   /* Prevent wrap */
+   overflow: hidden;
+   text-overflow: ellipsis;
+   /* Ellipsis for long titles */
+   max-width: 70%;
+}
+
+.card-category {
+   font-size: 0.65rem;
+   /* Smaller category */
+   color: var(--accent-cyan);
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+   background: rgba(100, 255, 218, 0.1);
+   padding: 2px 4px;
+   border-radius: 3px;
+}
+
+.card-math {
+   background: rgba(0, 0, 0, 0.2);
+   padding: 6px;
+   border-radius: 4px;
+   margin-bottom: 6px;
+   border-left: 2px solid var(--bg-tertiary);
+   overflow-x: auto;
+   white-space: nowrap;
+   font-size: 0.7rem;
+   /* Smaller font for math */
+}
+
+/* Hide scrollbar for math to look cleaner but allow scroll */
+.card-math::-webkit-scrollbar {
+   height: 4px;
+}
+
+.card-significance {
+   font-size: 0.8rem;
+   color: var(--text-secondary);
+   line-height: 1.4;
+   font-style: italic;
+   max-height: 120px;
+   /* Increased height for readability */
+   /* Limit height for uniform cards */
+   overflow-y: auto;
+   /* Scroll if longer */
+}
+
+
+/* --- UTILS --- */
+
+.stat-label {
+   font-size: 0.95rem;
+   /* Larger */
+   text-transform: uppercase;
+   letter-spacing: 0.1em;
+   color: var(--accent-cyan);
+   /* Cyan */
+   margin-bottom: 8px;
+   display: block;
+   margin-top: 20px;
+   /* Gap above */
+   border-bottom: 1px solid rgba(100, 255, 218, 0.15);
+   /* Separator */
+   padding-bottom: 4px;
+}
+
+.input-field {
+   background: var(--bg-primary);
+   border: 1px solid var(--border-color);
+   color: var(--text-primary);
    padding: 8px;
-   background: #0b0e11;
-   border: 1px solid #333;
-   color: #fff;
-   border-radius: 2px;
-   font-family: inherit;
-   box-sizing: border-box;
+   border-radius: 4px;
+}
+
+.separator {
+   border: 0;
+   border-top: 1px solid var(--border-color);
+   margin: 15px 0;
+}
+
+.scroll-area {
+   border: 1px solid var(--border-color);
+   border-radius: 4px;
+   padding: 5px;
+   background: var(--bg-primary);
 }
 
 .input-field:focus {
-   border-color: #00B8D9;
+   border-color: var(--accent-cyan);
    outline: none;
+}
+
+/* React-Select / Dropdown Overrides for Dark Theme */
+.Select-control {
+   background-color: var(--bg-primary) !important;
+   border-color: var(--border-color) !important;
+   color: var(--text-primary) !important;
+}
+
+.Select-menu-outer {
+   background-color: var(--bg-primary) !important;
+   border-color: var(--border-color) !important;
+}
+
+.Select-value-label {
+   color: var(--text-primary) !important;
+}
+
+.Select-option {
+   background-color: var(--bg-primary) !important;
+   color: var(--text-primary) !important;
+}
+
+.Select-option.is-focused {
+   background-color: var(--bg-tertiary) !important;
 }

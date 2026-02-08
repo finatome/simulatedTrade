@@ -6,13 +6,15 @@ class FuturesSimulator:
         self.entry_price = 0
         self.tp_price = 0
         self.sl_price = 0
+        self.entry_time = None
         self.scenario_history = [] # Stores result of each of the 100 runs
         self.candles = None
         self.current_step = 0
 
-    def enter_trade(self, side, price, tp_points=10, sl_points=10):
+    def enter_trade(self, side, price, tp_points=10, sl_points=10, entry_time=None):
         self.current_pos = side
         self.entry_price = price
+        self.entry_time = entry_time # Store entry time
         
         # Inputs are Price Points (absolute price change)
         # e.g. price=1000, tp_points=10 -> tp_price=1010 (Long)
@@ -59,7 +61,7 @@ class FuturesSimulator:
                 
         return False, None, 0
 
-    def close_trade(self, exit_price, reason='MANUAL'):
+    def close_trade(self, exit_price, reason='MANUAL', exit_time=None):
         if self.current_pos is None:
             return 0
         
@@ -75,12 +77,15 @@ class FuturesSimulator:
             'return_pct': raw_pnl * self.leverage * 100 * multiplier,
             'exit_price': exit_price,
             'entry_price': self.entry_price,
+            'entry_time': self.entry_time, # Persist entry time
+            'exit_time': exit_time,        # Persist exit time
             'reason': reason
         })
         
         self.current_pos = None
         self.tp_price = 0
         self.sl_price = 0
+        self.entry_time = None
         return realized_pnl
 
     def get_unrealized_pnl(self, current_price):
@@ -121,5 +126,6 @@ class FuturesSimulator:
         self.entry_price = 0
         self.tp_price = 0
         self.sl_price = 0
+        self.entry_time = None
         self.current_step = 0
 

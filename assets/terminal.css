@@ -209,9 +209,9 @@ body {
 }
 
 .skip {
-   background: #ffab00;
-   /* Orange */
-   color: var(--bg-primary);
+   background: #2979ff;
+   /* Blue */
+   color: white;
    border: none;
 }
 

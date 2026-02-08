@@ -5,10 +5,102 @@ repo_url: https://github.com/example/simtrade
 use_directory_urls: false
 nav:
   - Home: index.md
+  - Indicators:
+      - Overview: indicators.md
+      - I. First-Order Primitives:
+          - Average Price: indicators/Average_Price.md
+          - Median Price: indicators/Median_Price.md
+          - Typical Price: indicators/Typical_Price.md
+          - Volume: indicators/Volume.md
+          - Standard Deviation: indicators/Standard_Deviation.md
+          - Historical Volatility: indicators/Historical_Volatility.md
+          - Volatility Close-to-Close: indicators/Volatility_Close_To_Close.md
+          - Volatility O-H-L-C: indicators/Volatility_OHLC.md
+          - Volatility Zero-Trend C-C: indicators/Volatility_Zero_Trend_Close_To_Close.md
+          - Rate of Change (ROC): indicators/ROC.md
+          - Momentum: indicators/Momentum.md
+          - Spread: indicators/Spread.md
+          - Ratio: indicators/Ratio.md
+          - Net Volume: indicators/Net_Volume.md
+          - Williams Fractal: indicators/Fractal.md
+      - II. Second-Order Smoothing:
+          - Moving Average (SMA): indicators/SMA.md
+          - Exponential Moving Average (EMA): indicators/EMA.md
+          - Weighted Moving Average (WMA): indicators/WMA.md
+          - Smoothed Moving Average (SMMA): indicators/SMMA.md
+          - Arnaud Legoux MA (ALMA): indicators/ALMA.md
+          - Hull Moving Average (HMA): indicators/HMA.md
+          - Least Squares MA (LSMA): indicators/LSMA.md
+          - VWMA: indicators/VWMA.md
+          - Moving Average Hamming: indicators/Hamming_Moving_Average.md
+          - Moving Average weighted by Volatility: indicators/VAMA.md
+      - III. Third-Order Oscillators & Bands:
+          - Moving Average Cross: indicators/MA_Cross.md
+          - EMA Cross: indicators/EMA_Cross.md
+          - Price Oscillator (PO): indicators/Price_Oscillator.md
+          - MACD: indicators/MACD.md
+          - Bollinger Bands: indicators/Bollinger_Bands.md
+          - Bollinger %B: indicators/Bollinger_PctB.md
+          - Bollinger Bandwidth: indicators/Bollinger_Bandwidth.md
+          - Standard Error Bands: indicators/Standard_Error_Bands.md
+          - Price Channel / Donchian: indicators/Donchian_Channels.md
+          - Keltner Channels: indicators/Keltner_Channels.md
+          - Moving Average Channel: indicators/MA_Channel.md
+          - Envelopes: indicators/Envelopes.md
+          - DPO (Detrended Price Oscillator): indicators/Detrended_Price_Oscillator.md
+          - Average True Range (ATR): indicators/ATR.md
+          - CCI (Commodity Channel Index): indicators/CCI.md
+          - Standard Error: indicators/Standard_Error.md
+          - Linear Regression Curve: indicators/Linear_Regression_Curve.md
+          - Linear Regression Slope: indicators/Linear_Regression_Slope.md
+      - IV. Fourth-Order Complex Momentum & Volume:
+          - RSI (Relative Strength Index): indicators/RSI.md
+          - Stochastic Oscillator: indicators/Stochastic.md
+          - Stochastic RSI: indicators/Stochastic_RSI.md
+          - SMI Ergodic Indicator: indicators/SMI_Ergodic.md
+          - True Strength Index (TSI): indicators/True_Strength_Index.md
+          - Trend Strength Index: indicators/Trend_Strength_Index.md
+          - ADX (Average Directional Index): indicators/ADX.md
+          - Directional Movement (DM): indicators/Directional_Movement.md
+          - Aroon: indicators/Aroon.md
+          - Awesome Oscillator (AO): indicators/Awesome_Oscillator.md
+          - Accelerator Oscillator (AC): indicators/Accelerator_Oscillator.md
+          - TRIX: indicators/TRIX.md
+          - Coppock Curve: indicators/Coppock_Curve.md
+          - Fisher Transform: indicators/Fisher_Transform.md
+          - Relative Vigor Index (RVI): indicators/Relative_Vigor_Index.md
+          - Relative Volatility Index: indicators/Relative_Volatility_Index.md
+          - Chande Momentum Oscillator (CMO): indicators/CMO.md
+          - Ultimate Oscillator: indicators/Ultimate_Oscillator.md
+          - Vortex Indicator: indicators/Vortex_Indicator.md
+      - V. Microstructure & Flow Dynamics:
+          - VWAP: indicators/VWAP.md
+          - OBV (On-Balance Volume): indicators/OBV.md
+          - MFI (Money Flow Index): indicators/MFI.md
+          - CMF (Chaikin Money Flow): indicators/CMF.md
+          - A/D Indicator (Accumulation/Distribution): indicators/Accumulation_Distribution.md
+          - Chaikin Oscillator: indicators/Chaikin_Oscillator.md
+          - Price Volume Trend (PVT): indicators/PVT.md
+          - Elder’s Force Index: indicators/EFI.md
+          - Ease of Movement (EOM): indicators/Ease_of_Movement.md
+          - Klinger Oscillator: indicators/Klinger_Oscillator.md
+          - Volume Oscillator: indicators/Percentage_Volume_Oscillator.md
+          - Volume Profile: indicators/Volume_Profile.md
+      - VI. Adaptive & Regime-Switching Systems:
+          - KAMA (Kaufman Adaptive MA): indicators/KAMA.md
+          - McGinley Dynamic: indicators/McGinley_Dynamic.md
+          - SuperTrend: indicators/SuperTrend.md
+          - Parabolic SAR: indicators/Parabolic_SAR.md
+          - Choppiness Index: indicators/Choppiness_Index.md
+          - Chaikin Volatility: indicators/Chaikin_Volatility.md
+          - Chande Kroll Stop: indicators/Chande_Kroll_Stop.md
+          - Ichimoku Cloud: indicators/Ichimoku_Cloud.md
+          - GMMA (Guppy Multiple MA): indicators/GMMA.md
+          - Williams Alligator: indicators/Williams_Alligator.md
+          - Mass Index: indicators/Mass_Index.md
   - Data:
       - Synthetic Generator: data-generator.md
       - Real Data & Downloads: data-download.md
-  - Indicators: indicators.md
   - Trading & Scoring: trading-engine.md
 theme:
   name: readthedocs
@@ -19,3 +111,11 @@ markdown_extensions:
   - admonition
   - toc:
       permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+

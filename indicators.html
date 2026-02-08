@@ -452,42 +452,60 @@
 <h3 id="i-first-order-primitives-base-data-discretization">I. First-Order Primitives (Base Data Discretization)<a class="headerlink" href="#i-first-order-primitives-base-data-discretization" title="Permanent link">&para;</a></h3>
 <p><em>Simplest transforms of raw Open, High, Low, Close, and Volume (OHLCV) data.</em></p>
 <ol>
-<li><strong><a href="indicators/Average_Price.html">Average Price (AP)</a>:</strong> An arithmetic mean of the High, Low, and Close for a single period.</li>
+<li><strong><a href="indicators/Average_Price.html">Average Price (AP)</a>:</strong> An arithmetic mean of the High, Low, and Close for a single period.<ul>
 <li><strong>Equation:</strong> <span class="arithmatex">\((H + L + C) / 3\)</span></li>
 <li><strong>Category:</strong> Trend/Benchmark</li>
 <li><strong>Use Case:</strong> Provides a simplified representation of a single bar's price action.</li>
-<li><strong><a href="indicators/Median_Price.html">Median Price (MP)</a>:</strong> The exact middle point between the High and Low of a specific time period.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Median_Price.html">Median Price (MP)</a>:</strong> The exact middle point between the High and Low of a specific time period.<ul>
 <li><strong>Equation:</strong> <span class="arithmatex">\((H + L) / 2\)</span></li>
 <li><strong>Category:</strong> Trend/Benchmark</li>
 <li><strong>Use Case:</strong> Identifies the midpoint of a bar's range, often used as an input for oscillators.</li>
-<li><strong><a href="indicators/Typical_Price.html">Typical Price (TP)</a>:</strong> A standard price calculation used as a more accurate representation of the average price than just the close.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Typical_Price.html">Typical Price (TP)</a>:</strong> A standard price calculation used as a more accurate representation of the average price than just the close.<ul>
 <li><strong>Equation:</strong> <span class="arithmatex">\((H + L + C) / 3\)</span></li>
 <li><strong>Category:</strong> Trend/Benchmark</li>
 <li><strong>Use Case:</strong> Serves as the base input for more complex indicators like CCI and VWAP.</li>
-<li><strong><a href="indicators/Volume.html">Volume (V)</a>:</strong> The total number of shares or contracts traded during a specific time interval.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Volume.html">Volume (V)</a>:</strong> The total number of shares or contracts traded during a specific time interval.<ul>
 <li><strong>Equation:</strong> <span class="arithmatex">\(\sum \text{Trades}\)</span></li>
 <li><strong>Category:</strong> Volume</li>
 <li><strong>Use Case:</strong> Gauges market activity and validates the strength of price moves.</li>
-<li><strong><a href="indicators/Standard_Deviation.html">Standard Deviation (StdDev)</a>:</strong> A statistical measure of how much price deviates from its mean.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Standard_Deviation.html">Standard Deviation (StdDev)</a>:</strong> A statistical measure of how much price deviates from its mean.<ul>
 <li><strong>Equation:</strong> <span class="arithmatex">\(\sqrt{\frac{1}{N} \sum_{i=1}^{N} (x_i - \bar{x})^2}\)</span></li>
 <li><strong>Category:</strong> Volatility</li>
 <li><strong>Use Case:</strong> Quantifies market risk and serves as the backbone for Bollinger Bands.</li>
-<li><strong><a href="indicators/Historical_Volatility.html">Historical Volatility (HV)</a>:</strong> The realized variance of an asset based on past price changes.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Historical_Volatility.html">Historical Volatility (HV)</a>:</strong> The realized variance of an asset based on past price changes.<ul>
 <li><strong>Equation:</strong> <span class="arithmatex">\(\text{Annualized StdDev of Log Returns}\)</span></li>
 <li><strong>Category:</strong> Volatility</li>
 <li><strong>Use Case:</strong> Assesses the historical risk profile and prices options.</li>
-<li><strong><a href="indicators/Volatility_Close_To_Close.md">Volatility Close-to-Close (C-C Vol)</a>:</strong> A volatility estimate calculated using only the closing prices of consecutive bars.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Volatility_Close_To_Close.md">Volatility Close-to-Close (C-C Vol)</a>:</strong> A volatility estimate calculated using only the closing prices of consecutive bars.<ul>
 <li><strong>Equation:</strong> <span class="arithmatex">\(\sqrt{\frac{1}{n-1} \sum (\ln(\frac{C_t}{C_{t-1}}) - \mu)^2}\)</span></li>
 <li><strong>Category:</strong> Volatility</li>
 <li><strong>Use Case:</strong> Measures price dispersion specifically focused on settlement prices.</li>
-<li><strong><a href="indicators/Volatility_OHLC.html">Volatility O-H-L-C (OHLC Vol)</a>:</strong> A more efficient volatility estimator that incorporates the intrabar range.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Volatility_OHLC.html">Volatility O-H-L-C (OHLC Vol)</a>:</strong> A more efficient volatility estimator that incorporates the intrabar range.<ul>
 <li><strong>Equation:</strong> Uses Parkinson or Garman-Klass formulas (e.g., <span class="arithmatex">\(0.511(H-L)^2 - \dots\)</span>)</li>
 <li><strong>Category:</strong> Volatility</li>
 <li><strong>Use Case:</strong> Provides a more granular risk assessment than close-only models.</li>
-<li><strong><a href="indicators/Volatility_Zero_Trend_Close_To_Close.html">Volatility Zero-Trend C-C (Z-Trend Vol)</a>:</strong> A variance calculation that assumes the mean return (drift) is zero.</li>
+</ul>
+</li>
+<li><strong><a href="indicators/Volatility_Zero_Trend_Close_To_Close.html">Volatility Zero-Trend C-C (Z-Trend Vol)</a>:</strong> A variance calculation that assumes the mean return (drift) is zero.<ul>
 <li><strong>Equation:</strong> <span class="arithmatex">\(\sqrt{\frac{1}{n} \sum (\ln(\frac{C_t}{C_{t-1}}))^2}\)</span></li>
 <li><strong>Category:</strong> Volatility</li>
 <li><strong>Use Case:</strong> Useful for high-frequency data where drift is negligible.</li>
+</ul>
+</li>
 <li><strong><a href="indicators/ROC.html">Rate of Change (ROC)</a>:</strong> Measures the percentage change in price between the current period and a period <span class="arithmatex">\(n\)</span> days ago.<ul>
 <li><strong>Equation:</strong> <span class="arithmatex">\((\frac{C_t - C_{t-n}}{C_{t-n}}) \times 100\)</span></li>
 <li><strong>Category:</strong> Momentum</li>
@@ -978,7 +996,6 @@
 <li><strong>Level 3 (Derivatives):</strong> Using averages to find relative value (e.g., Bollinger Bands).</li>
 <li><strong>Level 4 (Advanced):</strong> Recursive logic, multi-factor integration, and adaptive speed (e.g., KAMA, Ichimoku).</li>
 </ol>
-<p>Would you like me to create the <strong>Python visualizer</strong> to demonstrate how a Level 1 error (like a price spike) propagates through these levels?</p>
               
             </div>
           </div><footer>

@@ -102,6 +102,31 @@ def generate_plots(df):
         overlay = [go.Scatter(x=view_df.index, y=view_df['WMA_20'], mode='lines', name='WMA 20', line=dict(color='cyan'))]
         create_chart(view_df, 'Weighted Moving Average (WMA)', "WMA.png", overlay_traces=overlay)
     except Exception as e: print(f"WMA: {e}")
+
+    try:
+        # EMA Cross (10, 20 for visibility on short tail)
+        ema_fast = df.ta.ema(length=10)
+        ema_slow = df.ta.ema(length=20)
+        view_df = df.tail(150)
+        
+        # Cross signals
+        # Golden Cross (Fast > Slow)
+        cross_up = (ema_fast > ema_slow) & (ema_fast.shift(1) <= ema_slow.shift(1))
+        # Death Cross (Fast < Slow)
+        cross_down = (ema_fast < ema_slow) & (ema_fast.shift(1) >= ema_slow.shift(1))
+        
+        # Filter for view
+        c_up = view_df[cross_up.reindex(view_df.index).fillna(False)]
+        c_down = view_df[cross_down.reindex(view_df.index).fillna(False)]
+        
+        overlay = [
+            go.Scatter(x=view_df.index, y=ema_fast.tail(150), mode='lines', name='EMA 10', line=dict(color='cyan')),
+            go.Scatter(x=view_df.index, y=ema_slow.tail(150), mode='lines', name='EMA 20', line=dict(color='magenta')),
+            go.Scatter(x=c_up.index, y=ema_fast.loc[c_up.index], mode='markers', name='Cross Up', marker=dict(symbol='triangle-up', size=10, color='yellow')),
+            go.Scatter(x=c_down.index, y=ema_fast.loc[c_down.index], mode='markers', name='Cross Down', marker=dict(symbol='triangle-down', size=10, color='orange'))
+        ]
+        create_chart(view_df, 'EMA Cross (EMAX)', "EMA_Cross.png", overlay_traces=overlay)
+    except Exception as e: print(f"EMAX: {e}")
     
     try:
         df.ta.hma(length=20, append=True)
@@ -536,6 +561,39 @@ def generate_plots(df):
         hlines = [(27, 'red', 'dash'), (26.5, 'green', 'dash')]
         create_chart(view_df, 'Mass Index', "Mass_Index.png", oscillator_traces=[go.Scatter(x=view_df.index, y=mass.tail(150), name='Mass Index', line=dict(color='orange'))], oscillator_hlines=hlines)
     except Exception as e: print(f"MassI: {e}")
+
+    try:
+        # Trend Strength Index (TSI)
+        tsi = df.ta.tsi()
+        view_df = df.tail(150)
+        # TSI usually has a signal line, but basic TSI is just one line. ta.tsi returns a DF usually with TSI and Signal.
+        # Check columns
+        if isinstance(tsi, pd.DataFrame):
+            t_col = next((c for c in tsi.columns if c.startswith('TSI_')), None)
+            s_col = next((c for c in tsi.columns if c.startswith('TSIs_')), None)
+            if t_col:
+                traces = [go.Scatter(x=view_df.index, y=tsi[t_col].tail(150), name='TSI', line=dict(color='cyan'))]
+                if s_col: traces.append(go.Scatter(x=view_df.index, y=tsi[s_col].tail(150), name='Signal', line=dict(color='red', dash='dot')))
+                create_chart(view_df, 'Trend Strength Index (TSI)', "Trend_Strength_Index.png", oscillator_traces=traces, oscillator_hlines=[(0, 'white', 'dash')])
+    except Exception as e: print(f"TSI: {e}")
+
+    try:
+        # Price Oscillator (PPO) - Percentage Price Oscillator
+        ppo = df.ta.ppo()
+        view_df = df.tail(150)
+        # PPO returns PPO, Signal, Histogram
+        p_col = next((c for c in ppo.columns if c.startswith('PPO_')), None)
+        s_col = next((c for c in ppo.columns if c.startswith('PPOs_')), None)
+        h_col = next((c for c in ppo.columns if c.startswith('PPOh_')), None)
+        
+        if p_col:
+            traces = [
+                go.Scatter(x=view_df.index, y=ppo[p_col].tail(150), name='PPO', line=dict(color='cyan')),
+                go.Scatter(x=view_df.index, y=ppo[s_col].tail(150), name='Signal', line=dict(color='orange')),
+                go.Bar(x=view_df.index, y=ppo[h_col].tail(150), name='Hist', marker_color=['green' if v>=0 else 'red' for v in ppo[h_col].tail(150)])
+            ]
+            create_chart(view_df, 'Price Oscillator (PPO)', "Price_Oscillator.png", oscillator_traces=traces, oscillator_hlines=[(0, 'white', 'solid')])
+    except Exception as e: print(f"PPO: {e}")
     
     try:
         change = df['Close'].diff()
@@ -563,6 +621,14 @@ def generate_plots(df):
         overlay = [go.Scatter(x=view_df.index, y=vwma.tail(150), mode='lines', name='VWMA 20', line=dict(color='orange'))]
         create_chart(view_df, 'Volume Weighted Moving Average (VWMA)', "VWMA.png", overlay_traces=overlay)
     except Exception as e: print(f"VWMA: {e}")
+
+    try:
+        # VAMA (VIDYA)
+        vidya = df.ta.vidya(length=14)
+        view_df = df.tail(150)
+        overlay = [go.Scatter(x=view_df.index, y=vidya.tail(150), mode='lines', name='VAMA 14', line=dict(color='cyan'))]
+        create_chart(view_df, 'Variable Moving Average (VAMA)', "VAMA.png", overlay_traces=overlay)
+    except Exception as e: print(f"VAMA: {e}")
     
     try:
         sma = df.ta.sma(length=20)

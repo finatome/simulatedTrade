@@ -2,386 +2,490 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://example.com/simtrade-docs/index.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/data-download.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/data-generator.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns.html</loc>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/trading-engine.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/ADX.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/ALMA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/ATR.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Accelerator_Oscillator.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Accumulation_Distribution.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Aroon.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Average_Price.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Awesome_Oscillator.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Bollinger_Bands.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Bollinger_Bandwidth.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Bollinger_PctB.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/CCI.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/CMF.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/CMO.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Chaikin_Oscillator.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Chaikin_Volatility.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Chande_Kroll_Stop.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Choppiness_Index.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Coppock_Curve.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Detrended_Price_Oscillator.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Directional_Movement.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Donchian_Channels.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/EFI.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/EMA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/EMA_Cross.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Ease_of_Movement.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Envelopes.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Fisher_Transform.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Fractal.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/GMMA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/HMA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Hamming_MA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Hamming_Moving_Average.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Historical_Volatility.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Ichimoku_Cloud.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/KAMA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Keltner_Channels.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Klinger_Oscillator.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/LSMA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Linear_Regression_Curve.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Linear_Regression_Slope.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/MACD.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/MA_Channel.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/MA_Cross.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/MFI.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Mass_Index.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/McGinley_Dynamic.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Median_Price.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Momentum.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Net_Volume.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/OBV.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/PVT.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Parabolic_SAR.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Percentage_Volume_Oscillator.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Price_Oscillator.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/ROC.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/RSI.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Ratio.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Ratio_SMA50.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Relative_Vigor_Index.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Relative_Volatility_Index.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/SMA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/SMI_Ergodic.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/SMMA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Spread.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Standard_Deviation.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Standard_Error.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Standard_Error_Bands.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Stochastic.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Stochastic_RSI.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/SuperTrend.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/TRIX.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/TSI.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Trend_Strength_Index.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/True_Strength_Index.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Typical_Price.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Ulcer_Index.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Ultimate_Oscillator.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/VAMA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/VWAP.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/VWMA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Volatility_Close_to_Close.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Volatility_OHLC.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Volatility_Zero_Trend.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Volatility_Zero_Trend_Close_To_Close.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Volume.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Volume_Profile.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Vortex_Indicator.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/WMA.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Williams_Alligator.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
     </url>
     <url>
          <loc>https://example.com/simtrade-docs/indicators/Williams_Fractal.html</loc>
-         <lastmod>2026-02-08</lastmod>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Bearish_Engulfing.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Bearish_Harami.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Bullish_Engulfing.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Bullish_Harami.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Dark_Cloud_Cover.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Doji.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Evening_Star.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Falling_Three_Methods.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Hammer.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Hanging_Man.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Inverted_Hammer.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Marubozu.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Morning_Star.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Piercing_Line.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Rising_Three_Methods.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Shooting_Star.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Spinning_Top.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Three_Black_Crows.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Three_Inside_Down.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Three_Inside_Up.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Three_Outside_Down.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Three_Outside_Up.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Three_White_Soldiers.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Tweezer_Bottoms.html</loc>
+         <lastmod>2026-02-09</lastmod>
+    </url>
+    <url>
+         <loc>https://example.com/simtrade-docs/patterns/Tweezer_Tops.html</loc>
+         <lastmod>2026-02-09</lastmod>
     </url>
 </urlset>

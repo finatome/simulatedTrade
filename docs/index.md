@@ -9,54 +9,6 @@ SimTrade is a micro-futures training ground that replays five-minute market slic
 - **Trade Loop**: Every round begins with a 50-candle history, invites a LONG/SHORT/SKIP decision, and then fast-forwards until a take-profit, stop-loss, or timeout event.
 - **Performance Analytics**: Win rate, profit factor, and cumulative PnL are tracked across the session using the shared `FuturesSimulator` ledger.
 
-## Key Modules
-
-| Area | File | Responsibilities |
-| ---- | ---- | ---------------- |
-| Synthetic data | `engine/gbm_engine.py` | Builds GBM candles with volatility clustering, realistic OHLC/volume synthesis, and indicator warm-up trimming. |
-| Real data | `engine/real_data_engine.py` | Streams random slices from `assets/*_data.csv`, caching per ticker and falling back to synthetic data on errors. |
-| Indicators | `engine/indicators.py` | Applies trend, volatility, momentum, and volume studies through pandas-ta. |
-| Trading engine | `engine/simulator.py` | Handles trade entry/exit math, leverage application, and scenario bookkeeping. |
-| Analytics | `engine/analytics.py` | Converts history into win rate, profit factor, total PnL, and trade count. |
-| Data ingestion | `download_data.py` | Downloads 5-minute bars from Yahoo Finance and enriches them with the indicator deck for later replay. |
-
-## Running the Simulator
-
-1. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Start the Dash app:
-   ```bash
-   python app.py
-   ```
-3. (Optional) Launch via Docker:
-   ```bash
-   docker build -t simtrade .
-   docker run --rm -p 8050:8050 simtrade
-   ```
-4. Open the UI at [http://127.0.0.1:8050](http://127.0.0.1:8050) and start trading scenarios.
-
-## Working With This Documentation
-
-1. Install MkDocs locally (one-time):
-   ```bash
-   pip install mkdocs
-   ```
-2. Serve the docs with live reload:
-   ```bash
-   mkdocs serve
-   ```
-   Visit the printed URL (defaults to [http://127.0.0.1:8000](http://127.0.0.1:8000)).
-3. Build the static site for deployment:
-   ```bash
-   mkdocs build
-   ```
-   The generated site will be placed in the `site/` folder.
-
-Use the navigation to dive into data generation, historical downloads, indicator references, and the trading/scoring engine internals.
-
----
 
 ## Comprehensive Indicator Suite
 
@@ -170,3 +122,49 @@ This consolidated list organizes all **85 indicators** analyzed in our sequence 
 83. **[GMMA (Guppy Multiple MA)](indicators/GMMA.md):** Behavior analysis through EMA clusters.
 84. **[Williams Alligator](indicators/Williams_Alligator.md):** Three shifted SMAs defining "hunger" (regimes).
 85. **[Mass Index](indicators/Mass_Index.md):** Uses EMA ratios to predict volatility reversals.
+
+
+## Comprehensive Candlestick Patterns
+
+This collection organizes **25 candlestick patterns** into a structural hierarchy based on their complexity and signal type.
+
+### I. Single Candle Patterns
+*Simple patterns formed by one candlestick.*
+
+1. **[Hammer](patterns/Hammer.md):** Bullish reversal.
+2. **[Inverted Hammer](patterns/Inverted_Hammer.md):** Bullish reversal.
+3. **[Hanging Man](patterns/Hanging_Man.md):** Bearish reversal.
+4. **[Shooting Star](patterns/Shooting_Star.md):** Bearish reversal.
+5. **[Doji](patterns/Doji.md):** Indecision.
+6. **[Spinning Top](patterns/Spinning_Top.md):** Indecision.
+7. **[Marubozu](patterns/Marubozu.md):** Continuation.
+
+### II. Dual Candle Patterns
+*Patterns formed by two consecutive candlesticks.*
+
+8. **[Bullish Engulfing](patterns/Bullish_Engulfing.md):** Strong bullish reversal.
+9. **[Bearish Engulfing](patterns/Bearish_Engulfing.md):** Strong bearish reversal.
+10. **[Piercing Line](patterns/Piercing_Line.md):** Bullish reversal.
+11. **[Dark Cloud Cover](patterns/Dark_Cloud_Cover.md):** Bearish reversal.
+12. **[Bullish Harami](patterns/Bullish_Harami.md):** Weak bullish reversal.
+13. **[Bearish Harami](patterns/Bearish_Harami.md):** Weak bearish reversal.
+14. **[Tweezer Bottoms](patterns/Tweezer_Bottoms.md):** Support logic.
+15. **[Tweezer Tops](patterns/Tweezer_Tops.md):** Resistance logic.
+
+### III. Triple Candle Patterns
+*Patterns involving three candlesticks.*
+
+16. **[Morning Star](patterns/Morning_Star.md):** Bullish reversal.
+17. **[Evening Star](patterns/Evening_Star.md):** Bearish reversal.
+18. **[Three White Soldiers](patterns/Three_White_Soldiers.md):** Bullish reversal.
+19. **[Three Black Crows](patterns/Three_Black_Crows.md):** Bearish reversal.
+20. **[Three Inside Up](patterns/Three_Inside_Up.md):** Confirmed Harami.
+21. **[Three Inside Down](patterns/Three_Inside_Down.md):** Confirmed Harami.
+22. **[Three Outside Up](patterns/Three_Outside_Up.md):** Confirmed Engulfing.
+23. **[Three Outside Down](patterns/Three_Outside_Down.md):** Confirmed Engulfing.
+
+### IV. Complex & Continuation Patterns
+*Multi-candle patterns signaling trend continuation.*
+
+24. **[Rising Three Methods](patterns/Rising_Three_Methods.md):** Bullish continuation.
+25. **[Falling Three Methods](patterns/Falling_Three_Methods.md):** Bearish continuation.

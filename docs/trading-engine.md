@@ -5,25 +5,25 @@ The trading core lives in `engine/simulator.py` and powers every scenario shown 
 ## Trade Lifecycle
 
 1. **Entry**
-   - Triggered via the LONG or SHORT buttons once the initial 50-candle history is displayed.
-   - `enter_trade()` records the side, sets the entry price, and converts user-specified TP/SL *points* into absolute price levels. For example, entering long at 4,000 with a 15-point target produces a 4,015 TP and 3,985 SL.
+    - Triggered via the LONG or SHORT buttons once the initial 50-candle history is displayed.
+    - `enter_trade()` records the side, sets the entry price, and converts user-specified TP/SL *points* into absolute price levels. For example, entering long at 4,000 with a 15-point target produces a 4,015 TP and 3,985 SL.
 
 2. **Reveal Loop**
-   - The UI advances one candle per timer tick (100 ms by default). Each new candle flows through `check_exit()`.
-   - Exit order of operations favors risk management: stop-loss detection runs before take-profit to mirror worst-case execution within a volatile candle.
+    - The UI advances one candle per timer tick (100 ms by default). Each new candle flows through `check_exit()`.
+    - Exit order of operations favors risk management: stop-loss detection runs before take-profit to mirror worst-case execution within a volatile candle.
 
 3. **Exit Conditions**
-   - **TP Hit**: Candle reaches or crosses the TP level.
-   - **SL Hit**: Candle reaches or crosses the SL level (evaluated first).
-   - **Manual Exit**: User presses EXIT, closing at the most recent close.
-   - **Timeout**: Scenario reaches the final candle without other triggers.
+    - **TP Hit**: Candle reaches or crosses the TP level.
+    - **SL Hit**: Candle reaches or crosses the SL level (evaluated first).
+    - **Manual Exit**: User presses EXIT, closing at the most recent close.
+    - **Timeout**: Scenario reaches the final candle without other triggers.
 
 4. **PnL Calculation**
-   - `close_trade()` computes raw percent return `(exit - entry) / entry`, scales it by account balance and leverage, and updates the running balance.
-   - Each trade appends a record to `scenario_history`, including side, realized PnL, percent return, and close reason.
+    - `close_trade()` computes raw percent return `(exit - entry) / entry`, scales it by account balance and leverage, and updates the running balance.
+    - Each trade appends a record to `scenario_history`, including side, realized PnL, percent return, and close reason.
 
 5. **Reset for Next Scenario**
-   - Clicking SKIP (or switching data source/ticker) calls `sim.reset()` and loads a fresh dataframe—either synthetic (GBM) or real (asset cache).
+    - Clicking SKIP (or switching data source/ticker) calls `sim.reset()` and loads a fresh dataframe—either synthetic (GBM) or real (asset cache).
 
 ## Real-Time Stats & Scoreboard
 

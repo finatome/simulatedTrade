@@ -7,7 +7,7 @@ nav:
   - Home: index.md
   - Indicators:
       - Overview: indicators.md
-      - I. First-Order Primitives:
+      - Primitives:
           - Average Price: indicators/Average_Price.md
           - Median Price: indicators/Median_Price.md
           - Typical Price: indicators/Typical_Price.md
@@ -23,7 +23,7 @@ nav:
           - Ratio: indicators/Ratio.md
           - Net Volume: indicators/Net_Volume.md
           - Williams Fractal: indicators/Fractal.md
-      - II. Second-Order Smoothing:
+      - Smoothing:
           - Moving Average (SMA): indicators/SMA.md
           - Exponential Moving Average (EMA): indicators/EMA.md
           - Weighted Moving Average (WMA): indicators/WMA.md
@@ -34,7 +34,7 @@ nav:
           - VWMA: indicators/VWMA.md
           - Moving Average Hamming: indicators/Hamming_Moving_Average.md
           - Moving Average weighted by Volatility: indicators/VAMA.md
-      - III. Third-Order Oscillators & Bands:
+      - Oscillators & Bands:
           - Moving Average Cross: indicators/MA_Cross.md
           - EMA Cross: indicators/EMA_Cross.md
           - Price Oscillator (PO): indicators/Price_Oscillator.md
@@ -53,7 +53,7 @@ nav:
           - Standard Error: indicators/Standard_Error.md
           - Linear Regression Curve: indicators/Linear_Regression_Curve.md
           - Linear Regression Slope: indicators/Linear_Regression_Slope.md
-      - IV. Fourth-Order Complex Momentum & Volume:
+      - Complex Momentum & Volume:
           - RSI (Relative Strength Index): indicators/RSI.md
           - Stochastic Oscillator: indicators/Stochastic.md
           - Stochastic RSI: indicators/Stochastic_RSI.md
@@ -73,7 +73,7 @@ nav:
           - Chande Momentum Oscillator (CMO): indicators/CMO.md
           - Ultimate Oscillator: indicators/Ultimate_Oscillator.md
           - Vortex Indicator: indicators/Vortex_Indicator.md
-      - V. Microstructure & Flow Dynamics:
+      - Microstructure & Flow Dynamics:
           - VWAP: indicators/VWAP.md
           - OBV (On-Balance Volume): indicators/OBV.md
           - MFI (Money Flow Index): indicators/MFI.md
@@ -86,7 +86,7 @@ nav:
           - Klinger Oscillator: indicators/Klinger_Oscillator.md
           - Volume Oscillator: indicators/Percentage_Volume_Oscillator.md
           - Volume Profile: indicators/Volume_Profile.md
-      - VI. Adaptive & Regime-Switching Systems:
+      - Adaptive & Regime-Switching Systems:
           - KAMA (Kaufman Adaptive MA): indicators/KAMA.md
           - McGinley Dynamic: indicators/McGinley_Dynamic.md
           - SuperTrend: indicators/SuperTrend.md
@@ -98,10 +98,43 @@ nav:
           - GMMA (Guppy Multiple MA): indicators/GMMA.md
           - Williams Alligator: indicators/Williams_Alligator.md
           - Mass Index: indicators/Mass_Index.md
+  - Patterns:
+      - Overview: patterns.md
+      - Single Candle:
+          - Doji: patterns/Doji.md
+          - Hammer: patterns/Hammer.md
+          - Inverted Hammer: patterns/Inverted_Hammer.md
+          - Hanging Man: patterns/Hanging_Man.md
+          - Shooting Star: patterns/Shooting_Star.md
+          - Spinning Top: patterns/Spinning_Top.md
+          - Marubozu: patterns/Marubozu.md
+      - Dual Candle:
+          - Bullish Engulfing: patterns/Bullish_Engulfing.md
+          - Bearish Engulfing: patterns/Bearish_Engulfing.md
+          - Piercing Line: patterns/Piercing_Line.md
+          - Dark Cloud Cover: patterns/Dark_Cloud_Cover.md
+          - Bullish Harami: patterns/Bullish_Harami.md
+          - Bearish Harami: patterns/Bearish_Harami.md
+          - Tweezer Bottoms: patterns/Tweezer_Bottoms.md
+          - Tweezer Tops: patterns/Tweezer_Tops.md
+      - Triple Candle:
+          - Morning Star: patterns/Morning_Star.md
+          - Evening Star: patterns/Evening_Star.md
+          - Three White Soldiers: patterns/Three_White_Soldiers.md
+          - Three Black Crows: patterns/Three_Black_Crows.md
+          - Three Inside Up: patterns/Three_Inside_Up.md
+          - Three Inside Down: patterns/Three_Inside_Down.md
+          - Three Outside Up: patterns/Three_Outside_Up.md
+          - Three Outside Down: patterns/Three_Outside_Down.md
+      - Complex/Continuation:
+          - Rising Three Methods: patterns/Rising_Three_Methods.md
+          - Falling Three Methods: patterns/Falling_Three_Methods.md
   - Data:
       - Synthetic Generator: data-generator.md
       - Real Data & Downloads: data-download.md
-  - Trading & Scoring: trading-engine.md
+  - Trade:  
+      - Trading Engine: trading-engine.md
+      - Scoring: scoring.md
 theme:
   name: readthedocs
 extra_css:

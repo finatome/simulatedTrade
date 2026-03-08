@@ -106,6 +106,8 @@
     <ul class="current">
     <li class="toctree-l3"><a class="reference internal" href="#definition">Definition</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#special-cases">Special cases</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#trading-significance">Trading Significance</a>
     </li>
     </ul>
@@ -381,6 +383,12 @@
 </table>
 <h2 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h2>
 <p>Volatility Adaptive Moving Average (VAMA) adapts its smoothing period based on the volatility of the price. When volatility is high, it can react faster (or slower depending on design), effectively filtering out noise during consolidation while catching trends.</p>
+<h2 id="special-cases">Special cases<a class="headerlink" href="#special-cases" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Maximum possible value:</strong> Unbounded</li>
+<li><strong>Minimum possible value:</strong> 0</li>
+<li><strong>Behavior:</strong> Follows the price, weighting the moving average by trading volume.</li>
+</ul>
 <h2 id="trading-significance">Trading Significance<a class="headerlink" href="#trading-significance" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Adaptability</strong>: Reduces lag during trends and avoids whipsaws during sideways markets better than static MAs.</li>

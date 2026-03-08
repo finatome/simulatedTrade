@@ -158,6 +158,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#mathematical-equation">Mathematical Equation</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#special-cases">Special cases</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#visualization">Visualization</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#trading-significance">Trading Significance</a>
@@ -390,6 +392,12 @@
 \text{StochRSI} = \frac{RSI - \min(RSI)}{\max(RSI) - \min(RSI)}
 \]</div>
 <p>Where the min and max are calculated over the lookback period (e.g., 14). The result is a value between 0 and 1 (or 0 and 100).</p>
+<h2 id="special-cases">Special cases<a class="headerlink" href="#special-cases" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Maximum possible value:</strong> 1 (or 100)</li>
+<li><strong>Minimum possible value:</strong> 0</li>
+<li><strong>Behavior:</strong> Oscillates between 0 and 1 (or 100), increasing sensitivity to the standard RSI.</li>
+</ul>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
 <p><img alt="Stochastic RSI" src="plots/Stochastic_RSI.png" /></p>
 <h2 id="trading-significance">Trading Significance<a class="headerlink" href="#trading-significance" title="Permanent link">&para;</a></h2>

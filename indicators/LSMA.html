@@ -102,6 +102,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#mathematical-equation">Mathematical Equation</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#special-cases">Special cases</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#visualization">Visualization</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#trading-significance">Trading Significance</a>
@@ -387,6 +389,12 @@
 <p>The Least Squares Moving Average (LSMA), also known as the End Point Moving Average or Linear Regression Curve, calculates the endpoint of the linear regression line for each period. It attempts to predict what the price would be if the regression line continued. It is often used as a signal line or a filter for other indicators.</p>
 <h2 id="mathematical-equation">Mathematical Equation<a class="headerlink" href="#mathematical-equation" title="Permanent link">&para;</a></h2>
 <p>For each point <span class="arithmatex">\(t\)</span>, fit a linear regression line (<span class="arithmatex">\(y = mx + b\)</span>) to the prices over the last <span class="arithmatex">\(N\)</span> periods. The LSMA value at <span class="arithmatex">\(t\)</span> is the value of this line at time <span class="arithmatex">\(t\)</span> (the endpoint).</p>
+<h2 id="special-cases">Special cases<a class="headerlink" href="#special-cases" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Maximum possible value:</strong> Unbounded</li>
+<li><strong>Minimum possible value:</strong> 0</li>
+<li><strong>Behavior:</strong> Follows the price, plotting a linear regression line to show the statistical trend.</li>
+</ul>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
 <p><img alt="Least Squares Moving Average" src="plots/LSMA.png" /></p>
 <h2 id="trading-significance">Trading Significance<a class="headerlink" href="#trading-significance" title="Permanent link">&para;</a></h2>

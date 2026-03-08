@@ -146,6 +146,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#mathematical-equation">Mathematical Equation</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#special-cases">Special cases</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#visualization">Visualization</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#trading-significance">Trading Significance</a>
@@ -387,6 +389,12 @@
 <p>The Linear Regression Curve plots the end values of linear regression lines fitted to a rolling window of prices. It is essentially the same as the Least Squares Moving Average (LSMA). It provides a smoothed representation of the price trend based on statistical regression.</p>
 <h2 id="mathematical-equation">Mathematical Equation<a class="headerlink" href="#mathematical-equation" title="Permanent link">&para;</a></h2>
 <p>For each point <span class="arithmatex">\(t\)</span>, fit a line <span class="arithmatex">\(y = mx + b\)</span> to the previous <span class="arithmatex">\(N\)</span> prices. The curve value is the value of this line at <span class="arithmatex">\(t\)</span>.</p>
+<h2 id="special-cases">Special cases<a class="headerlink" href="#special-cases" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Maximum possible value:</strong> Unbounded</li>
+<li><strong>Minimum possible value:</strong> 0</li>
+<li><strong>Behavior:</strong> Follows the price by mapping the end points of rolling linear regression lines.</li>
+</ul>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">&para;</a></h2>
 <p><img alt="Linear Regression Curve" src="plots/Linear_Regression_Curve.png" /></p>
 <h2 id="trading-significance">Trading Significance<a class="headerlink" href="#trading-significance" title="Permanent link">&para;</a></h2>

@@ -18,6 +18,12 @@ Moving Average Envelopes consist of a Moving Average and two outer bands (envelo
 
 Where $k$ is a user-defined percentage (e.g., 2.5% or 5%).
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, drawing bands at a set percentage above and below a moving average.
+
 ## Visualization
 
 ![Moving Average Envelopes](plots/Envelopes.png)

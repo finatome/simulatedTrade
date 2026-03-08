@@ -14,6 +14,12 @@ $$
 \text{Median Price} = \frac{\text{High} + \text{Low}}{2}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, showing the midpoint between the high and low of each period.
+
 ## Visualization
 
 ![Median Price](plots/Median_Price.png)

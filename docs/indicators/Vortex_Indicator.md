@@ -12,6 +12,12 @@ The Vortex Indicator (VI) consists of two lines: VI+ (positive trend movement) a
 
 It compares the distance between the current high and previous low (positive movement) versus the current low and previous high (negative movement), summed and normalized over a period.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Oscillates based on the intersection of positive and negative trend lines.
+
 ## Visualization
 
 ![Vortex Indicator](plots/Vortex_Indicator.png)

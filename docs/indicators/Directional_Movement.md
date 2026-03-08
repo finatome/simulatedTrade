@@ -14,6 +14,12 @@ Directional Movement (DM) consists of two components: +DM (Positive Directional 
 
 *   **-DM**: Previous Low - Current Low (if > 0 and > |High - Prev High|)
 
+## Special cases
+
+*   **Maximum possible value:** 100
+*   **Minimum possible value:** 0
+*   **Behavior:** Oscillates between 0 and 100 for both +DI and -DI lines to determine trend direction.
+
 ## Trading Significance
 
 1.  **Direction**: If +DM is above -DM, the trend is up.

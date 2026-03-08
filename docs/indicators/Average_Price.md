@@ -14,6 +14,12 @@ $$
 \text{Average Price} = \frac{\text{Open} + \text{High} + \text{Low} + \text{Close}}{4}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price closely as it represents the average of OHLC. Plotted on the price chart.
+
 ## Visualization
 
 ![Average Price](plots/Average_Price.png)

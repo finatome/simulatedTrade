@@ -22,6 +22,12 @@ Where:
 
 *   $EP$ is the Extreme Point (highest high in uptrend, lowest low in downtrend)
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, printing dots above or below price bars to indicate trend and potential reversals.
+
 ## Visualization
 
 ![Parabolic_SAR](plots/Parabolic_SAR.png)

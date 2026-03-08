@@ -16,6 +16,12 @@ Historical Volatility (HV) is a statistical measure of the dispersion of returns
 
 3.  Annualize: $HV = \sigma \times \sqrt{252} \times 100$.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently, measuring the standard deviation of logarithmic returns over a period.
+
 ## Visualization
 
 ![Historical Volatility](plots/Historical_Volatility.png)

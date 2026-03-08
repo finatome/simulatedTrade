@@ -33,6 +33,12 @@ Where:
 *   $x$ is the multiplier (e.g., 3).
 *   $Q$ is the lookback period for the stop (e.g., 20).
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, acting as a trailing stop loss level overlaid on the price chart.
+
 ## Visualization
 
 ![Chande Kroll Stop (CKS)](plots/Chande_Kroll_Stop.png)

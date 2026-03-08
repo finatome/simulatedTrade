@@ -18,6 +18,12 @@ $$
 
 Where $P_i$ is the price at period $i$ (with $n$ being the most recent). denominator is the triangular number $\frac{n(n+1)}{2}$.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, giving linear weight to recent data points.
+
 ## Visualization
 
 ![WMA](plots/WMA.png)

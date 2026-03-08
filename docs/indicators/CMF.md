@@ -26,6 +26,12 @@ $$
 \text{CMF} = \frac{\sum \text{MF Volume}}{\sum \text{Volume}}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** 1
+*   **Minimum possible value:** -1
+*   **Behavior:** Oscillates between -1 and +1 to show buying vs. selling pressure using volume.
+
 ## Visualization
 
 ![CMF](plots/CMF.png)

@@ -14,6 +14,12 @@ $$
 EMA_{fast} - EMA_{slow}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price. Involves two EMAs; crossovers indicate potential trend reversals.
+
 ## Visualization
 
 ![EMA Cross (EMAX)](plots/EMA_Cross.png)

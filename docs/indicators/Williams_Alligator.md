@@ -14,6 +14,12 @@ The Williams Alligator indicator uses three smoothed moving averages, set at spe
 
 *   **Lips (Green)**: 5-period SMMA, shifted 3 bars.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price using three displaced smoothed moving averages.
+
 ## Visualization
 
 ![Williams Alligator](plots/Williams_Alligator.png)

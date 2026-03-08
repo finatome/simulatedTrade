@@ -8,6 +8,12 @@
 
 Volume represents the total number of shares or contracts traded for a specified security during a specified period of time. It is a fundamental measure of the intensity of trading activity.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Shows the absolute number of shares/contracts traded per period.
+
 ## Visualization
 
 ![Volume (V)](plots/Volume.png)

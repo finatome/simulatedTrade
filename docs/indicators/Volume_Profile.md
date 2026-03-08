@@ -8,6 +8,12 @@
 
 Volume Profile displays the trading activity (volume) over a specified time period at specified price levels. It reveals the most traded prices (Point of Control) and the value area.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Displays trading activity over a specified time period at specified price levels (plotted on the Y-axis).
+
 ## Visualization
 
 *(Placeholder: Volume Histogram on Y-axis)*

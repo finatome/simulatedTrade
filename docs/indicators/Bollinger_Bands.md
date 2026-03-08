@@ -24,6 +24,12 @@ $$
 
 Where $\sigma_{20}$ is the standard deviation of the price over the same 20 periods.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, forming an envelope around it to show volatility and relative price levels.
+
 ## Visualization
 
 ![Bollinger_Bands](plots/Bollinger_Bands.png)

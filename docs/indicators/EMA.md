@@ -44,6 +44,12 @@ $$
 EMA_{today} = (Price_{today} \times k) + (EMA_{yesterday} \times (1-k))
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, smoothing out price action to identify the trend direction. Plotted on the price chart.
+
 ## Visualization
 
 ![EMA](plots/EMA.png)

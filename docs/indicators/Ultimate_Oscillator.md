@@ -18,6 +18,12 @@ $$
 
 Where $Avg_N = \sum BP_N / \sum TR_N$.
 
+## Special cases
+
+*   **Maximum possible value:** 100
+*   **Minimum possible value:** 0
+*   **Behavior:** Oscillates between 0 and 100 by combining short, medium, and long-term momentum.
+
 ## Visualization
 
 ![Ultimate Oscillator](plots/Ultimate_Oscillator.png)

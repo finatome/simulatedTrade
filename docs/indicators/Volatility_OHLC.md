@@ -14,6 +14,12 @@ $$
 \sigma^2 = 0.5 \ln\left(\frac{High}{Low}\right)^2 - (2\ln 2 - 1) \ln\left(\frac{Close}{Open}\right)^2
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently to represent price variance integrating OHLC data.
+
 ## Visualization
 
 ![Volatility OHLC](plots/Volatility_OHLC.png)

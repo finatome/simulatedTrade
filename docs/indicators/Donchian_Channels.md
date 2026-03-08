@@ -26,6 +26,12 @@ $$
 \text{Middle Channel} = \frac{\text{Upper} + \text{Lower}}{2}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price by plotting the highest high and lowest low over a set period.
+
 ## Visualization
 
 ![Donchian_Channels](plots/Donchian_Channels.png)

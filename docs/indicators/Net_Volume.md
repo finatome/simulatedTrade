@@ -22,6 +22,12 @@ Where:
 
 *   $\text{sign}(x) = 0$ if $x = 0$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Fluctuates up and down showing the difference between up-volume and down-volume.
+
 ## Visualization
 
 ![Net Volume](plots/Net_Volume.png)

@@ -18,6 +18,12 @@ $$
 
 Typically calculated cumulatively from the open of the trading session.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, anchored to the start of a period, weighted by volume.
+
 ## Visualization
 
 ![VWAP](plots/VWAP.png)

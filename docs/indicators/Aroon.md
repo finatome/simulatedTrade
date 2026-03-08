@@ -20,6 +20,12 @@ $$
 \text{Aroon Down} = \frac{N - \text{Periods Since Last Low}}{N} \times 100
 $$
 
+## Special cases
+
+*   **Maximum possible value:** 100
+*   **Minimum possible value:** 0
+*   **Behavior:** Oscillates between 0 and 100, showing the time elapsed since the highest high or lowest low.
+
 ## Visualization
 
 ![Aroon](plots/Aroon.png)

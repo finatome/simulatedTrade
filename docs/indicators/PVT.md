@@ -14,6 +14,12 @@ $$
 PVT_t = PVT_{t-1} + \left( Volume_t \times \frac{Close_t - Close_{t-1}}{Close_{t-1}} \right)
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Similar to OBV, but it multiples the volume by the percentage change in price.
+
 ## Visualization
 
 ![Price Volume Trend](plots/PVT.png)

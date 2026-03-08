@@ -30,6 +30,12 @@ $$
 ALMA_t = \frac{\sum_{i=0}^{N-1} w_i P_{t-i}}{\sum_{i=0}^{N-1} w_i}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded (Follows Price)
+*   **Minimum possible value:** Unbounded (bounded by 0)
+*   **Behavior:** Follows the price like moving averages, acting as a smoother trend-following indicator with reduced lag. Plotted on the price chart.
+
 ## Visualization
 
 ![ALMA](plots/ALMA.png)

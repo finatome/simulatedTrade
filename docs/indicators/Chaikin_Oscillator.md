@@ -30,6 +30,12 @@ $$
 \text{Chaikin Oscillator} = EMA_3(ADL) - EMA_{10}(ADL)
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around a zero line based on the momentum of the Accumulation/Distribution Line.
+
 ## Visualization
 
 ![Chaikin Oscillator](plots/Chaikin_Oscillator.png)

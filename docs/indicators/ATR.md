@@ -17,6 +17,12 @@ ATR &= \text{SMA}(TR, n)
 \end{align}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently as an absolute value measuring market volatility, regardless of trend direction.
+
 ## Visualization
 
 ![ATR](plots/ATR.png)

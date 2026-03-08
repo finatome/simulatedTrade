@@ -14,6 +14,12 @@ $$
 \text{Ratio} = \frac{\text{Series A}}{\text{Series B}}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently showing the relative performance or spread between two assets/series.
+
 ## Visualization
 
 ![Ratio (RAT)](plots/Ratio.png)

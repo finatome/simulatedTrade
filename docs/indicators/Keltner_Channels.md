@@ -26,6 +26,12 @@ $$
 \text{Lower Band} = \text{EMA}_{20} - (2 \times \text{ATR}_{10})
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price using bands based on an EMA and Average True Range (ATR).
+
 ## Visualization
 
 ![Keltner_Channels](plots/Keltner_Channels.png)

@@ -14,6 +14,12 @@ $$
 \text{Bandwidth} = \frac{\text{Upper Band} - \text{Lower Band}}{\text{Middle Band}} \times 100
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently, showing the percentage difference between the upper and lower Bollinger Bands.
+
 ## Visualization
 
 ![Bollinger Bandwidth](plots/Bollinger_Bandwidth.png)

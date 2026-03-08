@@ -22,6 +22,12 @@ $$
 \text{Coppock} = WMA_{10}(ROC_{14} + ROC_{11})
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero, primarily used to identify long-term buying opportunities.
+
 ## Visualization
 
 ![Coppock Curve](plots/Coppock_Curve.png)

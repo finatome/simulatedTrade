@@ -20,6 +20,12 @@ $$
 CMO = \frac{S_u - S_d}{S_u + S_d} \times 100
 $$
 
+## Special cases
+
+*   **Maximum possible value:** 100
+*   **Minimum possible value:** -100
+*   **Behavior:** Oscillates between -100 and +100 to identify overbought/oversold conditions.
+
 ## Visualization
 
 ![CMO](plots/CMO.png)

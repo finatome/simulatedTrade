@@ -14,6 +14,12 @@ $$
 ROC = \frac{\text{Close}_t - \text{Close}_{t-n}}{\text{Close}_{t-n}} \times 100
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero, representing the percentage change in price over a period.
+
 ## Visualization
 
 ![ROC](plots/ROC.png)

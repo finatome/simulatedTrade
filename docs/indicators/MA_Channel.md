@@ -14,6 +14,12 @@ $$
 Upper = SMA(H, n), Lower = SMA(L, n)
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, creating bounds around a central moving average.
+
 ## Visualization
 
 ![Moving Average Channel (MAC)](plots/MA_Channel.png)

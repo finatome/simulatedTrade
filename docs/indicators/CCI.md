@@ -20,6 +20,12 @@ Where:
 
 * $MD$ = Mean Deviation
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates mostly between -100 and +100, but can exceed these limits. It measures the variation of a price from its statistical mean.
+
 ## Visualization
 
 ![CCI](plots/CCI.png)

@@ -12,6 +12,12 @@ The Least Squares Moving Average (LSMA), also known as the End Point Moving Aver
 
 For each point $t$, fit a linear regression line ($y = mx + b$) to the prices over the last $N$ periods. The LSMA value at $t$ is the value of this line at time $t$ (the endpoint).
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, plotting a linear regression line to show the statistical trend.
+
 ## Visualization
 
 ![Least Squares Moving Average](plots/LSMA.png)

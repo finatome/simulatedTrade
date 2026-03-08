@@ -24,6 +24,12 @@ $$
 Mass Index = \sum_{i=1}^{25} R_i
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently. It spots trend reversals by tracking the expansion and contraction of the high-low range.
+
 ## Visualization
 
 ![Mass Index](plots/Mass_Index.png)

@@ -22,6 +22,12 @@ $$
 
 *   \%B < 0: Price is below the Lower Band.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded (typically near 0 to 1)
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around 0 and 1. Values > 1 mean price is above the upper band, < 0 means below the lower band.
+
 ## Visualization
 
 ![Bollinger %B](plots/Bollinger_PctB.png)

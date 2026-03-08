@@ -14,6 +14,12 @@ $$
 HMA = WMA(2 \times WMA(\frac{n}{2}) - WMA(n), \sqrt{n})
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price closely, designed to be very fast and smooth with minimal lag.
+
 ## Visualization
 
 ![HMA](plots/HMA.png)

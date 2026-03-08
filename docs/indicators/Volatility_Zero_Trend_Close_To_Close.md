@@ -12,6 +12,12 @@ A variance calculation that assumes the mean return (drift) is zero.
 
 $$\n\sqrt{\frac{1}{n} \sum (\ln(\frac{C_t}{C_{t-1}}))^2}\n$$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently measuring close-to-close variance without assuming trend.
+
 ## Visualization
 
 ![Volatility Zero-Trend C-C](plots/Volatility_Zero_Trend_Close_To_Close.png)

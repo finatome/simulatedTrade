@@ -14,6 +14,12 @@ $$
 SMA_{fast} - SMA_{slow}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price. The crossover of fast and slow MAs marks trend shifts.
+
 ## Visualization
 
 ![Moving Average Cross (MAX)](plots/MA_Cross.png)

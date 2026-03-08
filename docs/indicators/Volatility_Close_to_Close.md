@@ -18,6 +18,12 @@ $$
 
 (Often annualized).
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently to represent price variance using close prices.
+
 ## Visualization
 
 ![Volatility Close-to-Close](plots/Volatility_Close_To_Close.png)

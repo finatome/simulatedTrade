@@ -14,6 +14,12 @@ $$
 \frac{EMA(C-O)}{EMA(H-L)}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero, measuring the conviction of a recent price action.
+
 ## Visualization
 
 ![Relative Vigor Index (RVI)](plots/Relative_Vigor_Index.png)

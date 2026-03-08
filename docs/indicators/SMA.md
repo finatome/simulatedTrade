@@ -22,6 +22,12 @@ Where:
 
 *   $n$ is the number of periods
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price smoothly to highlight the underlying trend.
+
 ## Visualization
 
 ![SMA](plots/SMA.png)

@@ -38,6 +38,12 @@ $$
 \text{Chikou Span} = \text{Close plotted 26 periods back}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, displaying support/resistance, trend direction, and momentum.
+
 ## Visualization
 
 ![Ichimoku_Cloud](plots/Ichimoku_Cloud.png)

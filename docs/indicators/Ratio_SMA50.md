@@ -10,6 +10,12 @@ $$
 \text{Ratio} = \frac{\text{Close}}{SMA_{50}}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently, tracking a moving average of an underlying ratio.
+
 ## Visualization
 
 ![Ratio Price SMA50](plots/Ratio_SMA50.png)

@@ -14,6 +14,12 @@ $$
 OBV_t = OBV_{t-1} + \begin{cases} \text{Volume}_t & \text{if } P_t > P_{t-1} \\ 0 & \text{if } P_t = P_{t-1} \\ -\text{Volume}_t & \text{if } P_t < P_{t-1} \end{cases}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** A running cumulative total of volume, adding on up days and subtracting on down days.
+
 ## Visualization
 
 ![OBV](plots/OBV.png)

@@ -24,6 +24,12 @@ $$
 
 The SuperTrend line switches between Upper and Lower/Close depending on trend direction.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, indicating the current trend direction and acting as a trailing stop.
+
 ## Visualization
 
 ![SuperTrend](plots/SuperTrend.png)

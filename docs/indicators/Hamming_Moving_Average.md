@@ -12,6 +12,12 @@ A weighted moving average using a Hamming window function to reduce spectral lea
 
 $$\n\text{WMA using Hamming Window weights}\n$$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, applying Hamming window weighting for smoothing.
+
 ## Visualization
 
 ![Moving Average Hamming](plots/Hamming_Moving_Average.png)

@@ -22,6 +22,12 @@ $$
 
 *   **High Absolute Value**: Strong trend.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero, indicating the angle (momentum) of the linear regression line.
+
 ## Visualization
 
 ![Linear Regression Slope](plots/Linear_Regression_Slope.png)

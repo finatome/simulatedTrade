@@ -24,6 +24,12 @@ $$
 RSI = 100 - \frac{100}{1 + RS}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** 100
+*   **Minimum possible value:** 0
+*   **Behavior:** Oscillates between 0 and 100, highlighting overbought (typically >70) and oversold (<30) conditions.
+
 ## Visualization
 
 ![RSI](plots/RSI.png)

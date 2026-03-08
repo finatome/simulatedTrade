@@ -26,6 +26,12 @@ $$
 
 4.  A Signal Line (usually 13-period EMA of KO) is plotted.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero, measuring volume volume flows across different timeframes.
+
 ## Visualization
 
 ![Klinger Oscillator](plots/Klinger_Oscillator.png)

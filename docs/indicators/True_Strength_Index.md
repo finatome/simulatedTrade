@@ -12,6 +12,12 @@ The True Strength Index (TSI) is a momentum oscillator based on a double smoothi
 
 $$\nTSI = 100 \times \frac{\text{EMA}(\text{EMA}(\text{Price Change}))}{\text{EMA}(\text{EMA}(|\text{Price Change}|))}\n$$
 
+## Special cases
+
+*   **Maximum possible value:** 100
+*   **Minimum possible value:** -100
+*   **Behavior:** Oscillates between bounds, smoothing momentum to identify trend reversals.
+
 ## Visualization
 
 ![True Strength Index (TSI)](plots/True_Strength_Index.png)

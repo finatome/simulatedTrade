@@ -14,6 +14,12 @@ The Guppy Multiple Moving Average (GMMA) was developed by Daryl Guppy. It involv
 
 *   **Long-term EMAs**: 30, 35, 40, 45, 50, 60 periods.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price using a ribbon of multiple short-term and long-term EMAs.
+
 ## Visualization
 
 ![Guppy Multiple Moving Average](plots/GMMA.png)

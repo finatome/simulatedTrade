@@ -14,6 +14,12 @@ $$
 AO - SMA_5(AO)
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around a zero line to measure the acceleration or deceleration of market driving force.
+
 ## Visualization
 
 ![Accelerator Oscillator (AC)](plots/Accelerator_Oscillator.png)

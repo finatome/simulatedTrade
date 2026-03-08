@@ -14,6 +14,12 @@ $$
 \text{Spread} = \text{High} - \text{Low}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Shows the numeric difference between two price streams.
+
 ## Visualization
 
 ![Spread](plots/Spread.png)

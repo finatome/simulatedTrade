@@ -16,6 +16,12 @@ $$
 
 A signal line (9-period EMA of PVO) is often plotted to generate signals.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero, comparing two moving averages of trading volume.
+
 ## Visualization
 
 ![Percentage Volume Oscillator](plots/Percentage_Volume_Oscillator.png)

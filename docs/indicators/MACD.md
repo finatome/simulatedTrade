@@ -28,6 +28,12 @@ $$
 \text{MACD Histogram} = \text{MACD Line} - \text{Signal Line}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around a zero line, showing the convergence and divergence of two moving averages.
+
 ## Visualization
 
 ![MACD](plots/MACD.png)

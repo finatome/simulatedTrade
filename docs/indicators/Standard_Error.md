@@ -16,6 +16,12 @@ $$
 
 Where $y_i$ is the actual price and $\hat{y}_i$ is the predicted price from the regression line.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently, representing the error size when trying to fit a linear regression.
+
 ## Visualization
 
 ![Standard Error](plots/Standard_Error.png)

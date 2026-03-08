@@ -18,6 +18,12 @@ $$
 
 The result is typically smoothed with an EMA (e.g., 2-period or 13-period).
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Fluctuates above and below zero based on price direction and trading volume.
+
 ## Visualization
 
 ![EFI](plots/EFI.png)

@@ -18,6 +18,12 @@ $$
 AO = SMA_5(\text{Median Price}) - SMA_{34}(\text{Median Price})
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around a zero line, showing market momentum by comparing a 5-period and 34-period SMA.
+
 ## Visualization
 
 ![Awesome Oscillator](plots/Awesome_Oscillator.png)

@@ -22,6 +22,12 @@ $$
 ADL = \text{Previous ADL} + \text{MF Volume}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** A cumulative line that rises and falls independently, tracking volume and price to assess buying/selling pressure.
+
 ## Visualization
 
 ![Accumulation Distribution](plots/Accumulation_Distribution.png)

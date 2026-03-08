@@ -24,6 +24,12 @@ $$
 
 Usually, a smoothed moving average of the EOM is plotted.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero, showing how easily price changes direction based on volume.
+
 ## Visualization
 
 ![Ease of Movement](plots/Ease_of_Movement.png)

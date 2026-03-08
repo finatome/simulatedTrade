@@ -18,6 +18,12 @@ $$
 
 The value $y$ is then typically smoothed to produce the final Fisher Transform line. A signal line (often the previous value of the Fisher line) is plotted for crossovers.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero with sharp turning points, converting prices into a Gaussian normal distribution.
+
 ## Visualization
 
 ![Fisher Transform](plots/Fisher_Transform.png)

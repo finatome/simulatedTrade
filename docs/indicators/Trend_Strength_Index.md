@@ -8,6 +8,14 @@
 
 The Trend Strength Index measures the persistence of a trend. Unlike standard momentum oscillators, it focuses on the quality and consistency of the directional move.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero to measure the strength of the short/medium trend.
+
+## Visualization
+
 ![Trend Strength Index (TRSI)](plots/Trend_Strength_Index.png)
 
 1.  **Trend Confirmation**: High values indicate a strong, sustainable trend.

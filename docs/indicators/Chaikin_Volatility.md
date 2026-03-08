@@ -22,6 +22,12 @@ $$
 CVI = \frac{EMA_{HL}(t) - EMA_{HL}(t-M)}{EMA_{HL}(t-M)} \times 100
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Moves independently, measuring the expansion/contraction of the spread between high and low prices.
+
 ## Visualization
 
 ![Chaikin Volatility](plots/Chaikin_Volatility.png)

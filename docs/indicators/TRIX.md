@@ -24,6 +24,12 @@ $$
 TRIX = \frac{EMA3_t - EMA3_{t-1}}{EMA3_{t-1}} \times 100
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero, showing the rate of change of a triple exponentially smoothed moving average.
+
 ## Visualization
 
 ![TRIX](plots/TRIX.png)

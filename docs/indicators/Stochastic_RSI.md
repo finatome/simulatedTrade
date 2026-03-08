@@ -16,6 +16,12 @@ $$
 
 Where the min and max are calculated over the lookback period (e.g., 14). The result is a value between 0 and 1 (or 0 and 100).
 
+## Special cases
+
+*   **Maximum possible value:** 1 (or 100)
+*   **Minimum possible value:** 0
+*   **Behavior:** Oscillates between 0 and 1 (or 100), increasing sensitivity to the standard RSI.
+
 ## Visualization
 
 ![Stochastic RSI](plots/Stochastic_RSI.png)

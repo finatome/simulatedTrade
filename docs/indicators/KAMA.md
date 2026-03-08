@@ -26,6 +26,12 @@ $$
 KAMA_t = KAMA_{t-1} + SC \times (Price - KAMA_{t-1})
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, automatically adjusting its sensitivity based on market volatility.
+
 ## Visualization
 
 ![KAMA](plots/KAMA.png)

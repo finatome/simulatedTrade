@@ -18,6 +18,12 @@ $$
 
 The Ergodic version typically uses specific smoothing periods suitable for trend following.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero, smoothing momentum to clarify overbought and oversold readings.
+
 ## Visualization
 
 ![SMI Ergodic](plots/SMI_Ergodic.png)

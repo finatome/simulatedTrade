@@ -32,6 +32,12 @@ $$
 MFI = 100 - \frac{100}{1 + \text{Money Flow Ratio}}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** 100
+*   **Minimum possible value:** 0
+*   **Behavior:** Oscillates between 0 and 100. It is a volume-weighted version of RSI.
+
 ## Visualization
 
 ![MFI](plots/MFI.png)

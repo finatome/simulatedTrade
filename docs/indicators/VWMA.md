@@ -16,6 +16,12 @@ $$
 
 Calculated over a rolling window of $N$ periods.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, giving more weight to periods with higher trading volume.
+
 ## Visualization
 
 ![Volume Weighted Moving Average](plots/VWMA.png)

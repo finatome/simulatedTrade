@@ -14,6 +14,12 @@ $$
 \text{Typical Price} = \frac{\text{High} + \text{Low} + \text{Close}}{3}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, representing the average of high, low, and close.
+
 ## Visualization
 
 ![Typical Price](plots/Typical_Price.png)

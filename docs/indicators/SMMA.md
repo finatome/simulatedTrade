@@ -18,6 +18,12 @@ $$
 
 Or simply synonymous with the RMA (Running Moving Average) used in RSI.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, offering a smoother average than EMA but with more lag.
+
 ## Visualization
 
 ![SMMA](plots/SMMA.png)

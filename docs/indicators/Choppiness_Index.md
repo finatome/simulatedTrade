@@ -14,6 +14,12 @@ $$
 CHOP = 100 \times \frac{\log_{10}(\frac{\sum \text{ATR}(1)}{\text{MaxHi}(n) - \text{MinLo}(n)})}{\log_{10}(n)}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** 100
+*   **Minimum possible value:** 0
+*   **Behavior:** Oscillates between 0 and 100 to measure trendiness vs. choppiness (consolidation).
+
 ## Visualization
 
 ![Choppiness_Index](plots/Choppiness_Index.png)

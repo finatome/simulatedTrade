@@ -32,6 +32,12 @@ $$
 ADX = \text{EMA}(DX)
 $$
 
+## Special cases
+
+*   **Maximum possible value:** 100
+*   **Minimum possible value:** 0
+*   **Behavior:** Oscillates independently between 0 and 100 to indicate the strength of a trend, not the direction.
+
 ## Visualization
 
 ![ADX](plots/ADX.png)

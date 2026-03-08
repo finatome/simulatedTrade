@@ -12,6 +12,12 @@ A recurring pattern that predicts reversals. Fractals are indicators on candlest
 
 $$\n\text{Bullish Fractal}: L_3 < L_1, L_2, L_4, L_5 \\\n\text{Bearish Fractal}: H_3 > H_1, H_2, H_4, H_5\n$$
 
+## Special cases
+
+*   **Maximum possible value:** Price Levels
+*   **Minimum possible value:** Price Levels
+*   **Behavior:** Highlights specific price points on the chart (local highs and lows).
+
 ## Visualization
 
 ![Williams Fractal](plots/Fractal.png)

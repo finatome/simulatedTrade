@@ -18,6 +18,12 @@ The RVI typically calculates a 10-day standard deviation of the High and Low pri
 
 3.  Apply the RSI formula to these "Up" and "Down" volatility series.
 
+## Special cases
+
+*   **Maximum possible value:** 100
+*   **Minimum possible value:** 0
+*   **Behavior:** Oscillates between 0 and 100, functioning similarly to RSI but measuring volatility instead of price.
+
 ## Visualization
 
 ![Relative Volatility Index](plots/Relative_Volatility_Index.png)

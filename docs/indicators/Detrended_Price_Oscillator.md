@@ -16,6 +16,12 @@ $$
 
 Usually, $n=20$. The specific displacement allows the indicator to compare the current price to a past average, effectively removing the trend influence up to that timeframe.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** Unbounded
+*   **Behavior:** Oscillates around zero, removing the long-term trend to highlight short-term price cycles.
+
 ## Visualization
 
 ![Detrended Price Oscillator](plots/Detrended_Price_Oscillator.png)

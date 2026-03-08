@@ -12,6 +12,12 @@ The Linear Regression Curve plots the end values of linear regression lines fitt
 
 For each point $t$, fit a line $y = mx + b$ to the previous $N$ prices. The curve value is the value of this line at $t$.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price by mapping the end points of rolling linear regression lines.
+
 ## Visualization
 
 ![Linear Regression Curve](plots/Linear_Regression_Curve.png)

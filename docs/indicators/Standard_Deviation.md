@@ -14,6 +14,12 @@ $$
 \sigma = \sqrt{\frac{\sum(x - \bar{x})^2}{n}}
 $$
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently to represent the statistical dispersion of price from its average.
+
 ## Visualization
 
 ![Standard_Deviation](plots/Standard_Deviation.png)

@@ -18,6 +18,12 @@ Standard Error Bands are similar to Bollinger Bands but use Standard Error inste
 
 (Note: Sometimes plotted around SMA, but LRC is statistically consistent).
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Follows the price, displaying the standard error of a linear regression over price.
+
 ## Visualization
 
 ![Standard Error Bands](plots/Standard_Error_Bands.png)

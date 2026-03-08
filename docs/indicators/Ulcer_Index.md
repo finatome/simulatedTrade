@@ -12,6 +12,12 @@ The Ulcer Index is a technical indicator that measures downside risk. It was des
 
 3.  $UI = \sqrt{Avg}$.
 
+## Special cases
+
+*   **Maximum possible value:** Unbounded
+*   **Minimum possible value:** 0
+*   **Behavior:** Moves independently, measuring downside risk and the depth/duration of drawdowns.
+
 ## Visualization
 
 ![Ulcer Index](plots/Ulcer_Index.png)

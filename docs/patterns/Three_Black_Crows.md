@@ -19,6 +19,10 @@ The bearish counterpart to Three White Soldiers. It consists of three consecutiv
 
 ![Three Black Crows](plots/Three_Black_Crows.png)
 
+## Story
+
+The market reaches a peak, but the momentum quickly sours. For three consecutive sessions, the bears systematically dismantle the uptrend. Each day opens slightly higher, giving false hope, before closing near its absolute low with a strong red body. It is a slow, agonizing bleed out that traps optimistic buyers and confirms that a punishing, sustained downtrend has officially begun.
+
 ## Trading Significance
 
 1.  **Strong Momentum**: Indicates a decisive shift in sentiment from bullish to bearish.

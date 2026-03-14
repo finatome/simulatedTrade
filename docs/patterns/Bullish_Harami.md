@@ -23,6 +23,10 @@ $$
 
 ![Bullish Harami](plots/Bullish_Harami.png)
 
+## Story
+
+A vicious downtrend seems fully entrenched after strings of aggressive selling. But unexpectedly, the following session opens higher than the previous close and trades in a tight, subdued range, completely contained within the prior massive red body. This sudden cessation of downward momentum is like a car slamming on its brakes. The bears have suddenly run out of ammunition, giving the battered bulls a glimmer of hope that the tide is turning.
+
 ## Trading Significance
 
 1.  **Momentum Pause**: Indicates that the intense selling pressure of the first candle has subsided.

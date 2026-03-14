@@ -18,6 +18,10 @@ A bearish continuation pattern. A long red candle is followed by three small gre
 
 ![Falling Three Methods](plots/Falling_Three_Methods.png)
 
+## Story
+
+During a brutal downtrend, bottom-feeders attempt to mount a weak recovery. Over three small, hesitant bullish sessions, they manage to push the price slightly up, but fail to exceed the high of the initial massive red candle. On the fifth day, the dominant bears crush this feeble rebellion with a massive red candle, utterly destroying the brief optimism and confirming that the downward spiral is far from over.
+
 ## Trading Significance
 
 1.  **Brief Pause**: Sellers take a rest, but buyers can't push price up significantly.

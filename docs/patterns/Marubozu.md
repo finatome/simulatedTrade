@@ -26,6 +26,10 @@ $$
 
 ![Marubozu](plots/Marubozu.png)
 
+## Story
+
+From the opening bell to the final second, it's an absolute slaughter. In a bullish Marubozu, buyers dominate without a single moment of pullback, showing unrelenting conviction. In a bearish Marubozu, sellers relentlessly dump assets without a single bounce, indicating pure panic. There is zero indecision, no wicks, and no mercy—just raw, unadulterated momentum in one single direction.
+
 ## Trading Significance
 
 1.  **Strong Conviction**: A White/Green Marubozu indicates intense buying pressure. A Black/Red Marubozu indicates intense selling pressure.

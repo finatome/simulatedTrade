@@ -18,6 +18,10 @@ The Morning Star is a three-candlestick pattern that indicates a bullish reversa
 
 ![Morning Star](plots/Morning_Star.png)
 
+## Story
+
+The market is trapped in a gloomy downtrend, culminating in a strong bearish push. The next session opens with a gap down, but the selling pressure suddenly evaporates, leaving a small, indecisive candle—the 'star' in the dark. This hesitation is the calm before the storm. On the third session, the bulls launch a massive counter-offensive, driving the price deep into the territory of the first red candle. The dawn has arrived, and the bears are left scrambling to cover their shorts.
+
 ## Trading Significance
 
 1.  **Exhaustion**: The middle candle represents market indecision and seller exhaustion.

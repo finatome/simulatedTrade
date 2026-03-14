@@ -19,6 +19,10 @@ The Inverted Hammer looks exactly like a Shooting Star but forms at the bottom o
 
 ![Inverted Hammer](plots/Inverted_Hammer.png)
 
+## Story
+
+Following a prolonged decline, buyers attempt a daring breakout, pushing the price violently upwards during the session. However, the legacy sellers quickly wake up, slamming the price back down to close near the open. While it looks like a failure on the surface, the very fact that buyers were able to mount such a massive intra-day offensive shows that the bearish grip is finally loosening, planting the seeds for a reversal.
+
 ## Trading Significance
 
 1.  **Testing Higher Prices**: Buyers pushed price up significantly during the session, even though it closed near the open.

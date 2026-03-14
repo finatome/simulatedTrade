@@ -19,6 +19,10 @@ The Piercing Line is a two-candle bullish reversal pattern. The first candle is 
 
 ![Piercing Line](plots/Piercing_Line.png)
 
+## Story
+
+The bears seem victorious, pushing the market down with a strong red candle. The next session opens even lower, confirming the panic. But suddenly, the selling dries up. Deep-pocketed buyers step in at these discount levels, systematically eating through the ask. They push the price higher and higher, eventually closing the session more than halfway up the previous day's red body. It's a powerful statement that the bears have overextended themselves.
+
 ## Trading Significance
 
 1.  **Rejection of Lows**: The gap down opening suggests bears are still in control, but the strong close indicates bulls have taken over.

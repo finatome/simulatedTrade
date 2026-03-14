@@ -23,6 +23,10 @@ $$
 
 ![Bearish Engulfing](plots/Bearish_Engulfing.png)
 
+## Story
+
+The bulls are confidently marching the price higher, securing another green close. But suddenly, the market wakes up to a massive shift in sentiment. The bears open the next session higher but violently slam the price down, completely erasing the previous day's gains and then some. The resulting massive red candle visually devours the prior day's optimism, serving as a brutal wake-up call that the sellers have unequivocally taken the reins.
+
 ## Trading Significance
 
 1.  **Overwhelming Selling Pressure**: The large red candle signifies that sellers have aggressively taken control.

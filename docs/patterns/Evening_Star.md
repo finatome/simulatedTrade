@@ -18,6 +18,10 @@ The Evening Star is a three-candlestick pattern that indicates a bearish reversa
 
 ![Evening Star](plots/Evening_Star.png)
 
+## Story
+
+The bulls have pushed the market to a triumphant high with a strong green candle. Overextended, the next session gaps up but stalls out completely, forming a small, anxious candle of indecision at the literal peak of the mountain. Sensing exhaustion, the bears strike on the third session, aggressively driving the price down and locking in a massive red candle. The sun has set on the uptrend, and the buyers realize their momentum is entirely broken.
+
 ## Trading Significance
 
 1.  **Trend Change**: The gap up to the second candle shows remaining buying pressure, but the small range indicates loss of momentum.

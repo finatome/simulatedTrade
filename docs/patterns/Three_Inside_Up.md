@@ -18,6 +18,10 @@ This is essentially a **Bullish Harami** followed by a confirmation candle.
 
 ![Three Inside Up](plots/Three_Inside_Up.png)
 
+## Story
+
+The market is suffering a heavy downtrend, marked by a massive red candle. But the next day, the selling simply vanishes, resulting in a small 'harami' candle contained within the previous panic. The bears have exhausted themselves. On the third day, the bulls capitalize on this hesitation, launching a powerful green candle that breaks above the trading range. It's a textbook three-act play of panic, pause, and decisive bullish reversal.
+
 ## Trading Significance
 
 1.  **Confirmation**: The third candle provides the confirmation that the Harami reversal is valid.

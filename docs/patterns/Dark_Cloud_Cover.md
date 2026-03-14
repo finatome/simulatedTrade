@@ -19,6 +19,10 @@ The Dark Cloud Cover is the bearish counterpart to the Piercing Line. It consist
 
 ![Dark Cloud Cover](plots/Dark_Cloud_Cover.png)
 
+## Story
+
+The bulls push the market to a new high, and the next session opens even higher with a surge of optimism. But the joy is short-lived. A massive wave of selling pressure hits the market like a dark storm cloud. The bears aggressively force the price down, cutting deep into the previous day's gains and closing below its midpoint. This sudden, violent rejection of higher prices traps late buyers and casts a heavy shadow over the uptrend.
+
 ## Trading Significance
 
 1.  **Bearish Takeover**: The gap up opening is rejected, and sellers push price deep into the previous day's gains.

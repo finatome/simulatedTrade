@@ -19,6 +19,10 @@ The Hanging Man looks exactly like a Hammer but forms at the top of an uptrend. 
 
 ![Hanging Man](plots/Hanging_Man.png)
 
+## Story
+
+Riding high on an uptrend, the market suddenly experiences a severe bout of vertigo. A massive wave of selling forces the price plummeting intra-day, creating deep panic. Although the bulls manage to claw their way back to close near the open, the psychological damage is done. The long lower wick reveals that a massive reservoir of selling pressure exists just below the surface, warning that the bull run is standing on a trapdoor.
+
 ## Trading Significance
 
 1.  **Vulnerability**: The long lower shadow shows that sellers were able to push the price down significantly during the session.

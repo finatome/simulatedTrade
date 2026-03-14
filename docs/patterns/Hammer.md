@@ -24,6 +24,10 @@ $$
 
 ![Hammer](plots/Hammer.png)
 
+## Story
+
+The bears come out swinging, aggressively driving the price down and creating panic among the longs. But just when capitulation seems imminent, a surge of buying activity emerges from the shadows. The bulls step in with massive volume, rejecting the lower prices and pushing the market all the way back up to close near the open. It's a dramatic comeback story that leaves the sellers exhausted and the buyers suddenly back in control.
+
 ## Trading Significance
 
 1.  **Rejection of Lows**: Shows that sellers pushed prices down, but buyers were able to overcome this selling pressure and close near the open.

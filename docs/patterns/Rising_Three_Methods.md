@@ -18,6 +18,10 @@ A bullish continuation pattern. A long green candle is followed by three small r
 
 ![Rising Three Methods](plots/Rising_Three_Methods.png)
 
+## Story
+
+In the middle of a strong uptrend, the market takes a necessary breather. For three small, hesitant, bearish sessions, profit-takers gently push the price down. However, these pullbacks never break the low of the initial massive green candle. Just as the bears think they have control, the bulls return with overwhelming force on the fifth day, blasting past all previous highs and proving that the interim weakness was merely a rest stop.
+
 ## Trading Significance
 
 1.  **Brief Pause**: Buyers take a rest, but sellers can't push price down significantly.

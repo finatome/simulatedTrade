@@ -18,6 +18,10 @@ This is essentially a **Bullish Engulfing** pattern followed by a confirmation c
 
 ![Three Outside Up](plots/Three_Outside_Up.png)
 
+## Story
+
+Sellers hold the market with a small red candle, but the very next day, buyers explode onto the scene. A massive green candle completely engulfs the prior weakness. To ensure there is absolutely no doubt, the bulls follow up on the third day with another strong green candle that closes even higher. This sequential, overwhelming display of buying power ensures the bears are totally demoralized and a new uptrend is secured.
+
 ## Trading Significance
 
 1.  **Strong Reversal**: The engulfing pattern already shows strength, and the third candle confirms it.

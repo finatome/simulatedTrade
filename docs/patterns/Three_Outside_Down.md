@@ -18,6 +18,10 @@ This is essentially a **Bearish Engulfing** pattern followed by a confirmation c
 
 ![Three Outside Down](plots/Three_Outside_Down.png)
 
+## Story
+
+Buyers cautiously advance with a small green candle, but they walk straight into an ambush. The next day, a massive red candle violently engulfs all previous gains. The bears follow up on the third day with another punishing descent to lock in the losses and trap all long positions. It is a merciless, escalating attack that permanently shatters the bullish sentiment and dictates a new downward trajectory.
+
 ## Trading Significance
 
 1.  **Strong Reversal**: The engulfing pattern already shows strength, and the third candle confirms it.

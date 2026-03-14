@@ -18,6 +18,10 @@ Tweezer Bottoms form when two or more candlesticks have the same (or very simila
 
 ![Tweezer Bottoms](plots/Tweezer_Bottoms.png)
 
+## Story
+
+The bears drive the price down, establishing a distinct, hard floor. In the following session, they attempt to break this support level again, but are met with a literal brick wall from the buyers at the exact same price point. This repeated, precise rejection at a specific bottom creates a 'tweezer' shape, signaling to the market that an unbreakable line in the sand has been drawn by the bulls.
+
 ## Trading Significance
 
 1.  **Support Confirmation**: The market tested the same low twice and failed to break it.

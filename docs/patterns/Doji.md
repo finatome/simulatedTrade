@@ -23,6 +23,10 @@ $$
 
 ![Doji](plots/Doji.png)
 
+## Story
+
+The market opens with a burst of activity, but as the session progresses, neither the buyers nor the sellers can gain the upper hand. The price swings back and forth, exploring highs and lows, but ultimately settles right back where it started. This profound indecision reflects a market in equilibrium, leaving traders holding their breath, waiting to see who will blink first in the next session.
+
 ## Trading Significance
 
 1.  **Indecision**: Represents a tug-of-war between buyers and sellers where neither side gains control.

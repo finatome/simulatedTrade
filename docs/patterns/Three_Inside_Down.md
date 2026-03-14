@@ -18,6 +18,10 @@ This is essentially a **Bearish Harami** followed by a confirmation candle.
 
 ![Three Inside Down](plots/Three_Inside_Down.png)
 
+## Story
+
+Euphoria rules the market with a massive green candle. However, the very next day stalls completely, trading entirely inside the previous massive gains. The buying pressure has suddenly evaporated. Recognizing this exhaustion, the bears strike on the third day with a harsh red candle that breaks downward. The narrative shifts rapidly from unstoppable greed to cautious hesitation, ending in a confirmed bearish trap.
+
 ## Trading Significance
 
 1.  **Confirmation**: The third candle provides the confirmation that the Harami reversal is valid.

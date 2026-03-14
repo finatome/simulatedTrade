@@ -23,6 +23,10 @@ $$
 
 ![Bearish Harami](plots/Bearish_Harami.png)
 
+## Story
+
+The bulls are firmly in control, enjoying a powerful surge upwards. But the immediate next session is strangely quiet—opening lower and trading in a narrow range entirely contained within the previous day's massive green body. The buying frenzy has abruptly stopped. This pregnant pause indicates that the bulls have exhausted their capital and the bears are beginning to build a defensive wall, foreshadowing an imminent reversal.
+
 ## Trading Significance
 
 1.  **Buying Exhaustion**: The small red candle inside the previous green one suggests that buyers are losing conviction.
